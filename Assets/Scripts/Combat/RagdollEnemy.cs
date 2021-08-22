@@ -29,11 +29,13 @@ public class RagdollEnemy : MonoBehaviour {
     }
 
     private void Start() {
-        // Ignore collisions between the ragdoll and the character controller
+        // Ignore collisions between the ragdoll and the character controller. This was needed in previous whitebox tests
         /*
-        Collider[] colliders = GetComponentsInChildren<Collider>();
-        for (int i = 0; i < colliders.Length; i++) {
-            Physics.IgnoreCollision(characterController, colliders[i]);
+        if(characterController) {
+            Collider[] colliders = GetComponentsInChildren<Collider>();
+            for (int i = 0; i < colliders.Length; i++) {
+                Physics.IgnoreCollision(characterController, colliders[i]);
+            }
         }
         */
 

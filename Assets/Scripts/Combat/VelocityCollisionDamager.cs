@@ -29,7 +29,7 @@ public class VelocityCollisionDamager : BaseDamager {
             //Debug.Log("No damage applied.");
             return;
         } else {
-            //Debug.Log($"Applying {damage} damage.");
+            Debug.Log($"Applying {damage} damage.");
             damageable.ApplyDamage(damage, this);
         }
     }
