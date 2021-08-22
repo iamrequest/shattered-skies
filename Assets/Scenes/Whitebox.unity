@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7eb11d97ffb509499b981a5329005fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStamina: 0
+  currentStamina: 100
   maxStamina: 100
   staminaRemapCurve:
     serializedVersion: 2
