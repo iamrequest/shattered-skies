@@ -602,6 +602,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a03ed519be01d1440a8ec63d2ac101f7, type: 3}
+--- !u!1 &1459585199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6175694170801785717, guid: 1569979d8ec7bd242ba165ebe8aac4ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6175694169650532171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1459585200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459585199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75a99091ee40caf45a55ec0e4023ffd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowStaminaWeight: 30
+  highStaminaWeight: 1
 --- !u!1 &1595893076
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +820,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1913958857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1708059964548232031, guid: f9d1798d532a3a14f9fcae520b8d4f79,
+    type: 3}
+  m_PrefabInstance: {fileID: 4597990319360404949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1913958858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913958857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eb11d97ffb509499b981a5329005fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStamina: 0
+  maxStamina: 100
+  staminaRemapCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.9559748
+      outSlope: 2.9559748
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0375
+    - serializedVersion: 3
+      time: 0.7
+      value: 1
+      inSlope: -0.009594611
+      outSlope: -0.009594611
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.35119045
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &4597990319360404949
 PrefabInstance:
   m_ObjectHideFlags: 0
