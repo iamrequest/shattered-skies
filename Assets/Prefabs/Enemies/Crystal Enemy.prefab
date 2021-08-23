@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 36597550}
   - component: {fileID: 36597552}
   - component: {fileID: 36597551}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Multi-aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Data:
     m_ConstrainedObject: {fileID: 7134261916865639069}
     m_SourceObjects:
@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1396448478}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Aim Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 1520371835}
   - component: {fileID: 1520371837}
   - component: {fileID: 1520371836}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Neck Gap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,9 +320,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6735411999469722349}
+  - component: {fileID: 69710373800812898}
   - component: {fileID: 6735411999469722350}
   - component: {fileID: 6735411999469722351}
-  m_Layer: 0
+  - component: {fileID: 77691069}
+  m_Layer: 11
   m_Name: Crystal Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,6 +346,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &69710373800812898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6735411999469722348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7694248308e1864291e87d324d17c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageable: {fileID: 0}
+  vision: {fileID: 0}
+  projectilePrefab: {fileID: 4456733701827526189, guid: 335431d76c640b140a9a58c62ff9f4b0,
+    type: 3}
+  projectileSpawnTransform: {fileID: 0}
+  projectileForce: 0
+  attackDelay: 0
 --- !u!114 &6735411999469722350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +418,54 @@ MonoBehaviour:
   - {fileID: 2345444564674267922}
   - {fileID: 5786907908757189928}
   isRagdollActiveOnInit: 0
+--- !u!114 &77691069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6735411999469722348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f1291dfe56d304cb0eb8d73356fd61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyeTransform: {fileID: 4398607173036257769}
+  visibleLayers:
+    serializedVersion: 2
+    m_Bits: 257
+  visionDistance: 5
+  visionRadius: 30
+--- !u!1 &7553651747230475337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4398607173036257769}
+  m_Layer: 11
+  m_Name: Eye Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4398607173036257769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553651747230475337}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7134261916865639069}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6735411999048943550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -404,6 +473,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6735411999469722349}
     m_Modifications:
+    - target: {fileID: -9195483843252839461, guid: 54567c1d46063164cb253221a706aece,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54567c1d46063164cb253221a706aece,
         type: 3}
       propertyPath: m_RootOrder
@@ -489,10 +563,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 635547659545568360, guid: 54567c1d46063164cb253221a706aece,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 54567c1d46063164cb253221a706aece,
         type: 3}
       propertyPath: m_Name
       value: mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54567c1d46063164cb253221a706aece,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4167280743394806330, guid: 54567c1d46063164cb253221a706aece,
         type: 3}
@@ -553,6 +637,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985185789273264572, guid: 54567c1d46063164cb253221a706aece,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 54567c1d46063164cb253221a706aece,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7876023681238672744, guid: 54567c1d46063164cb253221a706aece,
         type: 3}

@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1913958858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708059964548232031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eb11d97ffb509499b981a5329005fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStamina: 100
+  maxStamina: 100
+  staminaRemapCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.9559748
+      outSlope: 2.9559748
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0375
+    - serializedVersion: 3
+      time: 0.7
+      value: 1
+      inSlope: -0.009594611
+      outSlope: -0.009594611
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.35119045
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8131119491926002085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708059964548232031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8b5f5d8e975d346aaef785374895e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1708059962736547383}
 --- !u!1001 &4597990320000730719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94,3 +145,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 94fd47b7644ba22489e49736c665a64f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8258dddc8fcb7640ac09e7108b69d95, type: 3}
+--- !u!1 &1708059964548232031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2917040259946689792, guid: b8258dddc8fcb7640ac09e7108b69d95,
+    type: 3}
+  m_PrefabInstance: {fileID: 4597990320000730719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1708059962736547383 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2917040259746140264, guid: b8258dddc8fcb7640ac09e7108b69d95,
+    type: 3}
+  m_PrefabInstance: {fileID: 4597990320000730719}
+  m_PrefabAsset: {fileID: 0}
