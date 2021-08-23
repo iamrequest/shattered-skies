@@ -81,7 +81,6 @@ crashlytics-build.properties
 
 # .gitignore vim temp files
 .gitignore.sw*
-*.blend*
 
 /notes
 
