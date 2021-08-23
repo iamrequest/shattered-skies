@@ -30,6 +30,10 @@ public class Damageable : MonoBehaviour {
         }
     }
 
+    public void Kill() {
+        ApplyDamage(healthMax, null);
+    }
+
     public void Heal(float newHealth) {
         if (!isAlive) return;
 
