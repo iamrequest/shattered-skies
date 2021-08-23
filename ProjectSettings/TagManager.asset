@@ -19,8 +19,8 @@ TagManager:
   - DynamicPose
   - EnemyProjectile
   - Enemy
-  - 
-  - 
+  - Player Head
+  - Environment
   - 
   - 
   - 

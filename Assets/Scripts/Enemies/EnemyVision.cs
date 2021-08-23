@@ -44,8 +44,10 @@ public class EnemyVision : MonoBehaviour {
 
     public bool isPlayerInSight() {
         // Necessary because there's no collider on the head, just on the body
-        Vector3 raycastOffset = new Vector3(0f, -.1f, 0f);
-        return IsInSight(Player.Instance.cam.transform.position + raycastOffset, Player.Instance.gameObject.tag);
+        //Vector3 raycastOffset = new Vector3(0f, -.1f, 0f);
+        //return IsInSight(Player.Instance.cam.transform.position + raycastOffset, Player.Instance.gameObject.tag);
+
+        return IsInSight(Player.Instance.cam.transform.position, Player.Instance.gameObject.tag);
     }
     
     private bool IsWithinViewingAngle(Vector3 target) {

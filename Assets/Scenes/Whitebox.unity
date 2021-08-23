@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 655722753}
   - component: {fileID: 655722752}
   - component: {fileID: 655722751}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 873591723}
   - component: {fileID: 873591722}
   - component: {fileID: 873591721}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 2m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 1929795693}
   - component: {fileID: 1929795692}
   - component: {fileID: 1929795691}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: avg in usa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,14 +805,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1913958858, guid: f9d1798d532a3a14f9fcae520b8d4f79, type: 3}
-      propertyPath: staminaRegenRate
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1913958858, guid: f9d1798d532a3a14f9fcae520b8d4f79, type: 3}
-      propertyPath: sprintStaminaConsumptionRate
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1708059964548232016, guid: f9d1798d532a3a14f9fcae520b8d4f79,
         type: 3}
       propertyPath: m_RootOrder
