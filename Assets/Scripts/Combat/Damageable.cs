@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Damageable : MonoBehaviour {
+    public DamageTargets damageTargetType;
     public float healthMax, healthCurrent;
 
     public bool isAlive {

@@ -23,10 +23,13 @@ public class VelocityCollisionDamager : BaseDamager {
     }
 
     public void ApplyDamage(Damageable damageable, float relativeVelocityMagnitude) {
+        // Do not apply damage if the target cannot be damaged by this damage type
+        if (!isValidDamageTarget(damageable.damageTargetType)) return;
+
         float damage = CalculateDamage(relativeVelocityMagnitude);
 
         if (damage == 0f) {
-            //Debug.Log("No damage applied.");
+            Debug.Log("No damage applied.");
             return;
         } else {
             Debug.Log($"Applying {damage} damage.");
