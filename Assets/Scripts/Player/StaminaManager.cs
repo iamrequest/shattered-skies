@@ -13,6 +13,11 @@ public class StaminaManager : MonoBehaviour {
     [Range(0f, 5f)]
     public float staminaRegenRate;
 
+    // Consider overriding this rate if the player is holding a weighted interactable
+    [Tooltip("Stamina consumption per second of sprinting")]
+    [Range(0f, 10f)]
+    public float sprintStaminaConsumptionRate;
+
     // Use this to non-linearize the stamina decrease
     public AnimationCurve staminaRemapCurve;
 
@@ -35,7 +40,13 @@ public class StaminaManager : MonoBehaviour {
     }
 
     private void Update() {
+        // Regen stamina
         currentStamina = Mathf.Clamp(currentStamina + staminaRegenRate * Time.deltaTime, 0f, maxStamina);
+
+        // Consume stamina from sprinting
+        if (playerController.Sprinting) {
+            ConsumeStamina(sprintStaminaConsumptionRate * Time.deltaTime);
+        }
     }
 
     private void FixedUpdate() {

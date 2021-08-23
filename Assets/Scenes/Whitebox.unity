@@ -767,6 +767,10 @@ PrefabInstance:
       propertyPath: staminaRegenRate
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1913958858, guid: f9d1798d532a3a14f9fcae520b8d4f79, type: 3}
+      propertyPath: sprintStaminaConsumptionRate
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1708059964548232016, guid: f9d1798d532a3a14f9fcae520b8d4f79,
         type: 3}
       propertyPath: m_RootOrder
