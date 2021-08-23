@@ -121,18 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &77691071 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6735411999469722351, guid: 63e54c7b2fcf1444987dca971b917d46,
-    type: 3}
-  m_PrefabInstance: {fileID: 6735411999413019216}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b311d60313cc39f4faf7f6292d0e2536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &432714973
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,12 +654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2096749151 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4398607173036257769, guid: 63e54c7b2fcf1444987dca971b917d46,
-    type: 3}
-  m_PrefabInstance: {fileID: 6735411999413019216}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1749055755595154232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1058,21 +1040,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 69710373800812898, guid: 63e54c7b2fcf1444987dca971b917d46,
-        type: 3}
-      propertyPath: attackDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 69710373800812898, guid: 63e54c7b2fcf1444987dca971b917d46,
-        type: 3}
-      propertyPath: projectileForce
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 69710373800812898, guid: 63e54c7b2fcf1444987dca971b917d46,
-        type: 3}
-      propertyPath: projectileSpawnTransform
-      value: 
-      objectReference: {fileID: 2096749151}
     - target: {fileID: 6735411999469722348, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_Name
@@ -1133,35 +1100,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6735411999469722350, guid: 63e54c7b2fcf1444987dca971b917d46,
+    - target: {fileID: 8088349366052498828, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
-      propertyPath: onHealthDepleted.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735411999469722350, guid: 63e54c7b2fcf1444987dca971b917d46,
-        type: 3}
-      propertyPath: onHealthDepleted.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735411999469722350, guid: 63e54c7b2fcf1444987dca971b917d46,
-        type: 3}
-      propertyPath: onHealthDepleted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 77691071}
-    - target: {fileID: 6735411999469722350, guid: 63e54c7b2fcf1444987dca971b917d46,
-        type: 3}
-      propertyPath: onHealthDepleted.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735411999469722350, guid: 63e54c7b2fcf1444987dca971b917d46,
-        type: 3}
-      propertyPath: onHealthDepleted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: FlattenBoneHierarchy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735411999469722350, guid: 63e54c7b2fcf1444987dca971b917d46,
-        type: 3}
-      propertyPath: onHealthDepleted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: lookatWeightLerpDuration
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e54c7b2fcf1444987dca971b917d46, type: 3}
