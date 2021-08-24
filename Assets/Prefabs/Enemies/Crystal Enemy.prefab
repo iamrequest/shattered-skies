@@ -198,6 +198,9 @@ MonoBehaviour:
   damageTargetType: 0
   healthMax: 0.01
   healthCurrent: 0
+  damagedSFX: {fileID: 0}
+  deathSFX: {fileID: 0}
+  audioSourceTransform: {fileID: 0}
   onDamageApplied:
     m_PersistentCalls:
       m_Calls:
@@ -602,6 +605,9 @@ MonoBehaviour:
   damageTargetType: 2
   healthMax: 3
   healthCurrent: 0
+  damagedSFX: {fileID: 0}
+  deathSFX: {fileID: 0}
+  audioSourceTransform: {fileID: 6735411999469722349}
   onDamageApplied:
     m_PersistentCalls:
       m_Calls: []

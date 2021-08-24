@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using HurricaneVR.Framework.Core.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Damageable : MonoBehaviour {
     public DamageTargets damageTargetType;
     public float healthMax, healthCurrent;
+    public AudioClip damagedSFX, deathSFX;
+    public Transform audioSourceTransform;
 
     public bool isAlive {
         get {
@@ -27,7 +30,11 @@ public class Damageable : MonoBehaviour {
         onDamageApplied.Invoke(incomingDamage, damager, this);
 
         if (healthCurrent <= 0) {
+            if(deathSFX) SFXPlayer.Instance.PlaySFX(deathSFX, audioSourceTransform.position);
+
             onHealthDepleted.Invoke(damager, this);
+        } else {
+            if(damagedSFX) SFXPlayer.Instance.PlaySFX(damagedSFX, audioSourceTransform.position);
         }
     }
 
