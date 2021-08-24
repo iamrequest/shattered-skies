@@ -11,7 +11,7 @@ public class FiniteStateMachine : MonoBehaviour {
         currentState = initialState;
 
         initialState.enabled = true;
-        initialState.onStateEnter.Invoke();
+        initialState.OnStateEnter(null);
     }
 
     public void TransitionTo(BaseState newState) {
