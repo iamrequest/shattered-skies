@@ -475,6 +475,29 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6088529339208346488, guid: 1569979d8ec7bd242ba165ebe8aac4ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1569979d8ec7bd242ba165ebe8aac4ce, type: 3}
+--- !u!1 &136004267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3894314816826767422, guid: bbf229663b291d9438eef5ab5d861d0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4134048392167411046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &136004268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136004267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971b26876a69724438527bbab7005567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageableTargetTypes: 1
+  minDamage: 0
+  maxDamage: 1
+  minDamagingSpeed: 0.3
+  maxDamagingSpeed: 1
 --- !u!1001 &211320788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8492,17 +8515,17 @@ PrefabInstance:
     - target: {fileID: 1965245837209231084, guid: bbf229663b291d9438eef5ab5d861d0f,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 6.0762145e-11
+      value: 6.119569e-11
       objectReference: {fileID: 0}
     - target: {fileID: 1965245837209231084, guid: bbf229663b291d9438eef5ab5d861d0f,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.0015940359
+      value: 0.0016078629
       objectReference: {fileID: 0}
     - target: {fileID: 1965245837209231084, guid: bbf229663b291d9438eef5ab5d861d0f,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 0.00040503123
+      value: 0.00040912995
       objectReference: {fileID: 0}
     - target: {fileID: 2910797200338362001, guid: bbf229663b291d9438eef5ab5d861d0f,
         type: 3}
@@ -8548,6 +8571,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: -0.00000001765784
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134048392167411045, guid: bbf229663b291d9438eef5ab5d861d0f,
+        type: 3}
+      propertyPath: perPointDelay
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4134048393426085434, guid: bbf229663b291d9438eef5ab5d861d0f,
         type: 3}

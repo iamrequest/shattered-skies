@@ -32,6 +32,11 @@ public class Damageable : MonoBehaviour {
         if (healthCurrent <= 0) {
             if(deathSFX) SFXPlayer.Instance.PlaySFX(deathSFX, audioSourceTransform.position);
 
+            FiniteStateMachine fsm = GetComponent<FiniteStateMachine>();
+            if (fsm != null && fsm.deathState != null) {
+                fsm.TransitionToDeathState();
+            }
+
             onHealthDepleted.Invoke(damager, this);
         } else {
             if(damagedSFX) SFXPlayer.Instance.PlaySFX(damagedSFX, audioSourceTransform.position);
