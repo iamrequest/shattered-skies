@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d20198e6f6aa64c96438ae7abca925, type: 3}
   m_Name: LizardPatrolMotorSettings
   m_EditorClassIdentifier: 
-  acceleration: 3.5
+  acceleration: 2
   angularSpeed: 120
-  speed: 8
+  speed: 5
   stoppingDistance: 0
