@@ -16,7 +16,6 @@ public class DialogManager : MonoBehaviour {
     public float defaultDialogSpeed;
     private float timeSinceLastCharTyped;
 
-    public AudioClip defaultCharTypedAudioClip;
     public Vector2 charTypedPitchRange;
 
 
@@ -54,7 +53,7 @@ public class DialogManager : MonoBehaviour {
             StopCoroutine(typingCoroutine);
 
             // TODO: This doesn't account for the case where the player skips dialog halfway through, but there was already some un-erased text before it
-            Sentence currentSentence = activeDialog.sentences[currentSentenceIndex];
+            Sentence currentSentence = activeDialog.dialogContents.sentences[currentSentenceIndex];
             dialogText.text = currentSentence.text;
             SFXPlayer.Instance.PlaySFXRandomPitch(GetCharTypedAudioClip(currentSentence), 
                 transform.position, 
@@ -72,12 +71,12 @@ public class DialogManager : MonoBehaviour {
     /// Complete the dialog if there's no more sentences, or start typing the new sentence
     /// </summary>
     private void StartTypingSentence() {
-        if (activeDialog.sentences.Count == 0) {
+        if (activeDialog.dialogContents.sentences.Count == 0) {
             EndDialog(true);
             return;
         }
 
-        if (currentSentenceIndex >= activeDialog.sentences.Count) {
+        if (currentSentenceIndex >= activeDialog.dialogContents.sentences.Count) {
             EndDialog(true);
             return;
         }
@@ -86,7 +85,7 @@ public class DialogManager : MonoBehaviour {
     }
 
     private IEnumerator TypeSentence() {
-        Sentence currentSentence = activeDialog.sentences[currentSentenceIndex];
+        Sentence currentSentence = activeDialog.dialogContents.sentences[currentSentenceIndex];
         ConfigureTextbox(currentSentence);
 
 
@@ -129,7 +128,7 @@ public class DialogManager : MonoBehaviour {
     }
 
     private AudioClip GetCharTypedAudioClip(Sentence s) {
-        if (s.charTypedAudioClipOverride == null) return defaultCharTypedAudioClip;
-        return s.charTypedAudioClipOverride;
+        if (s.charTypedSFXOverride == null) return s.speaker.letterTypedSFX;
+        return s.charTypedSFXOverride;
     }
 }

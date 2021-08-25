@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sentence : MonoBehaviour {
+[System.Serializable]
+public class Sentence  {
     public DialogSpeakerSettings speaker;
     public string text;
     public bool clearExistingSentence = true;
@@ -11,5 +12,5 @@ public class Sentence : MonoBehaviour {
     [Tooltip("If non-zero, this dialog speed will be used when typing each character of the sentence.")]
     public float dialogSpeedOverride = 0f;
 
-    public AudioClip charTypedAudioClipOverride;
+    public AudioClip charTypedSFXOverride;
 }

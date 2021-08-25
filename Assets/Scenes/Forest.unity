@@ -2424,40 +2424,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 684962108}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &691141844 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 514711486162910877, guid: cf42394b2a83a444e86d547532a2a024,
-    type: 3}
-  m_PrefabInstance: {fileID: 514711486585389641}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &691141845 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 514711486162910876, guid: cf42394b2a83a444e86d547532a2a024,
     type: 3}
   m_PrefabInstance: {fileID: 514711486585389641}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &691141846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691141844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ef61ddf275aa0d4fbed956c04cc04dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDialogStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onDialogCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  onDialogCompleted:
-    m_PersistentCalls:
-      m_Calls: []
-  sentences: []
 --- !u!1001 &700336747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7253,7 +7225,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onPlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 691141846}
+      objectReference: {fileID: 0}
     - target: {fileID: 5541682609277693237, guid: 849ac63e334f03b4d9003048e90e8fec,
         type: 3}
       propertyPath: onPlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -7263,7 +7235,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onPlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 691141846}
+      objectReference: {fileID: 0}
     - target: {fileID: 5541682609277693237, guid: 849ac63e334f03b4d9003048e90e8fec,
         type: 3}
       propertyPath: onPlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
@@ -7273,7 +7245,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onPlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 691141846}
+      objectReference: {fileID: 0}
     - target: {fileID: 5541682609277693237, guid: 849ac63e334f03b4d9003048e90e8fec,
         type: 3}
       propertyPath: onPlayerTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -7963,6 +7935,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 634181524}
     m_Modifications:
+    - target: {fileID: 691141846, guid: cf42394b2a83a444e86d547532a2a024, type: 3}
+      propertyPath: dialogContents
+      value: 
+      objectReference: {fileID: 11400000, guid: d891783d8b02c5444bbee64333f6b8cc,
+        type: 2}
     - target: {fileID: 514711486162910876, guid: cf42394b2a83a444e86d547532a2a024,
         type: 3}
       propertyPath: m_Pivot.x
@@ -8081,7 +8058,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 514711486585389641}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691141844}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d29fcb1277512f4f8791533b6ae0429, type: 3}
