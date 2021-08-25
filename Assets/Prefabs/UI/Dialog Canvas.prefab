@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 514711486162910878}
   - component: {fileID: 514711486162910879}
   - component: {fileID: 946031481996871268}
+  - component: {fileID: 6222015737872975243}
   - component: {fileID: 691141846}
   m_Layer: 5
   m_Name: Dialog Canvas
@@ -115,7 +116,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 224.81067, y: 53.206}
-  m_SizeDelta: {x: 9, y: 2.5}
+  m_SizeDelta: {x: 9, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &514711486162910865
 Canvas:
@@ -194,6 +195,25 @@ MonoBehaviour:
   speakerNameText: {fileID: 514711486784864416}
   defaultDialogSpeed: 0.1
   charTypedPitchRange: {x: -0.1, y: 0.1}
+--- !u!95 &6222015737872975243
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514711486162910877}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &691141846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +235,8 @@ MonoBehaviour:
   onDialogCompleted:
     m_PersistentCalls:
       m_Calls: []
-  dialogContents: {fileID: 0}
+  isComplete: 0
+  dialogContents: {fileID: 11400000, guid: d891783d8b02c5444bbee64333f6b8cc, type: 2}
 --- !u!1 &514711486172981938
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,11 +301,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '123
+  m_text: '1
 
-    123
+    2
 
-    123123123123123123123123123'
+    3
+
+    4
+
+    5555555555555555555555555
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9edc9e18574b8341aacb0b9223a5270, type: 2}
   m_sharedMaterial: {fileID: -3933406573493747989, guid: e9edc9e18574b8341aacb0b9223a5270,
@@ -524,7 +551,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 8, y: 2}
+  m_SizeDelta: {x: 8, y: 2.5}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &514711487245271055
 CanvasRenderer:

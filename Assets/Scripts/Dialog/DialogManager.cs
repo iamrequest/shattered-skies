@@ -5,6 +5,9 @@ using TMPro;
 using HurricaneVR.Framework.Core.Utils;
 
 public class DialogManager : MonoBehaviour {
+    private Animator animator;
+    private int animHashIsOpen;
+
     private Coroutine typingCoroutine;
     private Dialog activeDialog;
     private int currentSentenceIndex;
@@ -13,12 +16,19 @@ public class DialogManager : MonoBehaviour {
     public TextMeshProUGUI dialogText, speakerNameText;
 
 
+    [Tooltip("Necessary for waiting for the dialog window to animate open")]
+    [Range(0f, 2f)]
+    public float initialDialogDelay;
     [Range(0f, 0.2f)]
     public float defaultDialogSpeed;
     private float timeSinceLastCharTyped;
 
     public Vector2 charTypedPitchRange;
 
+    private void Awake() {
+        animator = GetComponent<Animator>();
+        animHashIsOpen = Animator.StringToHash("isOpen");
+    }
 
     private void OnEnable() {
         dialogEventChannel.onDialogNext += DisplayNextSentence;
@@ -35,9 +45,11 @@ public class DialogManager : MonoBehaviour {
     public void StartDialog(Dialog dialog) {
         if (dialog.isComplete) return;
 
+        animator.SetBool(animHashIsOpen, true);
         activeDialog = dialog;
         activeDialog.onDialogStart.Invoke();
         currentSentenceIndex = 0;
+
         dialogEventChannel.RaiseOnDialogStarted();
         StartTypingSentence();
     }
@@ -49,6 +61,10 @@ public class DialogManager : MonoBehaviour {
         if (activeDialog.isComplete) {
             return;
         }
+
+        dialogText.text = "";
+        speakerNameText.text = "";
+        animator.SetBool(animHashIsOpen, false);
 
         // TODO: Send the message downstream to event channels
         if (wasDialogFullyCompleted) {
@@ -112,6 +128,10 @@ public class DialogManager : MonoBehaviour {
     private IEnumerator TypeSentence() {
         Sentence currentSentence = activeDialog.dialogContents.sentences[currentSentenceIndex];
         ConfigureTextbox(currentSentence);
+
+        if (currentSentenceIndex == 0) {
+            yield return new WaitForSeconds(initialDialogDelay);
+        }
 
 
         foreach (char letter in currentSentence.text.ToCharArray()) {
