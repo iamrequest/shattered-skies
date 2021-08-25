@@ -9,6 +9,7 @@ public class DialogManager : MonoBehaviour {
     private Dialog activeDialog;
     private int currentSentenceIndex;
 
+    public DialogEventChannel dialogEventChannel;
     public TextMeshProUGUI dialogText, speakerNameText;
 
 
@@ -19,13 +20,25 @@ public class DialogManager : MonoBehaviour {
     public Vector2 charTypedPitchRange;
 
 
+    private void OnEnable() {
+        dialogEventChannel.onDialogNext += DisplayNextSentence;
+        dialogEventChannel.onDialogSkip += SkipCurrentSentence;
+    }
+    private void OnDisable() {
+        dialogEventChannel.onDialogNext -= DisplayNextSentence;
+        dialogEventChannel.onDialogSkip -= SkipCurrentSentence;
+    }
+
     // --------------------------------------------------------------------------------
     // -- Interface --
     // --------------------------------------------------------------------------------
     public void StartDialog(Dialog dialog) {
+        if (dialog.isComplete) return;
+
         activeDialog = dialog;
         activeDialog.onDialogStart.Invoke();
         currentSentenceIndex = 0;
+        dialogEventChannel.RaiseOnDialogStarted();
         StartTypingSentence();
     }
 
@@ -33,16 +46,28 @@ public class DialogManager : MonoBehaviour {
         EndDialog(false);
     }
     private void EndDialog(bool wasDialogFullyCompleted) {
+        if (activeDialog.isComplete) {
+            return;
+        }
+
         // TODO: Send the message downstream to event channels
         if (wasDialogFullyCompleted) {
+            activeDialog.isComplete = true;
             activeDialog.onDialogCompleted.Invoke();
         } else {
             activeDialog.onDialogCanceled.Invoke();
         }
+
+        dialogEventChannel.RaiseOnDialogFinished();
     }
 
-    // TODO: Check if current sentence is done or not
     public void DisplayNextSentence() {
+        // If we're in the middle of typing a sentence, this function will just skip to the end of the sentence.
+        if (typingCoroutine != null) {
+            SkipCurrentSentence();
+            return;
+        }
+
         currentSentenceIndex++;
         StartTypingSentence();
     }

@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d29fcb1277512f4f8791533b6ae0429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogEventChannel: {fileID: 11400000, guid: fb828e6fce417b84d9529fa17a14b542, type: 2}
   dialogText: {fileID: 514711486172981940}
   speakerNameText: {fileID: 514711486784864416}
   defaultDialogSpeed: 0.1
