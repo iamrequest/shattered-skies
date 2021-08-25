@@ -7,7 +7,7 @@ using UnityEngine;
 /// Stores the reference to the player. Useful for enemy AI
 /// </summary>
 public class Player : MonoBehaviour {
-    private HVRPlayerController playerController;
+    public HVRPlayerController playerController { get; private set; }
     private Damageable damageable;
 
     // Used for fade in/out

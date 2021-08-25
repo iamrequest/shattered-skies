@@ -132,10 +132,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 4134048393426085434}
     m_Modifications:
     - target: {fileID: 1570581523, guid: 7660e280d748de945b7fa742a93bc19b, type: 3}
-      propertyPath: perPointDelay
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1570581523, guid: 7660e280d748de945b7fa742a93bc19b, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 
       objectReference: {fileID: 4134048393221388568}

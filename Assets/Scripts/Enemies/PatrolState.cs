@@ -11,8 +11,10 @@ public class PatrolState : BaseState {
     private int animHashIsWalking;
 
     public BaseState onPlayerSpottedState;
+    public MotorSettings motorSettings;
     public List<Transform> patrolPoints;
     public int currentPatrolIndex;
+
 
     [Tooltip("The delay before starting the walk to a new point")]
     public float perPointDelay;
@@ -32,6 +34,7 @@ public class PatrolState : BaseState {
     public override void OnStateEnter(BaseState previousState) {
         base.OnStateEnter(previousState);
 
+        motorSettings.ApplyMotorSettings(navMeshAgent);
         isWaitingAtPoint = false;
         animator.SetBool(animHashIsWalking, true);
         navMeshAgent.SetDestination(patrolPoints[currentPatrolIndex].position);
@@ -39,7 +42,8 @@ public class PatrolState : BaseState {
 
     public override void OnStateExit(BaseState previousState) {
         base.OnStateExit(previousState);
-        StopCoroutine(coroutineQueueNextPoint);
+
+        if(coroutineQueueNextPoint != null) StopCoroutine(coroutineQueueNextPoint);
     }
 
     public override void OnStateUpdate() {
