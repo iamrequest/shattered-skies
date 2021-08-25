@@ -14,12 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
-    text: Some dialog here
+    text: Example text
     clearExistingSentence: 1
     dialogSpeedOverride: 0
     charTypedSFXOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
-    text: Example line
+    text: Example text 2
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Example text 3
     clearExistingSentence: 1
     dialogSpeedOverride: 0
     charTypedSFXOverride: {fileID: 0}

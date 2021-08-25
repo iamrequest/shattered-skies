@@ -6,6 +6,8 @@ using UnityEditor;
 
 [CustomEditor(typeof(DialogContents))]
 public class DialogContentsInspector : Editor {
+    private float labelWidth = 100f;
+
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
         serializedObject.Update();
@@ -15,18 +17,26 @@ public class DialogContentsInspector : Editor {
 
         EditorGUILayout.Space();
 
+        //labelWidth = EditorGUILayout.Slider(labelWidth, 0f, 100f);
+        EditorGUIUtility.labelWidth = labelWidth;
+
         if (dialogContents.sentences == null) dialogContents.sentences = new List<Sentence>();
         for (int i = 0; i < dialogContents.sentences.Count; i++) {
             SerializedProperty currentSentence = sentences.GetArrayElementAtIndex(i);
 
             GUILayout.BeginHorizontal();
-            // TODO: I should add a label to this one
-            currentSentence.FindPropertyRelative("clearExistingSentence").boolValue = 
-                EditorGUILayout.Toggle(currentSentence.FindPropertyRelative("clearExistingSentence").boolValue);
+            currentSentence.FindPropertyRelative("dialogSpeedOverride").floatValue =
+                EditorGUILayout.Slider(new GUIContent("Dialog Speed"), currentSentence.FindPropertyRelative("dialogSpeedOverride").floatValue, 0f, 0.5f);
 
+            currentSentence.FindPropertyRelative("clearExistingSentence").boolValue =
+                EditorGUILayout.Toggle("Clear Text", currentSentence.FindPropertyRelative("clearExistingSentence").boolValue);
+
+            GUILayout.EndHorizontal();
+
+
+            GUILayout.BeginHorizontal();
             EditorGUILayout.PropertyField(currentSentence.FindPropertyRelative("speaker"));
             EditorGUILayout.PropertyField(currentSentence.FindPropertyRelative("charTypedSFXOverride"), new GUIContent("Char Typed SFX"));
-
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
@@ -42,10 +52,21 @@ public class DialogContentsInspector : Editor {
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField($"Sentences: {dialogContents.sentences.Count}");
         if (GUILayout.Button("+")) {
-            dialogContents.sentences.Add(new Sentence());
+            AddSentence();
         }
         GUILayout.EndHorizontal();
         
         serializedObject.ApplyModifiedProperties();
+    }
+
+    private void AddSentence() {
+        DialogContents dialogContents = target as DialogContents;
+        // Copy the previous key values
+        Sentence s = new Sentence();
+        if (dialogContents.sentences.Count > 0) {
+            s.speaker = dialogContents.sentences[dialogContents.sentences.Count - 1].speaker;
+        }
+
+        dialogContents.sentences.Add(s);
     }
 }
