@@ -44,7 +44,15 @@ public class LizardAttackState : BaseState {
         isAttacking = false;
         isWaitingForInitialChase = true;
         elapsedGiveUpDelay = 0f;
+
+        animator.ResetTrigger(animHashAttack);
+
         StartCoroutine(BeginChaseAfterDelay());
+    }
+
+    public override void OnStateExit(BaseState previousState) {
+        base.OnStateExit(previousState);
+        animator.ResetTrigger(animHashAttack);
     }
 
     public override void OnStateUpdate() {
