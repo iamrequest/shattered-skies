@@ -203,6 +203,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lizard Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2380506973368278368, guid: 7660e280d748de945b7fa742a93bc19b,
+        type: 3}
+      propertyPath: visibleLayers.m_Bits
+      value: 12544
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7660e280d748de945b7fa742a93bc19b, type: 3}
 --- !u!4 &4413723476721902212 stripped
