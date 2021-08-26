@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum KillPlaneEnteredActions { DEPLETE_HEALTH }
 public class Damageable : MonoBehaviour {
     public DamageTargets damageTargetType;
     public float healthMax, healthCurrent;
     public AudioClip damagedSFX, deathSFX;
     public Transform audioSourceTransform;
+    public KillPlaneEnteredActions killPlaneEnteredAction = KillPlaneEnteredActions.DEPLETE_HEALTH;
 
     public bool isAlive {
         get {
@@ -26,7 +28,7 @@ public class Damageable : MonoBehaviour {
     public virtual void ApplyDamage(float incomingDamage, BaseDamager damager) {
         if (!isAlive) return;
 
-        healthCurrent -= incomingDamage;
+        healthCurrent = Mathf.Clamp(healthCurrent - incomingDamage, 0f, healthMax);
         onDamageApplied.Invoke(incomingDamage, damager, this);
 
         if (healthCurrent <= 0) {
@@ -44,7 +46,10 @@ public class Damageable : MonoBehaviour {
     }
 
     public void Kill() {
-        ApplyDamage(healthMax, null);
+        if (isAlive) {
+            // Just to be safe with floats
+            ApplyDamage(healthMax + 1, null);
+        }
     }
 
     public void Heal(float newHealth) {
@@ -58,7 +63,18 @@ public class Damageable : MonoBehaviour {
         Revive(healthMax);
     }
     public void Revive(float newHealth) {
-        if (isAlive) return;
+        //if (isAlive) return;
         healthCurrent = Mathf.Min(healthMax, newHealth);
+    }
+
+    
+    public virtual void OnKillPlaneEntered() {
+        switch (killPlaneEnteredAction) {
+            case KillPlaneEnteredActions.DEPLETE_HEALTH:
+                Kill();
+                break;
+            default:
+                break;
+        }
     }
 }

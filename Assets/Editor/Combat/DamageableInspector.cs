@@ -15,6 +15,9 @@ public class DamageableInspector : Editor
             if (GUILayout.Button("Kill", EditorStyles.miniButtonLeft)) {
                 damageable.ApplyDamage(damageable.healthMax, null);
             }
+            if (GUILayout.Button("Trigger Killplane", EditorStyles.miniButtonLeft)) {
+                damageable.OnKillPlaneEntered();
+            }
             if (GUILayout.Button("Revive", EditorStyles.miniButtonMid)) {
                 damageable.Revive();
             }

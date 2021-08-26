@@ -50,9 +50,16 @@ public class Player : MonoBehaviour {
     private IEnumerator RespawnAfterDelay() {
         animator.SetBool(animHashVisionFade, true);
 
+        playerController.enabled = false;
+        playerController.CharacterController.enabled = false;
         yield return new WaitForSeconds(respawnDelay);
         playerController.transform.position = activeCheckpoint.respawnTransform.position;
         playerController.transform.rotation = activeCheckpoint.respawnTransform.rotation;
+
+        // Wait a frame before re-enabling char controllers
+        yield return null;
+        playerController.CharacterController.enabled = true;
+        playerController.enabled = true;
         damageable.Revive();
 
         animator.SetBool(animHashVisionFade, false);
