@@ -58,6 +58,7 @@ public class DialogManager : MonoBehaviour {
         EndDialog(false);
     }
     private void EndDialog(bool wasDialogFullyCompleted) {
+        if (!activeDialog) return;
         if (activeDialog.isComplete) {
             return;
         }
