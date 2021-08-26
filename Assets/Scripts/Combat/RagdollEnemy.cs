@@ -21,15 +21,15 @@ public class RagdollEnemy : MonoBehaviour {
     }
 
     private void OnEnable() {
-        damageable.onHealthDepleted.AddListener(OnDeath);
+        if(damageable) damageable.onHealthDepleted.AddListener(OnDeath);
     }
 
     private void OnDisable() {
-        damageable.onHealthDepleted.RemoveListener(OnDeath);
+        if(damageable) damageable.onHealthDepleted.RemoveListener(OnDeath);
     }
 
     private void Start() {
-        // Ignore collisions between the ragdoll and the character controller. This was needed in previous whitebox tests
+        // Ignore collisions between the ragdoll and the character controller. This was needed in previous whitebox tests, but I'm using NavMeshAgents now
         /*
         if(characterController) {
             Collider[] colliders = GetComponentsInChildren<Collider>();

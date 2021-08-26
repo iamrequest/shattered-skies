@@ -74,6 +74,7 @@ public class DialogManager : MonoBehaviour {
             activeDialog.onDialogCanceled.Invoke();
         }
 
+        activeDialog = null;
         dialogEventChannel.RaiseOnDialogFinished();
     }
 
@@ -112,6 +113,10 @@ public class DialogManager : MonoBehaviour {
     /// Complete the dialog if there's no more sentences, or start typing the new sentence
     /// </summary>
     private void StartTypingSentence() {
+        if (!activeDialog) {
+            return;
+        }
+
         if (activeDialog.dialogContents.sentences.Count == 0) {
             EndDialog(true);
             return;

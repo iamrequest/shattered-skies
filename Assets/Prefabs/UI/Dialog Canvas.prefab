@@ -26,18 +26,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514711485903606861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00000007700964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 514711486784864417}
   m_Father: {fileID: 514711486162910876}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.584015, y: 1}
   m_SizeDelta: {x: 3.8319855, y: 1}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &514711485903606862
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -193,7 +193,8 @@ MonoBehaviour:
   dialogEventChannel: {fileID: 11400000, guid: fb828e6fce417b84d9529fa17a14b542, type: 2}
   dialogText: {fileID: 514711486172981940}
   speakerNameText: {fileID: 514711486784864416}
-  defaultDialogSpeed: 0.1
+  initialDialogDelay: 1.2
+  defaultDialogSpeed: 0.025
   charTypedPitchRange: {x: -0.1, y: 0.1}
 --- !u!95 &6222015737872975243
 Animator:
@@ -205,7 +206,7 @@ Animator:
   m_GameObject: {fileID: 514711486162910877}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 479e6d14a646a5c45929f894b35ec0bf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
