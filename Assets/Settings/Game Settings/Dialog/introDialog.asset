@@ -14,17 +14,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
-    text: Example text
+    text: Have you ever noticed how bright it all is?
     clearExistingSentence: 1
     dialogSpeedOverride: 0
     charTypedSFXOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
-    text: Example text 2
+    text: The sun, the stars, and the moon. The noise of it all.
     clearExistingSentence: 1
     dialogSpeedOverride: 0
     charTypedSFXOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
-    text: Example text 3
+    text: I hate it.
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0.2
+    charTypedSFXOverride: {fileID: 8300000, guid: 1b6b1eacd95d1244295cc6138452176a,
+      type: 3}
+  - speaker: {fileID: 11400000, guid: 9dc969e68e9650a46a77bfafb54c8676, type: 2}
+    text: Who are you? What the hell is going on on?
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Don't you agree the world would be better off without it all?
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: I was so tired of the sun. I wanted rain, and I thought the best way to
+      make that happen was to make God cry.
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Who I am isn't important. I simply act as an agent of chaos.
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 9dc969e68e9650a46a77bfafb54c8676, type: 2}
+    text: Chaos...
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0.2
+    charTypedSFXOverride: {fileID: 8300000, guid: 1b6b1eacd95d1244295cc6138452176a,
+      type: 3}
+  - speaker: {fileID: 11400000, guid: 9dc969e68e9650a46a77bfafb54c8676, type: 2}
+    text: Answer my question. What's happening?
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Take a look around!
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: The sky, frozen over, and crashing down to the earth.
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Isn't it lovely?
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: The sun and the moon - Their Holy Eyes, rendered blind.
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Tell me - When the last of the light flickers and falls away, where will
+      you hide?
     clearExistingSentence: 1
     dialogSpeedOverride: 0
     charTypedSFXOverride: {fileID: 0}

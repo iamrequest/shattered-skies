@@ -87,6 +87,8 @@ GameObject:
   - component: {fileID: 8137603436188352661}
   - component: {fileID: 8137603436188352662}
   - component: {fileID: 8137603436188352663}
+  - component: {fileID: 7755083198888973156}
+  - component: {fileID: 3445186992352939122}
   m_Layer: 5
   m_Name: VR Player Dialog Interactor Canvas
   m_TagString: Untagged
@@ -192,6 +194,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &7755083198888973156
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8137603436188352648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ec51f166e30de649bd44a6ebc54d310, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3445186992352939122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8137603436188352648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a6478337181f74c887319c16ef9f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogEventChannel: {fileID: 11400000, guid: fb828e6fce417b84d9529fa17a14b542, type: 2}
 --- !u!1001 &6862496409038625485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,6 +273,11 @@ PrefabInstance:
       propertyPath: ConnectedBody
       value: 
       objectReference: {fileID: 8137603436188352663}
+    - target: {fileID: 3446079628570441880, guid: b1cc83d66f493644b9c09a0cc4ea35b5,
+        type: 3}
+      propertyPath: SFXButtonDown
+      value: 
+      objectReference: {fileID: 8300000, guid: a7fba40b7dc65ec45a235c7cd2ae58fb, type: 3}
     - target: {fileID: 3446079628570441884, guid: b1cc83d66f493644b9c09a0cc4ea35b5,
         type: 3}
       propertyPath: m_Size.x
@@ -448,6 +487,11 @@ PrefabInstance:
       propertyPath: ConnectedBody
       value: 
       objectReference: {fileID: 8137603436188352663}
+    - target: {fileID: 3446079628570441880, guid: b1cc83d66f493644b9c09a0cc4ea35b5,
+        type: 3}
+      propertyPath: SFXButtonDown
+      value: 
+      objectReference: {fileID: 8300000, guid: a7fba40b7dc65ec45a235c7cd2ae58fb, type: 3}
     - target: {fileID: 3446079628570441880, guid: b1cc83d66f493644b9c09a0cc4ea35b5,
         type: 3}
       propertyPath: ButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

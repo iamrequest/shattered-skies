@@ -151,10 +151,12 @@ public class DialogManager : MonoBehaviour {
 
             // Type a letter, and play some SFX
             dialogText.text += letter;
-            SFXPlayer.Instance.PlaySFXRandomPitch(GetCharTypedAudioClip(currentSentence), 
-                transform.position, 
-                charTypedPitchRange.x, 
-                charTypedPitchRange.y);
+            if (letter != ' ') {
+                SFXPlayer.Instance.PlaySFXRandomPitch(GetCharTypedAudioClip(currentSentence), 
+                    transform.position, 
+                    charTypedPitchRange.x, 
+                    charTypedPitchRange.y);
+            }
 
             yield return null;
         }

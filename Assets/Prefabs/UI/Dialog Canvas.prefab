@@ -195,7 +195,7 @@ MonoBehaviour:
   speakerNameText: {fileID: 514711486784864416}
   initialDialogDelay: 1.2
   defaultDialogSpeed: 0.015
-  charTypedPitchRange: {x: -0.1, y: 0.1}
+  charTypedPitchRange: {x: 0.9, y: 1.1}
 --- !u!95 &6222015737872975243
 Animator:
   serializedVersion: 3

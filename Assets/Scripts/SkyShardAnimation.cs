@@ -19,7 +19,7 @@ public class SkyShardAnimation : MonoBehaviour {
     }
 
     public void StartFall() {
-        //if (hasFallen) return;
+        if (hasFallen) return;
 
         hasFallen = true;
         animator.SetTrigger(animHashFall);
