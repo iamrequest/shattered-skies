@@ -54,12 +54,13 @@ public class Player : MonoBehaviour {
         animator.SetBool(animHashVisionFade, true);
 
         playerDamageEventChannel.RaiseOnPlayerDeath();
-        playerController.enabled = false;
-        playerController.CharacterController.enabled = false;
 
         // Drop all interactables
         playerController.LeftHand.ForceRelease();
         playerController.RightHand.ForceRelease();
+
+        playerController.enabled = false;
+        playerController.CharacterController.enabled = false;
 
         yield return new WaitForSeconds(respawnDelay);
 
@@ -68,11 +69,14 @@ public class Player : MonoBehaviour {
         playerController.transform.rotation = activeCheckpoint.respawnTransform.rotation;
 
         // Move the player hands into position
-        playerController.LeftHand.transform.position = playerController.transform.position + Vector3.up + playerController.transform.forward;
-        playerController.RightHand.transform.position = playerController.transform.position + Vector3.up + playerController.transform.forward;
+        //playerController.LeftHand.transform.position = playerController.transform.position + Vector3.up + playerController.transform.forward;
+        //playerController.RightHand.transform.position = playerController.transform.position + Vector3.up + playerController.transform.forward;
+        playerController.LeftHand.transform.position = playerController.transform.position;
+        playerController.RightHand.transform.position = playerController.transform.position;
 
         // Wait a frame before re-enabling char controllers
-        yield return null;
+        //yield return null;
+
         playerController.CharacterController.enabled = true;
         playerController.enabled = true;
 
