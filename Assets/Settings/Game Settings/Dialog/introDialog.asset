@@ -54,7 +54,7 @@ MonoBehaviour:
     text: Chaos...
     clearExistingSentence: 1
     dialogSpeedOverride: 0.2
-    charTypedSFXOverride: {fileID: 8300000, guid: 1b6b1eacd95d1244295cc6138452176a,
+    charTypedSFXOverride: {fileID: 8300000, guid: ed2f3a2cdece5824591af2625a44c7c9,
       type: 3}
   - speaker: {fileID: 11400000, guid: 9dc969e68e9650a46a77bfafb54c8676, type: 2}
     text: Answer my question. What's happening?

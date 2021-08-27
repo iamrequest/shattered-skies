@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Tutorial
   m_EditorClassIdentifier: 
   speakerName: Tutorial
-  letterTypedSFX: {fileID: 8300000, guid: 82222cffb8e4b6041b6753964e6067b0, type: 3}
+  letterTypedSFX: {fileID: 8300000, guid: 7057eaeda5a28e9458979add8d5f83eb, type: 3}
