@@ -61,6 +61,8 @@ public class Player : MonoBehaviour {
 
         playerController.enabled = false;
         playerController.CharacterController.enabled = false;
+        playerController.LeftHand.Rigidbody.isKinematic = true;
+        playerController.RightHand.Rigidbody.isKinematic = true;
 
         yield return new WaitForSeconds(respawnDelay);
 
@@ -69,16 +71,16 @@ public class Player : MonoBehaviour {
         playerController.transform.rotation = activeCheckpoint.respawnTransform.rotation;
 
         // Move the player hands into position
-        //playerController.LeftHand.transform.position = playerController.transform.position + Vector3.up + playerController.transform.forward;
-        //playerController.RightHand.transform.position = playerController.transform.position + Vector3.up + playerController.transform.forward;
         playerController.LeftHand.transform.position = playerController.transform.position;
         playerController.RightHand.transform.position = playerController.transform.position;
 
         // Wait a frame before re-enabling char controllers
-        //yield return null;
+        yield return null;
 
         playerController.CharacterController.enabled = true;
         playerController.enabled = true;
+        playerController.LeftHand.Rigidbody.isKinematic = false;
+        playerController.RightHand.Rigidbody.isKinematic = false;
 
         damageable.Revive();
         playerDamageEventChannel.RaiseOnPlayerRevive();

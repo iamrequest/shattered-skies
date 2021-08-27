@@ -19,6 +19,9 @@ public class BGMManagerInspector : Editor {
             if (GUILayout.Button("Stop", EditorStyles.miniButtonMid)) {
                 bgmEC.RaiseOnStop();
             }
+            if (GUILayout.Button("Fade Stop", EditorStyles.miniButtonMid)) {
+                bgmEC.RaiseOnFadeToStop();
+            }
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();

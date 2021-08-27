@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class BGMEventChannel : ScriptableObject {
     [Tooltip("Plays a specific song")]
     public UnityAction<int> onPlaySong;
-    public UnityAction onPlay, onStop;
+    public UnityAction onPlay, onStop, onFadeToStop;
 
     public void RaiseOnPlay(int newSongIndex) {
         if (onPlaySong != null) onPlaySong.Invoke(newSongIndex);
@@ -17,5 +17,8 @@ public class BGMEventChannel : ScriptableObject {
     }
     public void RaiseOnStop() {
         if (onStop != null) onStop.Invoke();
+    }
+    public void RaiseOnFadeToStop() {
+        if (onFadeToStop != null) onFadeToStop.Invoke();
     }
 }

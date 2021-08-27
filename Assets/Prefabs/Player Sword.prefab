@@ -1111,6 +1111,15 @@ MonoBehaviour:
   maxDamage: 1
   minDamagingSpeed: 2.5
   maxDamagingSpeed: 10
+  pitchRange: 0.2
+  volumeRange: {x: 0.5, y: 1}
+  onDamageSFX: {fileID: 8300000, guid: 4e73787dfa6e5994f8329c376dfd051b, type: 3}
+  dmgSFXCooldown: 0.1
+  envLayerMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  onEnvCollisionSFX: {fileID: 8300000, guid: 2e641101b57977641a22f761e90b53d3, type: 3}
+  envCollisionSFXCooldown: 0.1
 --- !u!114 &2508724089477297714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,7 +1153,7 @@ MonoBehaviour:
   playerDamageEventChannel: {fileID: 11400000, guid: 86262cfe883e889458bb5555d7022c4d,
     type: 2}
   hasBeenGrabbed: 0
-  returnToSocketDistance: 5
+  returnToSocketDistance: 20
 --- !u!1 &6175694171569966068
 GameObject:
   m_ObjectHideFlags: 0
