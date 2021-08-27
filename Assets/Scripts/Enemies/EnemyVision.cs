@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Freya;
 
 public class EnemyVision : MonoBehaviour {
     private const bool DEBUG = true;
@@ -15,7 +16,13 @@ public class EnemyVision : MonoBehaviour {
     [Range(0f, 90f)]
     public float visionRadius;
 
+    [Tooltip("The distance radius that the enemy can see on each side, regardless of what is in the way")]
+    [Range(0f, 5f)]
+    public float proximityVisionRadius;
+
     public bool IsInSight(Vector3 target, string tag) {
+        if (DistanceToTarget(target) < proximityVisionRadius) return true;
+
         RaycastHit hit;
 
         // TODO: Convert to capsule cast + raycast. 
@@ -63,5 +70,26 @@ public class EnemyVision : MonoBehaviour {
         float drawDistance = Mathf.Min(visionDistance, (target - eyeTransform.position).magnitude);
         if(DEBUG)
             Debug.DrawRay(eyeTransform.position, (target - eyeTransform.position).normalized * drawDistance, color);
+    }
+
+
+
+    public void OnDrawGizmosSelected() {
+        Debug.DrawRay(eyeTransform.position, eyeTransform.forward * visionDistance, Color.green);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(eyeTransform.position, proximityVisionRadius);
+
+        // I think this is wrong, since it produces weird angles depending on which dir the enemy is facing.
+        // But it's good enough for visualization
+        Vector3 v = Quaternion.Euler(visionRadius, 0f, 0f) * eyeTransform.forward;
+        Debug.DrawRay(eyeTransform.position, v * visionDistance, Color.magenta);
+        v = Quaternion.Euler(-visionRadius, 0f, 0f) * eyeTransform.forward;
+        Debug.DrawRay(eyeTransform.position, v * visionDistance, Color.magenta);
+
+        v = Quaternion.Euler(0f, visionRadius, 0f) * eyeTransform.forward;
+        Debug.DrawRay(eyeTransform.position, v * visionDistance, Color.magenta);
+        v = Quaternion.Euler(0f, -visionRadius, 0f) * eyeTransform.forward;
+        Debug.DrawRay(eyeTransform.position, v * visionDistance, Color.magenta);
     }
 }

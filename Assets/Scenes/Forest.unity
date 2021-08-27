@@ -581,6 +581,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1247034320}
     m_Modifications:
+    - target: {fileID: 77691069, guid: 63e54c7b2fcf1444987dca971b917d46, type: 3}
+      propertyPath: visionRadius
+      value: 35.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 77691069, guid: 63e54c7b2fcf1444987dca971b917d46, type: 3}
+      propertyPath: visionDistance
+      value: 11.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 77691069, guid: 63e54c7b2fcf1444987dca971b917d46, type: 3}
+      propertyPath: proximityVisionRadius
+      value: 1.49
+      objectReference: {fileID: 0}
     - target: {fileID: 6429752599772709057, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -614,22 +626,22 @@ PrefabInstance:
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.86602527
+      value: 0.7073605
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0000013300187
+      value: -0.0000014610629
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.50000036
+      value: -0.706853
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000006818547
+      value: 0.00000031491058
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
@@ -639,7 +651,7 @@ PrefabInstance:
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -60.000004
+      value: -89.95901
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
@@ -8767,6 +8779,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sky Shard Animated
       objectReference: {fileID: 0}
+    - target: {fileID: 4994350422062675069, guid: b049341d10d71bc45888b9b263a4de21,
+        type: 3}
+      propertyPath: m_Radius
+      value: 11.4019985
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994350422062675069, guid: b049341d10d71bc45888b9b263a4de21,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994350422062675069, guid: b049341d10d71bc45888b9b263a4de21,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994350422062675069, guid: b049341d10d71bc45888b9b263a4de21,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4994350422062675071, guid: b049341d10d71bc45888b9b263a4de21,
         type: 3}
       propertyPath: m_RootOrder
@@ -10839,6 +10871,14 @@ PrefabInstance:
       propertyPath: visionRadius
       value: 60.7
       objectReference: {fileID: 0}
+    - target: {fileID: 77691069, guid: 63e54c7b2fcf1444987dca971b917d46, type: 3}
+      propertyPath: visionDistance
+      value: 14.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 77691069, guid: 63e54c7b2fcf1444987dca971b917d46, type: 3}
+      propertyPath: proximityVisionRadius
+      value: 1.66
+      objectReference: {fileID: 0}
     - target: {fileID: 6429752599772709057, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10872,7 +10912,7 @@ PrefabInstance:
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3826834
+      value: 0.13052662
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
@@ -10882,7 +10922,7 @@ PrefabInstance:
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.92387956
+      value: -0.9914448
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
@@ -10897,7 +10937,7 @@ PrefabInstance:
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -135
+      value: -165.00002
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
@@ -12199,6 +12239,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1247034320}
     m_Modifications:
+    - target: {fileID: 77691069, guid: 63e54c7b2fcf1444987dca971b917d46, type: 3}
+      propertyPath: proximityVisionRadius
+      value: 1.79
+      objectReference: {fileID: 0}
     - target: {fileID: 6429752599772709057, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14441,6 +14485,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1247034320}
     m_Modifications:
+    - target: {fileID: 77691069, guid: 63e54c7b2fcf1444987dca971b917d46, type: 3}
+      propertyPath: visionDistance
+      value: 18.18
+      objectReference: {fileID: 0}
     - target: {fileID: 6429752599772709057, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14474,7 +14522,7 @@ PrefabInstance:
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.70710784
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
@@ -14484,7 +14532,7 @@ PrefabInstance:
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.70710576
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
@@ -14499,7 +14547,7 @@ PrefabInstance:
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90.00001
       objectReference: {fileID: 0}
     - target: {fileID: 6735411999469722349, guid: 63e54c7b2fcf1444987dca971b917d46,
         type: 3}
@@ -31218,6 +31266,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sky Shard Animated (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4994350422062675069, guid: b049341d10d71bc45888b9b263a4de21,
+        type: 3}
+      propertyPath: m_Radius
+      value: 31.167852
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994350422062675069, guid: b049341d10d71bc45888b9b263a4de21,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.00000003319986
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994350422062675069, guid: b049341d10d71bc45888b9b263a4de21,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -2.1716862
+      objectReference: {fileID: 0}
     - target: {fileID: 4994350422062675071, guid: b049341d10d71bc45888b9b263a4de21,
         type: 3}
       propertyPath: m_RootOrder
@@ -32612,6 +32675,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.0000050406816
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753683003663465494, guid: bbf229663b291d9438eef5ab5d861d0f,
+        type: 3}
+      propertyPath: visionRadius
+      value: 59.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753683003663465494, guid: bbf229663b291d9438eef5ab5d861d0f,
+        type: 3}
+      propertyPath: visionDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753683003663465494, guid: bbf229663b291d9438eef5ab5d861d0f,
+        type: 3}
+      propertyPath: proximityVisionRadius
+      value: 4.44
       objectReference: {fileID: 0}
     - target: {fileID: 1965245837209231084, guid: bbf229663b291d9438eef5ab5d861d0f,
         type: 3}

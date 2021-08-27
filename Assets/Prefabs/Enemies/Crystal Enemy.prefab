@@ -201,6 +201,7 @@ MonoBehaviour:
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 0}
   audioSourceTransform: {fileID: 0}
+  killPlaneEnteredAction: 0
   onDamageApplied:
     m_PersistentCalls:
       m_Calls:
@@ -608,6 +609,7 @@ MonoBehaviour:
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 0}
   audioSourceTransform: {fileID: 6735411999469722349}
+  killPlaneEnteredAction: 0
   onDamageApplied:
     m_PersistentCalls:
       m_Calls: []
@@ -674,8 +676,9 @@ MonoBehaviour:
   visibleLayers:
     serializedVersion: 2
     m_Bits: 12544
-  visionDistance: 5
+  visionDistance: 20
   visionRadius: 30
+  proximityVisionRadius: 2.29
 --- !u!114 &1346181165187123315
 MonoBehaviour:
   m_ObjectHideFlags: 0
