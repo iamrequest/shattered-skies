@@ -24,7 +24,12 @@ MonoBehaviour:
     dialogSpeedOverride: 0
     charTypedSFXOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 61818720ea7f39e428d7497e3c1c0fc6, type: 2}
-    text: You can store your sword on your back.
+    text: 'You can store your sword on your back. '
     clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 61818720ea7f39e428d7497e3c1c0fc6, type: 2}
+    text: Stray too far from it, and it will return to your back.
+    clearExistingSentence: 0
     dialogSpeedOverride: 0
     charTypedSFXOverride: {fileID: 0}

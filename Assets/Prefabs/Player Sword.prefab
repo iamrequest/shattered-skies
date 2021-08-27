@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 1459585200}
   - component: {fileID: 1459585201}
   - component: {fileID: 2508724089477297714}
+  - component: {fileID: 5217332919252652859}
   m_Layer: 0
   m_Name: Player Sword
   m_TagString: Untagged
@@ -830,6 +831,22 @@ MonoBehaviour:
   SocketedClip: {fileID: 0}
   UnsocketedClip: {fileID: 0}
   LinkedGrabbables: []
+--- !u!114 &5217332919252652859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175694170801785717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c925734751e4fcd4e937df586878b689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDamageEventChannel: {fileID: 11400000, guid: 86262cfe883e889458bb5555d7022c4d,
+    type: 2}
+  hasBeenGrabbed: 0
+  returnToSocketDistance: 5
 --- !u!1 &6175694171569966068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,13 +1058,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9163752344449517065}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 3.44}
+  m_LocalRotation: {x: -0, y: 1, z: 0.000000014901161, w: -0.00000040233135}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5926385667858100032}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
 --- !u!1001 &4061265328529727985
 PrefabInstance:
   m_ObjectHideFlags: 0

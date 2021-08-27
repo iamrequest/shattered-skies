@@ -82,6 +82,7 @@ public class EnemyVision : MonoBehaviour {
 
         // I think this is wrong, since it produces weird angles depending on which dir the enemy is facing.
         // But it's good enough for visualization
+        // Just realized, this is a world space rotation offset, not local space. 
         Vector3 v = Quaternion.Euler(visionRadius, 0f, 0f) * eyeTransform.forward;
         Debug.DrawRay(eyeTransform.position, v * visionDistance, Color.magenta);
         v = Quaternion.Euler(-visionRadius, 0f, 0f) * eyeTransform.forward;

@@ -10,7 +10,7 @@ public class StaminaManager : MonoBehaviour {
     public float maxStamina;
 
     [Tooltip("Regen per second")]
-    [Range(0f, 5f)]
+    [Range(0f, 10f)]
     public float staminaRegenRate;
 
     // Consider overriding this rate if the player is holding a weighted interactable

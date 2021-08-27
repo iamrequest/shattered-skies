@@ -607,7 +607,7 @@ MonoBehaviour:
   healthMax: 3
   healthCurrent: 0
   damagedSFX: {fileID: 0}
-  deathSFX: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: 75edc860334b02547a0fb7b909fe6dea, type: 3}
   audioSourceTransform: {fileID: 6735411999469722349}
   killPlaneEnteredAction: 0
   onDamageApplied:
@@ -693,6 +693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: {fileID: 8088349366052498828}
   deathState: {fileID: 2284114741680938861}
+  damagedState: {fileID: 1981082012232488091}
 --- !u!1 &7553651747230475337
 GameObject:
   m_ObjectHideFlags: 0

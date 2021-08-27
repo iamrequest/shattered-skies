@@ -1,4 +1,5 @@
-﻿using HurricaneVR.Framework.Core.Player;
+﻿using HurricaneVR.Framework.Core.Grabbers;
+using HurricaneVR.Framework.Core.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour {
 
     public Camera cam;
 
+    public HVRSocket shoulderSocket;
     public Checkpoint activeCheckpoint;
     public float respawnDelay;
 
@@ -53,8 +55,15 @@ public class Player : MonoBehaviour {
         playerController.enabled = false;
         playerController.CharacterController.enabled = false;
         yield return new WaitForSeconds(respawnDelay);
+
         playerController.transform.position = activeCheckpoint.respawnTransform.position;
         playerController.transform.rotation = activeCheckpoint.respawnTransform.rotation;
+
+        // TODO: Drop all interactables
+
+        // TODO: Move the player hands into position
+
+        // TODO: Respawn sword
 
         // Wait a frame before re-enabling char controllers
         yield return null;
