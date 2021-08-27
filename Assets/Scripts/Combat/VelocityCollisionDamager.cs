@@ -29,10 +29,10 @@ public class VelocityCollisionDamager : BaseDamager {
         float damage = CalculateDamage(relativeVelocityMagnitude);
 
         if (damage == 0f) {
-            //Debug.Log("No damage applied.");
+            Debug.Log("No damage applied.");
             return;
         } else {
-            //Debug.Log($"Applying {damage} damage.");
+            Debug.Log($"Applying {damage} damage.");
             damageable.ApplyDamage(damage, this);
         }
     }

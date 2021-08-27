@@ -32778,6 +32778,16 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.00040912995
       objectReference: {fileID: 0}
+    - target: {fileID: 2313814130458526998, guid: bbf229663b291d9438eef5ab5d861d0f,
+        type: 3}
+      propertyPath: maxDamagingSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313814130458526998, guid: bbf229663b291d9438eef5ab5d861d0f,
+        type: 3}
+      propertyPath: minDamagingSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2910797200338362001, guid: bbf229663b291d9438eef5ab5d861d0f,
         type: 3}
       propertyPath: m_ConnectedAnchor.x

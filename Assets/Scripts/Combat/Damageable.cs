@@ -40,6 +40,7 @@ public class Damageable : MonoBehaviour {
             if (timeSinceLastDamaged < invincibilityFrames) return;
         }
 
+        timeSinceLastDamaged = 0f;
         healthCurrent = Mathf.Clamp(healthCurrent - incomingDamage, 0f, healthMax);
         onDamageApplied.Invoke(incomingDamage, damager, this);
 
