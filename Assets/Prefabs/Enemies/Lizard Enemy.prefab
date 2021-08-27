@@ -160,6 +160,7 @@ MonoBehaviour:
   damageTargetType: 2
   healthMax: 3
   healthCurrent: 0
+  invincibilityFrames: 0.1
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 8300000, guid: 635dc93b1e81d184093257de16b1c427, type: 3}
   audioSourceTransform: {fileID: 297137526965748722}
@@ -457,8 +458,11 @@ MonoBehaviour:
   lookatTarget: {fileID: 8323446671921116496}
   giveUpState: {fileID: 1570581523}
   giveUpDelay: 5
+  attackFacingAngle: 0.8
   initialChaseDelay: 1
   chaseDelay: 2
+  onPlayerSpottedSFX: {fileID: 8300000, guid: f3da7df93330b7b469b1720d97b96ce4, type: 3}
+  playerSpottedPitchRange: 0.1
 --- !u!1 &2447898613057201804
 GameObject:
   m_ObjectHideFlags: 0

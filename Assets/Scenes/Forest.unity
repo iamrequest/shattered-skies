@@ -24937,7 +24937,7 @@ PrefabInstance:
     - target: {fileID: 1708059964548232016, guid: f9d1798d532a3a14f9fcae520b8d4f79,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 207.65337
+      value: 187.2
       objectReference: {fileID: 0}
     - target: {fileID: 1708059964548232016, guid: f9d1798d532a3a14f9fcae520b8d4f79,
         type: 3}
@@ -32837,16 +32837,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.000000020311745
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059346261623290594, guid: bbf229663b291d9438eef5ab5d861d0f,
-        type: 3}
-      propertyPath: onPlayerSpottedSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: f3da7df93330b7b469b1720d97b96ce4, type: 3}
-    - target: {fileID: 4059346261623290594, guid: bbf229663b291d9438eef5ab5d861d0f,
-        type: 3}
-      propertyPath: playerSpottedPitchRange
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4134048392167411045, guid: bbf229663b291d9438eef5ab5d861d0f,
         type: 3}

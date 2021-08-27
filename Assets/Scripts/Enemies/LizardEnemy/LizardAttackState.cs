@@ -11,6 +11,7 @@ public class LizardAttackState : BaseState {
 
     private int animHashIsWalking;
     private int animHashAttack;
+    private int animHashWalkSpeed;
     private bool isAttacking;
 
     public MotorSettings motorSettings;
@@ -18,6 +19,9 @@ public class LizardAttackState : BaseState {
     public BaseState giveUpState;
     public float giveUpDelay;
     private float elapsedGiveUpDelay;
+
+    [Range(0f, 1f)]
+    public float attackFacingAngle;
 
 
     [Tooltip("The delay between entering this state, and chasing the player")]
@@ -41,6 +45,7 @@ public class LizardAttackState : BaseState {
 
         animHashIsWalking = Animator.StringToHash("isWalking");
         animHashAttack = Animator.StringToHash("attack");
+        animHashWalkSpeed = Animator.StringToHash("walkSpeed");
     }
 
     public override void OnStateEnter(BaseState previousState) {
@@ -50,18 +55,22 @@ public class LizardAttackState : BaseState {
         isAttacking = false;
         isWaitingForInitialChase = true;
         elapsedGiveUpDelay = 0f;
-        animator.ResetTrigger(animHashAttack);
+
+        //animator.ResetTrigger(animHashAttack);
+        animator.SetFloat(animHashWalkSpeed, 1f);
 
         // Play SFX
         float sfxPitch = 1 + Random.Range(-playerSpottedPitchRange, playerSpottedPitchRange);
-        SFXPlayer.Instance.PlaySFX(onPlayerSpottedSFX, transform.position, sfxPitch, .7f);
+        SFXPlayer.Instance.PlaySFX(onPlayerSpottedSFX, transform.position, sfxPitch, .5f);
 
         StartCoroutine(BeginChaseAfterDelay());
     }
 
     public override void OnStateExit(BaseState previousState) {
         base.OnStateExit(previousState);
-        animator.ResetTrigger(animHashAttack);
+
+        //animator.ResetTrigger(animHashAttack);
+        animator.SetFloat(animHashWalkSpeed, 0f);
     }
 
     public override void OnStateUpdate() {
@@ -88,6 +97,11 @@ public class LizardAttackState : BaseState {
         if (!isAttacking) {
             if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance) {
                 StartCoroutine(Attack());
+
+                //if (isFacingPlayer()) {
+                //} else {
+                //    // TODO : Rotate to face player
+                //}
             }
         }
     }
@@ -104,5 +118,15 @@ public class LizardAttackState : BaseState {
         yield return new WaitForSeconds(chaseDelay);
 
         isAttacking = false;
+    }
+
+    private bool isFacingPlayer() {
+        // Test if the lizard is facing the player, projected onto the xy plane
+        Vector3 enemyToPlayerDir = (Player.Instance.cam.transform.position - baseEnemy.vision.transform.position).normalized;
+
+        float facingDotProduct = Vector3.Dot(Vector3.ProjectOnPlane(baseEnemy.transform.forward, Vector3.up), 
+            Vector3.ProjectOnPlane(enemyToPlayerDir, Vector3.up));
+
+        return facingDotProduct > attackFacingAngle;
     }
 }
