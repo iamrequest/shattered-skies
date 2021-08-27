@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d20198e6f6aa64c96438ae7abca925, type: 3}
   m_Name: LizardChaseMotorSettings
   m_EditorClassIdentifier: 
-  acceleration: 11.57
+  acceleration: 20
   angularSpeed: 120
-  speed: 7
+  speed: 6
   stoppingDistance: 3
