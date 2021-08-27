@@ -392,9 +392,11 @@ MonoBehaviour:
   damageTargetType: 2
   healthMax: 10
   healthCurrent: 0
+  invincibilityFrames: 0.1
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 0}
   audioSourceTransform: {fileID: 0}
+  killPlaneEnteredAction: 0
   onDamageApplied:
     m_PersistentCalls:
       m_Calls: []
@@ -2208,17 +2210,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 339cd74beb86cb341accf0fa188cc3e7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.01
+      value: 0.0112230005
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 339cd74beb86cb341accf0fa188cc3e7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.01
+      value: 0.0112230005
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 339cd74beb86cb341accf0fa188cc3e7,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.01
+      value: 0.0112230005
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 339cd74beb86cb341accf0fa188cc3e7,
         type: 3}
@@ -2372,7 +2374,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 479fe31a6e915274eab9fcaf25bbd5e3,
         type: 3}
       propertyPath: m_Name
-      value: Boss
+      value: Boss_Base
       objectReference: {fileID: 0}
     - target: {fileID: 1630794972795428178, guid: 479fe31a6e915274eab9fcaf25bbd5e3,
         type: 3}

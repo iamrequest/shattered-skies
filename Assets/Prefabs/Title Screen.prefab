@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6780960741770517686}
   - component: {fileID: 6780960741770517687}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Title Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Title
+  m_text: Shattered Skies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9edc9e18574b8341aacb0b9223a5270, type: 2}
   m_sharedMaterial: {fileID: -3933406573493747989, guid: e9edc9e18574b8341aacb0b9223a5270,
