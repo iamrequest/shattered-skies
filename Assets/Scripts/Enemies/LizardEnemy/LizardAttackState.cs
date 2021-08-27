@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HurricaneVR.Framework.Core.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -26,6 +27,11 @@ public class LizardAttackState : BaseState {
     [Tooltip("The delay that occurs between reaching the player, attacking, and resuming chase")]
     public float chaseDelay;
 
+    [Header("SFX")]
+    public AudioClip onPlayerSpottedSFX;
+    [Range(0f, .5f)]
+    public float playerSpottedPitchRange;
+
     protected override void Awake() {
         base.Awake();
         baseEnemy = GetComponentInParent<BaseEnemy>();
@@ -44,8 +50,11 @@ public class LizardAttackState : BaseState {
         isAttacking = false;
         isWaitingForInitialChase = true;
         elapsedGiveUpDelay = 0f;
-
         animator.ResetTrigger(animHashAttack);
+
+        // Play SFX
+        float sfxPitch = 1 + Random.Range(-playerSpottedPitchRange, playerSpottedPitchRange);
+        SFXPlayer.Instance.PlaySFX(onPlayerSpottedSFX, transform.position, sfxPitch, .7f);
 
         StartCoroutine(BeginChaseAfterDelay());
     }

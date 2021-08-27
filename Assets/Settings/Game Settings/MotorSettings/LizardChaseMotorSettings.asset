@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 3.5
   angularSpeed: 120
-  speed: 4
-  stoppingDistance: 3.5
+  speed: 7
+  stoppingDistance: 3
