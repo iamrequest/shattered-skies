@@ -35,6 +35,9 @@ public class LizardAttackState : BaseState {
     public AudioClip onPlayerSpottedSFX;
     [Range(0f, .5f)]
     public float playerSpottedPitchRange;
+    public AudioClip onAttackSFX;
+    [Range(0f, .5f)]
+    public float onAttackPitchRange;
 
     protected override void Awake() {
         base.Awake();
@@ -61,7 +64,7 @@ public class LizardAttackState : BaseState {
 
         // Play SFX
         float sfxPitch = 1 + Random.Range(-playerSpottedPitchRange, playerSpottedPitchRange);
-        SFXPlayer.Instance.PlaySFX(onPlayerSpottedSFX, transform.position, sfxPitch, .5f);
+        SFXPlayer.Instance.PlaySFX(onPlayerSpottedSFX, transform.position, sfxPitch, VolumeManager.Instance.lizardPlayerSpotted);
 
         StartCoroutine(BeginChaseAfterDelay());
     }
@@ -113,10 +116,13 @@ public class LizardAttackState : BaseState {
     private IEnumerator Attack() {
         animator.SetBool(animHashIsWalking, false);
         animator.SetTrigger(animHashAttack);
+
+        // Play SFX
+        float sfxPitch = 1 + Random.Range(-onAttackPitchRange, onAttackPitchRange);
+        SFXPlayer.Instance.PlaySFX(onPlayerSpottedSFX, transform.position, sfxPitch, VolumeManager.Instance.lizardAttack);
+
         isAttacking = true;
-
         yield return new WaitForSeconds(chaseDelay);
-
         isAttacking = false;
     }
 

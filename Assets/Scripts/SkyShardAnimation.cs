@@ -13,6 +13,9 @@ public class SkyShardAnimation : MonoBehaviour {
     public float fallDelay;
     public AudioClip fallSFX, impactSFX;
 
+    [Range(0f, .5f)]
+    public float sfxPitchRange;
+
     private void Awake() {
         animator = GetComponent<Animator>();
         animHashFall = Animator.StringToHash("fall");
@@ -27,8 +30,10 @@ public class SkyShardAnimation : MonoBehaviour {
     }
 
     private IEnumerator PlaySFX() {
-        SFXPlayer.Instance.PlaySFX(fallSFX, transform.position);
+        float sfxPitch = 1 + Random.Range(-sfxPitchRange, sfxPitchRange);
+
+        SFXPlayer.Instance.PlaySFX(fallSFX, transform.position, sfxPitchRange, VolumeManager.Instance.skyShardFall);
         yield return new WaitForSeconds(fallDelay);
-        SFXPlayer.Instance.PlaySFX(impactSFX, transform.position);
+        SFXPlayer.Instance.PlaySFX(impactSFX, transform.position, sfxPitchRange, VolumeManager.Instance.skyShardImpact);
     }
 }

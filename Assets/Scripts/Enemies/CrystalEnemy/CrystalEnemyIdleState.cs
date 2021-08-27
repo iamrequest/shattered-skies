@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HurricaneVR.Framework.Core.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -14,6 +15,11 @@ public class CrystalEnemyIdleState : BaseState {
 
     public float attackDelay;
     private float elapsedAttackDelay;
+
+    [Header("SFX")]
+    public AudioClip onPlayerSpottedSFX;
+    [Range(0f, .5f)]
+    public float playerSpottedPitchRange;
 
     protected override void Awake() {
         base.Awake();
@@ -34,6 +40,11 @@ public class CrystalEnemyIdleState : BaseState {
 
         // Check if we can see the enemy
         if (enemy.vision.isPlayerInSight()) {
+            if (elapsedAttackDelay == 0f) { 
+                float sfxPitch = 1 + Random.Range(-playerSpottedPitchRange, playerSpottedPitchRange);
+                SFXPlayer.Instance.PlaySFX(onPlayerSpottedSFX, transform.position, sfxPitch, VolumeManager.Instance.crystalPlayerSpotted);
+            }
+
             animator.SetBool(animHashIsTrackingPlayer, true);
             multiAimConstraint.weight = 1f; // TODO: Lerp this. May need to lerp anim layer down to 0 at the same time
 

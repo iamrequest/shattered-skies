@@ -14,12 +14,9 @@ public class CrystalEnemyAttackState : BaseState {
     public Transform lookatTarget;
 
     [Header("SFX")]
-    public AudioClip onPlayerSpottedSFX;
     public AudioClip projectileFiredSFX;
     [Range(0f, .5f)]
     public float projectileFiredPitchRange;
-    [Range(0f, .5f)]
-    public float playerSpottedPitchRange;
 
     [Header("Timers")]
     public float attackDelay;
@@ -43,9 +40,6 @@ public class CrystalEnemyAttackState : BaseState {
 
     public override void OnStateEnter(BaseState previousState) {
         base.OnStateEnter(previousState);
-
-        float sfxPitch = 1 + Random.Range(-playerSpottedPitchRange, playerSpottedPitchRange);
-        SFXPlayer.Instance.PlaySFX(onPlayerSpottedSFX, transform.position, sfxPitch, .7f);
 
         multiAimConstraint.weight = 1f;
         animator.SetBool(animHashIsTrackingPlayer, true);
@@ -84,7 +78,7 @@ public class CrystalEnemyAttackState : BaseState {
         Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
 
         float sfxPitch = 1 + Random.Range(-projectileFiredPitchRange, projectileFiredPitchRange);
-        SFXPlayer.Instance.PlaySFX(projectileFiredSFX, transform.position, sfxPitch, 1f);
+        SFXPlayer.Instance.PlaySFX(projectileFiredSFX, transform.position, sfxPitch, VolumeManager.Instance.crystalProjectileFired);
 
         // Add a random angular offset. Pretty sure this is in world space, not local space
         // I think the rotation of the enemy also makes this weird

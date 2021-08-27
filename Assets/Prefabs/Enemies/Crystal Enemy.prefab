@@ -427,6 +427,8 @@ MonoBehaviour:
   multiAimConstraint: {fileID: 36597551}
   lookatTarget: {fileID: 1396448478}
   attackDelay: 1
+  onPlayerSpottedSFX: {fileID: 8300000, guid: 7fc3d3fb4bc5f3743840365bc76d4b7a, type: 3}
+  playerSpottedPitchRange: 0.1
 --- !u!1 &5365089205945822201
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,10 +781,8 @@ MonoBehaviour:
   idleState: {fileID: 8088349366052498828}
   multiAimConstraint: {fileID: 36597551}
   lookatTarget: {fileID: 1396448478}
-  onPlayerSpottedSFX: {fileID: 8300000, guid: 7fc3d3fb4bc5f3743840365bc76d4b7a, type: 3}
   projectileFiredSFX: {fileID: 8300000, guid: 8d4b684ffafe0e54ba96afeed90ae50c, type: 3}
   projectileFiredPitchRange: 0.1
-  playerSpottedPitchRange: 0.1
   attackDelay: 0.75
   returnToIdleDelay: 5
   projectilePrefab: {fileID: 4456733701827526189, guid: 335431d76c640b140a9a58c62ff9f4b0,

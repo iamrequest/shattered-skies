@@ -15,7 +15,7 @@ public class EnemyProjectile : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         float sfxPitch = 1 + Random.Range(-sfxPitchRange, sfxPitchRange);
-        SFXPlayer.Instance.PlaySFX(projectileHitSFX, transform.position, sfxPitch, .7f);
+        SFXPlayer.Instance.PlaySFX(projectileHitSFX, transform.position, sfxPitch, VolumeManager.Instance.crystalProjectileHit);
 
         Destroy(gameObject);
     }
