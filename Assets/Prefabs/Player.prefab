@@ -337,6 +337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8b5f5d8e975d346aaef785374895e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDamageEventChannel: {fileID: 11400000, guid: 86262cfe883e889458bb5555d7022c4d,
+    type: 2}
   cam: {fileID: 1708059962736547383}
   shoulderSocket: {fileID: 3182364451520046401}
   activeCheckpoint: {fileID: 1808439072}

@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTransform: {fileID: 883066496211273880}
-  swordRespawnSocket: {fileID: 0}
+  swordRespawnSocket: {fileID: 101607239}
   isKindled: 0
   isLit: 0
 --- !u!1 &8750734781385392015

@@ -19,12 +19,12 @@ public class PlayerSword : MonoBehaviour {
         hvrGrabbable = GetComponent<HVRGrabbable>();
     }
     private void OnEnable() {
-        playerDamageEventChannel.onPlayerDeath += OnPlayerDeath;
+        playerDamageEventChannel.onPlayerRevive += OnPlayerDeath;
         hvrGrabbable.HandGrabbed.AddListener(OnGrabbed);
     }
 
     private void OnDisable() {
-        playerDamageEventChannel.onPlayerDeath -= OnPlayerDeath;
+        playerDamageEventChannel.onPlayerRevive -= OnPlayerDeath;
         hvrGrabbable.HandGrabbed.RemoveListener(OnGrabbed);
     }
 

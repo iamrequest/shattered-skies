@@ -7,6 +7,11 @@ public enum KillPlaneEnteredActions { DEPLETE_HEALTH }
 public class Damageable : MonoBehaviour {
     public DamageTargets damageTargetType;
     public float healthMax, healthCurrent;
+
+    [Range(0f, 1f)]
+    public float invincibilityFrames = 0.1f;
+    private float timeSinceLastDamaged;
+
     public AudioClip damagedSFX, deathSFX;
     public Transform audioSourceTransform;
     public KillPlaneEnteredActions killPlaneEnteredAction = KillPlaneEnteredActions.DEPLETE_HEALTH;
@@ -25,8 +30,15 @@ public class Damageable : MonoBehaviour {
         healthCurrent = healthMax;
     }
 
-    public virtual void ApplyDamage(float incomingDamage, BaseDamager damager) {
+    private void Update() {
+        if (timeSinceLastDamaged < invincibilityFrames) timeSinceLastDamaged += Time.deltaTime;
+    }
+
+    public virtual void ApplyDamage(float incomingDamage, BaseDamager damager, bool ignoreInvincibility = false) {
         if (!isAlive) return;
+        if (!ignoreInvincibility) {
+            if (timeSinceLastDamaged < invincibilityFrames) return;
+        }
 
         healthCurrent = Mathf.Clamp(healthCurrent - incomingDamage, 0f, healthMax);
         onDamageApplied.Invoke(incomingDamage, damager, this);
@@ -48,7 +60,7 @@ public class Damageable : MonoBehaviour {
     public void Kill() {
         if (isAlive) {
             // Just to be safe with floats
-            ApplyDamage(healthMax + 1, null);
+            ApplyDamage(healthMax + 1, null, true);
         }
     }
 

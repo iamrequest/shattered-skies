@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     private Animator animator;
     private int animHashVisionFade;
 
+    public PlayerDamageEventChannel playerDamageEventChannel;
     public Camera cam;
 
     public HVRSocket shoulderSocket;
@@ -52,24 +53,31 @@ public class Player : MonoBehaviour {
     private IEnumerator RespawnAfterDelay() {
         animator.SetBool(animHashVisionFade, true);
 
+        playerDamageEventChannel.RaiseOnPlayerDeath();
         playerController.enabled = false;
         playerController.CharacterController.enabled = false;
+
+        // Drop all interactables
+        playerController.LeftHand.ForceRelease();
+        playerController.RightHand.ForceRelease();
+
         yield return new WaitForSeconds(respawnDelay);
 
+        // Move the player into position
         playerController.transform.position = activeCheckpoint.respawnTransform.position;
         playerController.transform.rotation = activeCheckpoint.respawnTransform.rotation;
 
-        // TODO: Drop all interactables
-
-        // TODO: Move the player hands into position
-
-        // TODO: Respawn sword
+        // Move the player hands into position
+        playerController.LeftHand.transform.position = playerController.transform.position + Vector3.up + playerController.transform.forward;
+        playerController.RightHand.transform.position = playerController.transform.position + Vector3.up + playerController.transform.forward;
 
         // Wait a frame before re-enabling char controllers
         yield return null;
         playerController.CharacterController.enabled = true;
         playerController.enabled = true;
+
         damageable.Revive();
+        playerDamageEventChannel.RaiseOnPlayerRevive();
 
         animator.SetBool(animHashVisionFade, false);
     }

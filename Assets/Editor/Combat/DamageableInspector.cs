@@ -13,7 +13,7 @@ public class DamageableInspector : Editor
             GUILayout.BeginHorizontal();
             Damageable damageable = target as Damageable;
             if (GUILayout.Button("Kill", EditorStyles.miniButtonLeft)) {
-                damageable.ApplyDamage(damageable.healthMax, null);
+                damageable.ApplyDamage(damageable.healthMax, null, true);
             }
             if (GUILayout.Button("Trigger Killplane", EditorStyles.miniButtonLeft)) {
                 damageable.OnKillPlaneEntered();
