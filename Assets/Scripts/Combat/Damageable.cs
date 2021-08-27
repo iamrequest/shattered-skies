@@ -77,6 +77,7 @@ public class Damageable : MonoBehaviour {
     public void Revive(float newHealth) {
         //if (isAlive) return;
         healthCurrent = Mathf.Min(healthMax, newHealth);
+        onHealed.Invoke(healthCurrent, null, null);
     }
 
     

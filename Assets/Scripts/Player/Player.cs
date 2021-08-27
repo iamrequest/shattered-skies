@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour {
     public HVRPlayerController playerController { get; private set; }
-    private Damageable damageable;
+    public Damageable damageable { get; private set;  }
 
     // Used for fade in/out
     private Animator animator;
