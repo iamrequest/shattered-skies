@@ -9,7 +9,7 @@ public class EnemyVision : MonoBehaviour {
     public Transform eyeTransform;
     public LayerMask visibleLayers;
 
-    [Range(0f, 20f)]
+    [Range(0f, 30f)]
     public float visionDistance;
 
     [Tooltip("The angular radius (degrees) that the enemy can see on each side")]

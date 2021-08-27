@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df326e071d6f239409f5aa76dcf62fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 3
+  lifetime: 6
   projectileHitSFX: {fileID: 8300000, guid: ee2493ed936423e4eaacdf9553ec3f1e, type: 3}
   sfxPitchRange: 0.1
 --- !u!114 &7289096063779032425
@@ -61,6 +61,15 @@ MonoBehaviour:
   maxDamage: 1
   minDamagingSpeed: 0
   maxDamagingSpeed: 0
+  pitchRange: 0
+  volumeRange: {x: 0, y: 0}
+  onDamageSFX: {fileID: 0}
+  dmgSFXCooldown: 0
+  envLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  onEnvCollisionSFX: {fileID: 0}
+  envCollisionSFXCooldown: 0
 --- !u!1001 &3537602115448718204
 PrefabInstance:
   m_ObjectHideFlags: 0
