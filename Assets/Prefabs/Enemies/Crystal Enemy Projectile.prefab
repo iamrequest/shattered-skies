@@ -16,6 +16,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1838910408995972639
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456733701827526189}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.015625, y: 0.015625, z: 0.015625}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2319000881810237774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,6 +42,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
+  projectileHitSFX: {fileID: 8300000, guid: ee2493ed936423e4eaacdf9553ec3f1e, type: 3}
+  sfxPitchRange: 0.1
 --- !u!114 &7289096063779032425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,19 +61,6 @@ MonoBehaviour:
   maxDamage: 1
   minDamagingSpeed: 0
   maxDamagingSpeed: 0
---- !u!65 &1838910408995972639
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4456733701827526189}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.015625, y: 0.015625, z: 0.015625}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3537602115448718204
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HurricaneVR.Framework.Core.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -12,6 +13,14 @@ public class CrystalEnemyAttackState : BaseState {
     public MultiAimConstraint multiAimConstraint;
     public Transform lookatTarget;
 
+    [Header("SFX")]
+    public AudioClip onPlayerSpottedSFX;
+    public AudioClip projectileFiredSFX;
+    [Range(0f, .5f)]
+    public float projectileFiredPitchRange;
+    [Range(0f, .5f)]
+    public float playerSpottedPitchRange;
+
     [Header("Timers")]
     public float attackDelay;
     private float elapsedAttackDelay;
@@ -23,6 +32,7 @@ public class CrystalEnemyAttackState : BaseState {
     public GameObject projectilePrefab;
     public Transform projectileSpawnTransform;
     public float projectileForce;
+    public Vector3 randomProjectileOffset;
 
     protected override void Awake() {
         base.Awake();
@@ -33,6 +43,9 @@ public class CrystalEnemyAttackState : BaseState {
 
     public override void OnStateEnter(BaseState previousState) {
         base.OnStateEnter(previousState);
+
+        float sfxPitch = 1 + Random.Range(-playerSpottedPitchRange, playerSpottedPitchRange);
+        SFXPlayer.Instance.PlaySFX(onPlayerSpottedSFX, transform.position, sfxPitch, .7f);
 
         multiAimConstraint.weight = 1f;
         animator.SetBool(animHashIsTrackingPlayer, true);
@@ -70,6 +83,41 @@ public class CrystalEnemyAttackState : BaseState {
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnTransform.position, projectileSpawnTransform.rotation);
         Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
 
-        projectileRb.AddForce(projectileSpawnTransform.forward * projectileForce, ForceMode.VelocityChange);
+        float sfxPitch = 1 + Random.Range(-projectileFiredPitchRange, projectileFiredPitchRange);
+        SFXPlayer.Instance.PlaySFX(projectileFiredSFX, transform.position, sfxPitch, 1f);
+
+        // Add a random angular offset. Pretty sure this is in world space, not local space
+        // I think the rotation of the enemy also makes this weird
+        Vector3 fireDir = projectileSpawnTransform.forward;
+        fireDir = Quaternion.Euler(GetRandomOffset(randomProjectileOffset.x), 
+            GetRandomOffset(randomProjectileOffset.y), 
+            GetRandomOffset(randomProjectileOffset.z)) 
+            * fireDir;
+
+        projectileRb.AddForce(fireDir * projectileForce, ForceMode.VelocityChange);
+    }
+
+    private float GetRandomOffset(float offset) {
+        return Random.Range(-offset, offset);
+    }
+
+
+
+    public void OnDrawGizmosSelected() {
+        // Guessing the projectile lifetime here, since it's on the prefab
+        float projectileFullDistance = projectileForce * 5f;
+
+        // I think this is wrong, since it produces weird angles depending on which dir the enemy is facing.
+        // But it's good enough for visualization
+        // Just realized, this is a world space rotation offset, not local space. 
+        Vector3 v = Quaternion.Euler(randomProjectileOffset.x, 0f, 0f) * projectileSpawnTransform.forward;
+        Debug.DrawRay(projectileSpawnTransform.position, v * projectileFullDistance, Color.magenta);
+        v = Quaternion.Euler(-randomProjectileOffset.x, 0f, 0f) * projectileSpawnTransform.forward;
+        Debug.DrawRay(projectileSpawnTransform.position, v * projectileFullDistance, Color.magenta);
+
+        v = Quaternion.Euler(0f, randomProjectileOffset.y, 0f) * projectileSpawnTransform.forward;
+        Debug.DrawRay(projectileSpawnTransform.position, v * projectileFullDistance, Color.magenta);
+        v = Quaternion.Euler(0f, -randomProjectileOffset.y, 0f) * projectileSpawnTransform.forward;
+        Debug.DrawRay(projectileSpawnTransform.position, v * projectileFullDistance, Color.magenta);
     }
 }

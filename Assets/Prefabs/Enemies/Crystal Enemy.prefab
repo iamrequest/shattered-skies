@@ -198,6 +198,7 @@ MonoBehaviour:
   damageTargetType: 2
   healthMax: 0.01
   healthCurrent: 0
+  invincibilityFrames: 0.1
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 0}
   audioSourceTransform: {fileID: 0}
@@ -425,7 +426,7 @@ MonoBehaviour:
   attackState: {fileID: 1981082012232488091}
   multiAimConstraint: {fileID: 36597551}
   lookatTarget: {fileID: 1396448478}
-  attackDelay: 2
+  attackDelay: 1
 --- !u!1 &5365089205945822201
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +607,7 @@ MonoBehaviour:
   damageTargetType: 2
   healthMax: 3
   healthCurrent: 0
+  invincibilityFrames: 0.1
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 8300000, guid: 75edc860334b02547a0fb7b909fe6dea, type: 3}
   audioSourceTransform: {fileID: 6735411999469722349}
@@ -777,12 +779,17 @@ MonoBehaviour:
   idleState: {fileID: 8088349366052498828}
   multiAimConstraint: {fileID: 36597551}
   lookatTarget: {fileID: 1396448478}
-  attackDelay: 1
+  onPlayerSpottedSFX: {fileID: 8300000, guid: 7fc3d3fb4bc5f3743840365bc76d4b7a, type: 3}
+  projectileFiredSFX: {fileID: 8300000, guid: 8d4b684ffafe0e54ba96afeed90ae50c, type: 3}
+  projectileFiredPitchRange: 0.1
+  playerSpottedPitchRange: 0.1
+  attackDelay: 0.75
   returnToIdleDelay: 5
   projectilePrefab: {fileID: 4456733701827526189, guid: 335431d76c640b140a9a58c62ff9f4b0,
     type: 3}
   projectileSpawnTransform: {fileID: 4398607173036257769}
   projectileForce: 5
+  randomProjectileOffset: {x: 2, y: 2, z: 2}
 --- !u!1001 &6735411999048943550
 PrefabInstance:
   m_ObjectHideFlags: 0
