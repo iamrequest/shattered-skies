@@ -40,6 +40,8 @@ public class BossAttackMultiplexerState : BaseState {
         base.OnStateEnter(previousState);
         timeSinceLastWarp = 0f;
         timeSinceLastAttack = 0f;
+
+        WarpToRandomTransform();
     }
     public override void OnStateExit(BaseState previousState) {
         base.OnStateEnter(previousState);
@@ -57,28 +59,42 @@ public class BossAttackMultiplexerState : BaseState {
 
         // Every frame, see if it's been long enough that we can attack again.
         if (timeSinceLastAttack > attackDelay) {
-            BaseState nextAttack = GetNextAttack();
-
-            if (nextAttack == chargeAttack) {
-                attacksSinceChargeAttack = 0;
-            } else {
-                attacksSinceChargeAttack++;
-            }
-
-            parentFSM.TransitionTo(nextAttack);
-            return;
+            DoAttack();
         }
 
         // If not, see if it's been long enough that we can warp 
         if (timeSinceLastWarp > warpDelay) {
-            if (randomWarpTransforms.Count == 0) {
-                Debug.LogError("Tried to warp, but no warp transforms defined.");
-                return;
-            }
-
-            int randomIndex = Random.Range(0, randomWarpTransforms.Count - 1);
-            enemy.Warp(randomWarpTransforms[randomIndex]);
+            WarpToRandomTransform();
         }
+    }
+
+
+
+
+
+    public void WarpToRandomTransform() {
+        if (randomWarpTransforms.Count == 0) {
+            Debug.LogError("Tried to warp, but no warp transforms defined.");
+            return;
+        }
+
+        timeSinceLastWarp = 0f;
+
+        int randomIndex = Random.Range(0, randomWarpTransforms.Count - 1);
+        enemy.Warp(randomWarpTransforms[randomIndex]);
+    }
+
+    public void DoAttack() {
+        BaseState nextAttack = GetNextAttack();
+
+        if (nextAttack == chargeAttack) {
+            attacksSinceChargeAttack = 0;
+        } else {
+            attacksSinceChargeAttack++;
+        }
+
+        parentFSM.TransitionTo(nextAttack);
+        return;
     }
 
     public BaseState GetNextAttack() {
@@ -95,6 +111,9 @@ public class BossAttackMultiplexerState : BaseState {
         //    return rainAttack;
         //}
     }
+
+
+
 
 
     private void OnDrawGizmos() {

@@ -84,7 +84,7 @@ public class BossRainAttackState : BaseState {
         float elapsedSpawnDuration = 0f, timeSinceLastSpawn = 0f;
 
         // TODO: Channel animation
-        enemy.animator.SetTrigger("isChanneling");
+        //enemy.animator.SetTrigger("isChanneling");
 
         yield return new WaitForSeconds(initialChannelDuration);
         returnToBaseStateCoroutine = StartCoroutine(ReturnToBaseStateAfterDelay());

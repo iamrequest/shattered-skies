@@ -26,6 +26,7 @@ public class BossEnemy : BaseEnemy {
 
     protected override void Awake() {
         base.Awake();
+        Debug.Log(animator);
     }
 
 

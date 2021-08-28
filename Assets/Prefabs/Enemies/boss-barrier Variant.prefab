@@ -28,6 +28,35 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 3145984
+--- !u!114 &1136684091348709790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077820791437152440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9ea6678d70cd241a6a9bd9f9783081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTargetType: 0
+  healthMax: 99999
+  healthCurrent: 99999
+  invincibilityFrames: 1
+  damagedSFX: {fileID: 0}
+  deathSFX: {fileID: 0}
+  audioSourceTransform: {fileID: 0}
+  killPlaneEnteredAction: 0
+  onDamageApplied:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthDepleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &7996160188412423657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 803343059a332dc469ec611fdd676848,
         type: 3}
       propertyPath: m_Name
-      value: boss-barrier
+      value: boss-barrier Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 803343059a332dc469ec611fdd676848,
         type: 3}
