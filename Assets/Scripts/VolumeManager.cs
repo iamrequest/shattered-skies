@@ -20,6 +20,10 @@ public class VolumeManager : MonoBehaviour {
     [Range(0f, 1f)]
     public float skyShardFall, skyShardImpact;
 
+    [Header("Environment")]
+    [Range(0f, 1f)]
+    public float bonfireLit;
+
 
     public static VolumeManager Instance { get; private set; }
     private void Awake() {

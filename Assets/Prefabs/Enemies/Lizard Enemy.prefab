@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: {fileID: 1570581523}
   deathState: {fileID: 7773607268815436753}
-  damagedState: {fileID: 75055922495970196}
+  damagedState: {fileID: 0}
 --- !u!195 &7012180726118432345
 NavMeshAgent:
   m_ObjectHideFlags: 0

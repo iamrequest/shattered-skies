@@ -263,6 +263,8 @@ MonoBehaviour:
   swordRespawnSocket: {fileID: 101607239}
   isKindled: 0
   isLit: 0
+  onBonfireLitSFX: {fileID: 8300000, guid: 14880fbb0b94abf44b6d1f8ef1188720, type: 3}
+  sfxPitchRange: 0.1
 --- !u!1 &8750734781385392015
 GameObject:
   m_ObjectHideFlags: 0

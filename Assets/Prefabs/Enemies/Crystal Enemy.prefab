@@ -697,7 +697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: {fileID: 8088349366052498828}
   deathState: {fileID: 2284114741680938861}
-  damagedState: {fileID: 1981082012232488091}
+  damagedState: {fileID: 0}
 --- !u!1 &7553651747230475337
 GameObject:
   m_ObjectHideFlags: 0
