@@ -10,6 +10,8 @@ public class BossAttackMultiplexerStateInspector : Editor {
 
         if (Application.isPlaying) {
             BossAttackMultiplexerState attackState = target as BossAttackMultiplexerState;
+            EditorGUILayout.LabelField("Attacks since charge: " + attackState.attacksSinceChargeAttack);
+            EditorGUILayout.LabelField("Current State: " + attackState.parentFSM.currentState);
 
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Charge State", EditorStyles.miniButtonLeft)) {

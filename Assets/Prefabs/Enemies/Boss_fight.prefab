@@ -63,7 +63,7 @@ MonoBehaviour:
   - {fileID: 0}
   warpDelay: 4
   attackDelay: 3
-  maxNumAttacksBeforeChargeAttack: 0
+  maxNumAttacksBeforeChargeAttack: 2
 --- !u!114 &1029791515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,10 +304,10 @@ MonoBehaviour:
   projectileSpeed: 5
   spawnRadius: 30.4
   spawnYOffset: 36.03
-  initialChannelDuration: 1
-  postChannelIdleDuration: {x: 1, y: 5}
   spawnDurationRange: {x: 10, y: 5}
   spawnRateRange: {x: 0.2, y: 0.2}
+  channelAnimationDuration: 3
+  postChannelIdleDuration: {x: 1, y: 5}
 --- !u!1001 &5252521592018651651
 PrefabInstance:
   m_ObjectHideFlags: 0

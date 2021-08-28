@@ -14,7 +14,7 @@ using UnityEngine;
 public class BossAttackMultiplexerState : BaseState {
     private BossEnemy enemy;
     public BossRainAttackState rainAttack;
-    public BaseState chargeAttack;
+    public BossChargeState chargeAttack;
     //public BaseState projectileAttack;
 
     public List<Transform> randomWarpTransforms;
@@ -29,7 +29,7 @@ public class BossAttackMultiplexerState : BaseState {
 
     [Range(0, 5)]
     public int maxNumAttacksBeforeChargeAttack;
-    private int attacksSinceChargeAttack = 0;
+    public int attacksSinceChargeAttack { get; private set; }
     private Transform lastWarpTransform;
 
     protected override void Awake() {
@@ -108,10 +108,13 @@ public class BossAttackMultiplexerState : BaseState {
     public void DoAttack() {
         BaseState nextAttack = GetNextAttack();
 
-        if (nextAttack == chargeAttack) {
+        if (nextAttack == (chargeAttack as BaseState)) {
             attacksSinceChargeAttack = 0;
         } else {
             attacksSinceChargeAttack++;
+
+            // TODO: Uncomment
+            if (rainAttack.isSpawningProjectiles) return;
         }
 
         parentFSM.TransitionTo(nextAttack);
@@ -120,9 +123,9 @@ public class BossAttackMultiplexerState : BaseState {
 
     public BaseState GetNextAttack() {
         // TODO: Uncomment once I have my charge attack defined
-        //if (attacksSinceChargeAttack >= maxNumAttacksBeforeChargeAttack) {
-        //    return chargeAttack;
-        //}
+        if (attacksSinceChargeAttack >= maxNumAttacksBeforeChargeAttack) {
+            return chargeAttack;
+        }
 
         // TODO: This should be random chance.
         return rainAttack;
