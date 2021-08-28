@@ -7,34 +7,40 @@ using UnityEngine;
 public class BossFightTrigger : MonoBehaviour {
     public PlayerDamageEventChannel playerDamageEventChannel;
 
-    public DialogManager dialogManager;
-    public Dialog dialog;
     public BossDoor entryBossDoor, exitBossDoor;
     public Animator dialogBossAnimator;
 
-    private int animHashHide;
+    private int animHashHideForFight, animHashBossDefeated;
+
+    [Header("Dialog")]
+    public DialogManager preFightDialogManager;
+    public Dialog preFightDialog;
+    public DialogManager postFightDialogManager;
+    public Dialog postFightDialog;
 
     [Header("Boss Config")]
-    public Damageable bossDamageable;
+    public BaseEnemy dialogEnemy;
+    public BossEnemy bossEnemy;
 
     private void Awake() {
-        animHashHide = Animator.StringToHash("hide");
+        animHashHideForFight = Animator.StringToHash("hideForFight");
+        animHashBossDefeated = Animator.StringToHash("onBossDefeated");
     }
 
     private void OnEnable() {
         playerDamageEventChannel.onPlayerDeath += ResetArena;
-        dialog.onDialogStart.AddListener(CloseArena);
-        dialog.onDialogCompleted.AddListener(StartFight);
+        preFightDialog.onDialogStart.AddListener(CloseArena);
+        preFightDialog.onDialogCompleted.AddListener(StartFight);
 
-        bossDamageable.onHealthDepleted.AddListener(OnBossDeath);
+        bossEnemy.damageable.onHealthDepleted.AddListener(OnBossDeath);
     }
 
     private void OnDisable() {
         playerDamageEventChannel.onPlayerDeath -= ResetArena;
-        dialog.onDialogStart.RemoveListener(CloseArena);
-        dialog.onDialogCompleted.RemoveListener(StartFight);
+        preFightDialog.onDialogStart.RemoveListener(CloseArena);
+        preFightDialog.onDialogCompleted.RemoveListener(StartFight);
 
-        bossDamageable.onHealthDepleted.RemoveListener(OnBossDeath);
+        bossEnemy.damageable.onHealthDepleted.RemoveListener(OnBossDeath);
     }
 
     public void OnTriggerEnter(Collider other) {
@@ -43,14 +49,16 @@ public class BossFightTrigger : MonoBehaviour {
             return;
         }
 
-        if (bossDamageable.isAlive) {
-            if (dialog.isComplete) {
+        // TODO: If the fight is in progress, do nothing here
+
+        if (bossEnemy.damageable.isAlive) {
+            if (preFightDialog.isComplete) {
                 // Just jump straight to the fight
                 CloseArena();
                 StartFight();
             } else {
                 // Do the dialog first. 
-                dialogManager.StartDialog(dialog);
+                preFightDialogManager.StartDialog(preFightDialog);
             }
         }
     }
@@ -61,18 +69,23 @@ public class BossFightTrigger : MonoBehaviour {
     }
 
     public void StartFight() {
-        // Optional: Comment this out for easier fights
-        bossDamageable.Heal(bossDamageable.healthMax);
+        dialogBossAnimator.SetBool(animHashHideForFight, true);
 
+        // Optional: Comment this out for easier fights
+        bossEnemy.damageable.Heal(bossEnemy.damageable.healthMax);
+
+        // TODO: Consider adding an initial state, for a short initial delay 
+        bossEnemy.fsm.TransitionTo(bossEnemy.multiplexerAttackState);
     }
 
+    // On player death, restore the arena to its initial state
     public void ResetArena() {
         entryBossDoor.Open();
         exitBossDoor.Open();
 
         // TODO: Only set this if the enemy is still alive
-        dialogBossAnimator.SetBool(animHashHide, false);
 
+        dialogBossAnimator.SetBool(animHashHideForFight, false);
         // TODO: Hide the battle boss
     }
 
@@ -85,5 +98,6 @@ public class BossFightTrigger : MonoBehaviour {
         OpenArenaForVictory();
 
         // TODO: Consider adding post-death dialog
+        dialogBossAnimator.SetBool(animHashBossDefeated, false);
     }
 }

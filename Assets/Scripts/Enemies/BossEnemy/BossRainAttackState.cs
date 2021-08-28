@@ -5,9 +5,8 @@ using Freya;
 using System;
 
 public class BossRainAttackState : BaseState {
-    private BaseEnemy baseEnemy;
+    private BossEnemy enemy;
     public PlayerDamageEventChannel playerDamagedEventChannel;
-    public BaseState postAttackState;
 
     [Header("Projectile")]
     public GameObject projectilePrefab;
@@ -39,16 +38,16 @@ public class BossRainAttackState : BaseState {
 
     protected override void Awake() {
         base.Awake();
-        baseEnemy = GetComponentInParent<BaseEnemy>();
+        enemy = GetComponentInParent<BossEnemy>();
     }
 
     private void OnEnable() {
         playerDamagedEventChannel.onPlayerDeath += OnPlayerDeath;
-        baseEnemy.damageable.onHealthDepleted.AddListener(OnBossDeath);
+        enemy.damageable.onHealthDepleted.AddListener(OnBossDeath);
     }
     private void OnDisable() {
         playerDamagedEventChannel.onPlayerDeath -= OnPlayerDeath;
-        baseEnemy.damageable.onHealthDepleted.RemoveListener(OnBossDeath);
+        enemy.damageable.onHealthDepleted.RemoveListener(OnBossDeath);
     }
 
     public override void OnStateEnter(BaseState previousState) {
@@ -57,7 +56,7 @@ public class BossRainAttackState : BaseState {
         // TODO: We shouldn't start this case at all, if we're already spawning things
         if (isSpawningProjectiles) {
             Debug.LogError("We tried to jump to the rain attack, but we're already in the middle of spawning projectiles");
-            parentFSM.TransitionTo(postAttackState);
+            parentFSM.TransitionTo(enemy.multiplexerAttackState);
         }
 
         CancelSpawning();
@@ -75,13 +74,13 @@ public class BossRainAttackState : BaseState {
 
     public IEnumerator DoSpawnProjectiles() {
         // Evaluate spawn rate/duration based on boss health at the start of this state
-        float spawnDuration = Mathfs.RemapClamped(0f, 1f, spawnDurationRange.x, spawnDurationRange.y, baseEnemy.damageable.getHealthPercentage);
-        float spawnRate = Mathfs.RemapClamped(0f, 1f, spawnRateRange.x, spawnRateRange.y, baseEnemy.damageable.getHealthPercentage);
+        float spawnDuration = Mathfs.RemapClamped(0f, 1f, spawnDurationRange.x, spawnDurationRange.y, enemy.damageable.getHealthPercentage);
+        float spawnRate = Mathfs.RemapClamped(0f, 1f, spawnRateRange.x, spawnRateRange.y, enemy.damageable.getHealthPercentage);
 
         float elapsedSpawnDuration = 0f, timeSinceLastSpawn = 0f;
 
         // TODO: Channel animation
-        baseEnemy.animator.SetTrigger("isChanneling");
+        enemy.animator.SetTrigger("isChanneling");
 
         yield return new WaitForSeconds(initialChannelDuration);
         returnToBaseStateCoroutine = StartCoroutine(ReturnToBaseStateAfterDelay());
@@ -98,9 +97,9 @@ public class BossRainAttackState : BaseState {
     }
 
     public IEnumerator ReturnToBaseStateAfterDelay() {
-        float returnToStateDelay = Mathfs.RemapClamped(0f, 1f, postChannelIdleDuration.x, postChannelIdleDuration.y, baseEnemy.damageable.getHealthPercentage);
+        float returnToStateDelay = Mathfs.RemapClamped(0f, 1f, postChannelIdleDuration.x, postChannelIdleDuration.y, enemy.damageable.getHealthPercentage);
         yield return new WaitForSeconds(returnToStateDelay);
-        parentFSM.TransitionTo(postAttackState);
+        parentFSM.TransitionTo(enemy.multiplexerAttackState);
     }
 
     public void CancelSpawning() {

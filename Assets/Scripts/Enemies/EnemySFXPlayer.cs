@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // This was necessary to play SFX via the animator, but it needs to be refactored.
-public enum EnemySFXType { Step }
+public enum EnemySFXType { Step, Warp }
 public class EnemySFXPlayer : MonoBehaviour {
     public AudioClip stepSFX;
+    public AudioClip warpSFX;
     [Range(0f, .5f)]
     public float pitchRange;
 
@@ -14,6 +15,9 @@ public class EnemySFXPlayer : MonoBehaviour {
         switch (sfxType) {
             case EnemySFXType.Step:
                 PlaySFX(sfxType, stepSFX, VolumeManager.Instance.lizardStep);
+                break;
+            case EnemySFXType.Warp:
+                PlaySFX(sfxType, warpSFX, VolumeManager.Instance.bossWarp);
                 break;
             default:
                 return;

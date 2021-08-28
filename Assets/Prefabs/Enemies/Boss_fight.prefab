@@ -51,6 +51,42 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   rainAttack: {fileID: 0}
+--- !u!114 &1029791515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309506747972848613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386649e88f6be1a4caf976918af73031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState: {fileID: 798012482}
+  deathState: {fileID: 0}
+  damagedState: {fileID: 0}
+--- !u!114 &97802738965511159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309506747972848613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4709339da26134d8daa057b1aaba01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageable: {fileID: 0}
+  vision: {fileID: 0}
+  animator: {fileID: 0}
+  fsm: {fileID: 0}
+  DEBUG_DO_NOT_RETURN_TO_BASE_STATE: 0
+  multiplexerAttackState: {fileID: 1980208993}
+  randomWarpTransforms: []
+  warpSFX: {fileID: 8300000, guid: 90f846da8c47f66499e5e770cb2d7542, type: 3}
+  sfxPitchRange: 0.1
 --- !u!1 &921708533470673321
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +222,6 @@ MonoBehaviour:
       m_Calls: []
   playerDamagedEventChannel: {fileID: 11400000, guid: 86262cfe883e889458bb5555d7022c4d,
     type: 2}
-  postAttackState: {fileID: 1980208993}
   projectilePrefab: {fileID: 4456733701827526189, guid: 4ac9af1f205579f44910952503318aad,
     type: 3}
   spawnCenter: {fileID: 0}
@@ -197,40 +232,6 @@ MonoBehaviour:
   postChannelIdleDuration: {x: 1, y: 5}
   spawnDurationRange: {x: 15, y: 5}
   spawnRateRange: {x: 1, y: 1}
---- !u!114 &1029791515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309506747972848613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 386649e88f6be1a4caf976918af73031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialState: {fileID: 798012482}
-  deathState: {fileID: 0}
-  damagedState: {fileID: 0}
---- !u!114 &97802738965511159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309506747972848613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4709339da26134d8daa057b1aaba01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageable: {fileID: 0}
-  vision: {fileID: 0}
-  animator: {fileID: 0}
-  DEBUG_DO_NOT_RETURN_TO_BASE_STATE: 0
-  randomWarpTransforms: []
-  warpSFX: {fileID: 8300000, guid: 90f846da8c47f66499e5e770cb2d7542, type: 3}
-  sfxPitchRange: 0.1
 --- !u!1001 &5252521592018651651
 PrefabInstance:
   m_ObjectHideFlags: 0

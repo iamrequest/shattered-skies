@@ -14,6 +14,9 @@ public class RagdollEnemy : MonoBehaviour {
     public bool isRagdollActiveOnInit;
     public bool isRagdollActive { get; private set; }
 
+    [SerializeField]
+    private bool ragdollOnDeath = true;
+
 
     private void Awake() {
         damageable = GetComponent<Damageable>();
@@ -21,11 +24,11 @@ public class RagdollEnemy : MonoBehaviour {
     }
 
     private void OnEnable() {
-        if(damageable) damageable.onHealthDepleted.AddListener(OnDeath);
+        if(damageable && ragdollOnDeath) damageable.onHealthDepleted.AddListener(OnDeath);
     }
 
     private void OnDisable() {
-        if(damageable) damageable.onHealthDepleted.RemoveListener(OnDeath);
+        if(damageable && ragdollOnDeath) damageable.onHealthDepleted.RemoveListener(OnDeath);
     }
 
     private void Start() {

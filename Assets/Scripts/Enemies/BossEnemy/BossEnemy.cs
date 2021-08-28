@@ -7,6 +7,7 @@ public class BossEnemy : BaseEnemy {
     [Tooltip("Useful for testing states individually")]
     public bool DEBUG_DO_NOT_RETURN_TO_BASE_STATE;
 
+    public BaseState multiplexerAttackState;
     [Header("Warp")]
     public List<Transform> randomWarpTransforms;
     public AudioClip warpSFX;
