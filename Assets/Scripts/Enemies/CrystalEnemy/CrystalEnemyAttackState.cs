@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
 public class CrystalEnemyAttackState : BaseState {
-    private BossEnemy enemy;
+    private BaseEnemy enemy;
     private Animator animator;
     private int animHashIsTrackingPlayer;
 
@@ -33,7 +33,7 @@ public class CrystalEnemyAttackState : BaseState {
 
     protected override void Awake() {
         base.Awake();
-        enemy = parentFSM.GetComponent<BossEnemy>();
+        enemy = parentFSM.GetComponent<BaseEnemy>();
         animator = parentFSM.GetComponentInChildren<Animator>();
         animHashIsTrackingPlayer = Animator.StringToHash("isTrackingPlayer");
     }
@@ -68,9 +68,7 @@ public class CrystalEnemyAttackState : BaseState {
             // If we haven't seen the player in a while, return to the idle state
             elapsedReturnToIdleDelay += Time.deltaTime;
             if (elapsedReturnToIdleDelay >= returnToIdleDelay) {
-                if (!enemy.DEBUG_DO_NOT_RETURN_TO_BASE_STATE) {
-                    parentFSM.TransitionTo(idleState);
-                }
+                parentFSM.TransitionTo(idleState);
             }
         }
 

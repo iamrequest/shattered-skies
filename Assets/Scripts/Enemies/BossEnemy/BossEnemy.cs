@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class BossEnemy : BaseEnemy {
     [Tooltip("Useful for testing states individually")]
-    public bool DEBUG_DO_NOT_RETURN_TO_BASE_STATE;
+    public bool DEBUG_NO_STATE_MULTIPLEX, DEBUG_NO_STATE_RETURN;
 
     public PlayerDamageEventChannel playerDamageEventChannel;
 
     public BaseState multiplexerAttackState;
-
 
     [Header("Warp")]
     public AudioClip warpSFX;
@@ -18,6 +17,9 @@ public class BossEnemy : BaseEnemy {
     public float sfxPitchRange;
     [Range(0f, 2f)]
     public float warpDuration;
+
+    private int animHashIsWarping;
+    private int animHashIsFloating;
 
     public bool isWarping {
         get {
@@ -28,7 +30,10 @@ public class BossEnemy : BaseEnemy {
 
     protected override void Awake() {
         base.Awake();
+        animHashIsFloating = Animator.StringToHash("isFloating");
+        animHashIsWarping = Animator.StringToHash("isWarping");
     }
+
     private void OnEnable() {
         playerDamageEventChannel.onPlayerRevive += OnPlayerRevive;
     }
@@ -51,11 +56,20 @@ public class BossEnemy : BaseEnemy {
         float sfxPitch = 1 + Random.Range(-sfxPitchRange, sfxPitchRange);
         SFXPlayer.Instance.PlaySFX(warpSFX, transform.position, sfxPitch, VolumeManager.Instance.bossWarp);
 
-        // Fade out anim
-
+        // Fade in/out
+        animator.SetBool(animHashIsWarping, true);
         yield return new WaitForSeconds(warpDuration);
 
-        // Fade in anim
+        // Move to transform
+        transform.position = warpTransform.position;
+        transform.forward = warpTransform.forward;
+
+        // Fade back in
+        animator.SetBool(animHashIsWarping, false);
+
+        // Play SFX
+        sfxPitch = 1 + Random.Range(-sfxPitchRange, sfxPitchRange);
+        SFXPlayer.Instance.PlaySFX(warpSFX, transform.position, sfxPitch, VolumeManager.Instance.bossWarp);
 
         warpCoroutine = null;
     }
@@ -63,5 +77,9 @@ public class BossEnemy : BaseEnemy {
     // This should probably be in the finite state machine, but I don't have time to refactor properly
     public void OnPlayerRevive() {
         fsm.TransitionTo(fsm.initialState);
+    }
+
+    public void setIsFloating(bool isFloating) {
+        animator.SetBool(animHashIsFloating, isFloating);
     }
 }

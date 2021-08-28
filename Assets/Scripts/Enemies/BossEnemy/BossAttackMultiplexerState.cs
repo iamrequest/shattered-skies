@@ -19,7 +19,7 @@ public class BossAttackMultiplexerState : BaseState {
 
     public List<Transform> randomWarpTransforms;
 
-    [Range(0f, 2f)]
+    [Range(0f, 7f)]
     public float warpDelay;
     private float timeSinceLastWarp;
 
@@ -30,6 +30,7 @@ public class BossAttackMultiplexerState : BaseState {
     [Range(0, 5)]
     public int maxNumAttacksBeforeChargeAttack;
     private int attacksSinceChargeAttack = 0;
+    private Transform lastWarpTransform;
 
     protected override void Awake() {
         base.Awake();
@@ -38,10 +39,15 @@ public class BossAttackMultiplexerState : BaseState {
 
     public override void OnStateEnter(BaseState previousState) {
         base.OnStateEnter(previousState);
-        timeSinceLastWarp = 0f;
         timeSinceLastAttack = 0f;
+        timeSinceLastWarp = 0f;
 
-        WarpToRandomTransform();
+        if (previousState != parentFSM.initialState) {
+            // If we're just starting the fight, let the hidden state handle the initial warp
+            //  (this helps sync the dialog and combat enemies)
+            WarpToRandomTransform();
+        }
+        enemy.setIsFloating(true);
     }
     public override void OnStateExit(BaseState previousState) {
         base.OnStateEnter(previousState);
@@ -49,7 +55,9 @@ public class BossAttackMultiplexerState : BaseState {
     public override void OnStateUpdate() {
         base.OnStateUpdate();
         timeSinceLastAttack += Time.deltaTime;
-        timeSinceLastWarp += Time.deltaTime;
+        if (!enemy.isWarping) {
+            timeSinceLastWarp += Time.deltaTime;
+        }
 
         PerformNextAction();
     }
@@ -59,7 +67,9 @@ public class BossAttackMultiplexerState : BaseState {
 
         // Every frame, see if it's been long enough that we can attack again.
         if (timeSinceLastAttack > attackDelay) {
-            DoAttack();
+            if (!enemy.DEBUG_NO_STATE_MULTIPLEX) {
+                DoAttack();
+            }
         }
 
         // If not, see if it's been long enough that we can warp 
@@ -80,8 +90,19 @@ public class BossAttackMultiplexerState : BaseState {
 
         timeSinceLastWarp = 0f;
 
-        int randomIndex = Random.Range(0, randomWarpTransforms.Count - 1);
-        enemy.Warp(randomWarpTransforms[randomIndex]);
+        // Try a few times to find a warp transform that isn't the current one
+        for (int i = 0; i < 5; i++) {
+            int randomIndex = Random.Range(0, randomWarpTransforms.Count - 1);
+
+            if (lastWarpTransform != randomWarpTransforms[randomIndex]) {
+                lastWarpTransform = randomWarpTransforms[randomIndex];
+                enemy.Warp(lastWarpTransform);
+                return;
+            }
+        }
+
+        // If that fails due to probability stuff, just pick the first one
+        enemy.Warp(randomWarpTransforms[0]);
     }
 
     public void DoAttack() {

@@ -6906,6 +6906,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.000025831163
       objectReference: {fileID: 0}
+    - target: {fileID: 351952691355027606, guid: a4ffb31938e954643801f8e2a2bdf2c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 467774529555161117, guid: a4ffb31938e954643801f8e2a2bdf2c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -61001,6 +61006,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 386511733}
     m_Modifications:
     - target: {fileID: 1980208993, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: warpDelay
+      value: 4.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980208993, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
       propertyPath: randomWarpTransforms.Array.data[0]
       value: 
       objectReference: {fileID: 1527356019}
@@ -61041,6 +61050,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.0000000055479052
+      objectReference: {fileID: 0}
+    - target: {fileID: 97802738965511159, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: warpDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 97802738965511159, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: DEBUG_NO_STATE_MULTIPLEX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 309506747972848613, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}

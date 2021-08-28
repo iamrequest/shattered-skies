@@ -63,8 +63,10 @@ public class BossRainAttackState : BaseState {
             parentFSM.TransitionTo(enemy.multiplexerAttackState);
         }
 
-        CancelSpawning();
+        // TODO: Warp to position
+        enemy.setIsFloating(true);
 
+        CancelSpawning();
         spawnProjectilesCoroutine = StartCoroutine(DoSpawnProjectiles());
     }
 
@@ -87,7 +89,10 @@ public class BossRainAttackState : BaseState {
         //enemy.animator.SetTrigger("isChanneling");
 
         yield return new WaitForSeconds(initialChannelDuration);
-        returnToBaseStateCoroutine = StartCoroutine(ReturnToBaseStateAfterDelay());
+
+        if (!enemy.DEBUG_NO_STATE_RETURN) {
+            returnToBaseStateCoroutine = StartCoroutine(ReturnToBaseStateAfterDelay());
+        }
 
         while (elapsedSpawnDuration < spawnDuration) {
             elapsedSpawnDuration += Time.deltaTime;
