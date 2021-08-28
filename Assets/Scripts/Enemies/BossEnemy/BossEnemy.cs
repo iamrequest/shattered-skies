@@ -10,6 +10,10 @@ public class BossEnemy : BaseEnemy {
     public PlayerDamageEventChannel playerDamageEventChannel;
 
     public BaseState multiplexerAttackState;
+    public Transform lookatTarget;
+    public bool isLookingAtPlayer;
+    [Range(0f, 1f)]
+    public float lookAtPlayerSpeed;
 
     [Header("Warp")]
     public AudioClip warpSFX;
@@ -39,6 +43,11 @@ public class BossEnemy : BaseEnemy {
     }
     private void OnDisable() {
         playerDamageEventChannel.onPlayerRevive -= OnPlayerRevive;
+    }
+    private void Update() {
+        if (isLookingAtPlayer) {
+            LookAtPlayer();
+        }
     }
 
 
@@ -81,5 +90,9 @@ public class BossEnemy : BaseEnemy {
 
     public void setIsFloating(bool isFloating) {
         animator.SetBool(animHashIsFloating, isFloating);
+    }
+
+    public void LookAtPlayer() {
+        lookatTarget.transform.position = Vector3.Lerp(lookatTarget.transform.position, Player.Instance.cam.transform.position, lookAtPlayerSpeed);
     }
 }

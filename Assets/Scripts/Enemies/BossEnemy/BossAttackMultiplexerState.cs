@@ -48,6 +48,7 @@ public class BossAttackMultiplexerState : BaseState {
             WarpToRandomTransform();
         }
         enemy.setIsFloating(true);
+        enemy.isLookingAtPlayer = true;
     }
     public override void OnStateExit(BaseState previousState) {
         base.OnStateEnter(previousState);

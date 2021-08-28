@@ -82,6 +82,7 @@ public class BossRainAttackState : BaseState {
 
         // Warp to channeling position
         enemy.Warp(channelingTransform);
+        enemy.isLookingAtPlayer = false;
         enemy.setIsFloating(true);
 
         CancelSpawning();
@@ -116,7 +117,10 @@ public class BossRainAttackState : BaseState {
         enemy.animator.SetBool(animHashIsChanneling, true);
         portalAnimator.SetBool(animHashPortalOpen, true);
         yield return new WaitForSeconds(channelAnimationDuration);
+
+        // Stop channeling, look at the player
         enemy.animator.SetBool(animHashIsChanneling, false);
+        enemy.isLookingAtPlayer = true;
 
 
         // Return to state after a delay
