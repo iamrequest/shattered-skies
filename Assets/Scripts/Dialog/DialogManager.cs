@@ -43,6 +43,8 @@ public class DialogManager : MonoBehaviour {
     // -- Interface --
     // --------------------------------------------------------------------------------
     public void StartDialog(Dialog dialog) {
+        // If we're already in dialog, do nothing
+        if (activeDialog) return;
         if (dialog.isComplete) return;
 
         animator.SetBool(animHashIsOpen, true);
