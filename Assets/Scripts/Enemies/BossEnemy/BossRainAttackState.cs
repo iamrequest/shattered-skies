@@ -104,6 +104,7 @@ public class BossRainAttackState : BaseState {
         // Channel
         enemy.animator.SetTrigger("isChannelingRainAttack");
 
+        yield return new WaitForSeconds(initialChannelDuration);
 
         // Return to state after a delay
         if (!enemy.DEBUG_NO_STATE_RETURN) {

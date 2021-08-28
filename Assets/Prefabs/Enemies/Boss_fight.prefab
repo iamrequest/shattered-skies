@@ -51,7 +51,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   rainAttack: {fileID: 3433347672826576296}
-  chargeAttack: {fileID: 0}
+  chargeAttack: {fileID: 1221239347288150376}
   randomWarpTransforms:
   - {fileID: 0}
   - {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  warpDelay: 1
+  warpDelay: 4
   attackDelay: 3
   maxNumAttacksBeforeChargeAttack: 0
 --- !u!114 &1029791515
@@ -95,13 +95,14 @@ MonoBehaviour:
   vision: {fileID: 0}
   animator: {fileID: 0}
   fsm: {fileID: 0}
+  DEBUG_NO_STATE_MULTIPLEX: 0
+  DEBUG_NO_STATE_RETURN: 0
   playerDamageEventChannel: {fileID: 11400000, guid: 86262cfe883e889458bb5555d7022c4d,
     type: 2}
-  DEBUG_DO_NOT_RETURN_TO_BASE_STATE: 0
   multiplexerAttackState: {fileID: 1980208993}
   warpSFX: {fileID: 8300000, guid: 90f846da8c47f66499e5e770cb2d7542, type: 3}
   sfxPitchRange: 0.1
-  warpDuration: 0
+  warpDuration: 1
 --- !u!1 &921708533470673321
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +153,7 @@ MonoBehaviour:
   onStateExit:
     m_PersistentCalls:
       m_Calls: []
+  hidingTransform: {fileID: 0}
 --- !u!1 &1387795565092742068
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,9 +184,66 @@ Transform:
   - {fileID: 1688271343063095005}
   - {fileID: 1980208992}
   - {fileID: 8652451787814018555}
+  - {fileID: 5265318864428783465}
   m_Father: {fileID: 1080940961245319519}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1996945641560408201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5265318864428783465}
+  - component: {fileID: 1221239347288150376}
+  m_Layer: 11
+  m_Name: Charge Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5265318864428783465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996945641560408201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7583135283823876080}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1221239347288150376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996945641560408201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a30c550dc7e3574d8cb8d61743e94d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentFSM: {fileID: 0}
+  onStateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStateExit:
+    m_PersistentCalls:
+      m_Calls: []
+  warpTransform: {fileID: 0}
+  initialWaitDuration: 2
+  postAttackWaitDuration: 1
+  runSpeed: 0
+  rotateSpeed: 0
+  stopDistance: 1
 --- !u!1 &3048545309516544435
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +296,8 @@ MonoBehaviour:
       m_Calls: []
   playerDamagedEventChannel: {fileID: 11400000, guid: 86262cfe883e889458bb5555d7022c4d,
     type: 2}
+  channelingTransform: {fileID: 0}
+  portalAnimator: {fileID: 0}
   projectilePrefab: {fileID: 4456733701827526189, guid: 4ac9af1f205579f44910952503318aad,
     type: 3}
   spawnCenter: {fileID: 0}
@@ -245,8 +306,8 @@ MonoBehaviour:
   spawnYOffset: 36.03
   initialChannelDuration: 1
   postChannelIdleDuration: {x: 1, y: 5}
-  spawnDurationRange: {x: 15, y: 5}
-  spawnRateRange: {x: 1, y: 1}
+  spawnDurationRange: {x: 10, y: 5}
+  spawnRateRange: {x: 0.2, y: 0.2}
 --- !u!1001 &5252521592018651651
 PrefabInstance:
   m_ObjectHideFlags: 0
