@@ -106,9 +106,11 @@ public class BossFightTrigger : MonoBehaviour {
 
     // On player death, restore the arena to its initial state
     public void ResetArena() {
-        isFightInProgress = false;
+        if (isFightInProgress) {
+            BGMManager.Instance.FadeToStopThenPlay(BGMManager.Instance.initialSongIndex);
+        }
 
-        BGMManager.Instance.FadeToStopThenPlay(BGMManager.Instance.initialSongIndex);
+        isFightInProgress = false;
         entryBossDoor.Open();
 
         if (bossEnemy.damageable.isAlive || dialogEnemy.damageable.isAlive) {

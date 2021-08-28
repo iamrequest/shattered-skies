@@ -1117,7 +1117,7 @@ MonoBehaviour:
   dmgSFXCooldown: 0.1
   envLayerMask:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 40960
   onEnvCollisionSFX: {fileID: 8300000, guid: 2e641101b57977641a22f761e90b53d3, type: 3}
   envCollisionSFXCooldown: 0.1
 --- !u!114 &2508724089477297714

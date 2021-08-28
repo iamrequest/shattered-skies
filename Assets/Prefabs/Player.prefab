@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStamina: 100
   maxStamina: 100
-  staminaRegenRate: 10
+  staminaRegenRate: 8
   sprintStaminaConsumptionRate: 10
   staminaRemapCurve:
     serializedVersion: 2
@@ -290,8 +290,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.041666664
     - serializedVersion: 3
-      time: 0.083400644
-      value: 0.6826439
+      time: 0.21052542
+      value: 0.65200424
       inSlope: 0.9997288
       outSlope: 0.9997288
       tangentMode: 0
@@ -814,7 +814,7 @@ MonoBehaviour:
   lizardStep: 1
   lizardAttack: 0.5
   skyShardFall: 0.8
-  skyShardImpact: 0.8
+  skyShardImpact: 1
   bossWarp: 0.7
   bonfireLit: 0.6
 --- !u!1 &6952210979786148664

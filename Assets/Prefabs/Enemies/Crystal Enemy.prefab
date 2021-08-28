@@ -594,6 +594,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageable: {fileID: 0}
   vision: {fileID: 0}
+  animator: {fileID: 0}
+  fsm: {fileID: 0}
 --- !u!114 &6735411999469722350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,6 +666,7 @@ MonoBehaviour:
   - {fileID: 2345444564674267922}
   - {fileID: 5786907908757189928}
   isRagdollActiveOnInit: 0
+  ragdollOnDeath: 1
 --- !u!114 &77691069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,8 +791,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4456733701827526189, guid: 335431d76c640b140a9a58c62ff9f4b0,
     type: 3}
   projectileSpawnTransform: {fileID: 4398607173036257769}
-  projectileForce: 5
-  randomProjectileOffset: {x: 2, y: 2, z: 2}
+  projectileForce: 7
+  randomProjectileOffset: {x: 1, y: 1, z: 1}
 --- !u!1001 &6735411999048943550
 PrefabInstance:
   m_ObjectHideFlags: 0

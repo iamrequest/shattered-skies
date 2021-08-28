@@ -18,7 +18,9 @@ public class VolumeManager : MonoBehaviour {
 
     [Header("Sky Shard")]
     [Range(0f, 1f)]
-    public float skyShardFall, skyShardImpact;
+    public float skyShardFall;
+    [Range(0f, 1f)]
+    public float skyShardImpact;
 
     [Header("Boss")]
     [Range(0f, 1f)]
