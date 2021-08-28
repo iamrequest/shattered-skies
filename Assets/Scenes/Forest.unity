@@ -10614,6 +10614,7 @@ MonoBehaviour:
     type: 2}
   entryBossDoor: {fileID: 1939419140}
   exitBossDoor: {fileID: 1768237281}
+  battleSongIndex: 0
   preFightDialogManager: {fileID: 1647782535}
   preFightDialog: {fileID: 1647782534}
   postFightDialogManager: {fileID: 598308092}
@@ -18200,6 +18201,105 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 678215369}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &684360907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684360908}
+  - component: {fileID: 684360911}
+  - component: {fileID: 684360910}
+  - component: {fileID: 684360912}
+  m_Layer: 0
+  m_Name: Rain Attack Portal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &684360908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684360907}
+  m_LocalRotation: {x: -0.70710653, y: -0, z: -0.00000008940696, w: 0.70710707}
+  m_LocalPosition: {x: 0, y: 20.65445, z: 0}
+  m_LocalScale: {x: 95, y: 95, z: 95}
+  m_Children: []
+  m_Father: {fileID: 1770708754}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
+--- !u!23 &684360910
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684360907}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b494d89e80a8c3b4eb0986ff8b024586, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &684360911
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684360907}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &684360912
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684360907}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eac37fbf884869e40b1e3107f360990c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &684962108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40694,7 +40794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456736652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.25, z: -9.25}
+  m_LocalPosition: {x: 0.932044, y: 11.654449, z: -14.000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1770708754}
@@ -47926,6 +48026,7 @@ Transform:
   m_Children:
   - {fileID: 437505912}
   - {fileID: 1456736653}
+  - {fileID: 684360908}
   m_Father: {fileID: 386511733}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -61089,8 +61190,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 97802738965511159, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
+      propertyPath: DEBUG_NO_STATE_RETURN
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 97802738965511159, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
       propertyPath: DEBUG_NO_STATE_MULTIPLEX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 309506747972848613, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
@@ -61212,6 +61318,36 @@ PrefabInstance:
       propertyPath: spawnCenter
       value: 
       objectReference: {fileID: 437505912}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: portalAnimator
+      value: 
+      objectReference: {fileID: 684360912}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: spawnRateRange.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: spawnRateRange.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: channelingTransform
+      value: 
+      objectReference: {fileID: 1456736653}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: spawnDurationRange.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: spawnDurationRange.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4531196503124549047, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
       propertyPath: m_ConnectedAnchor.y

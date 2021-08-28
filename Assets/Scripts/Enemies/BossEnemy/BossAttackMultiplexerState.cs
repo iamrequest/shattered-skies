@@ -66,7 +66,7 @@ public class BossAttackMultiplexerState : BaseState {
         if (enemy.isWarping) return;
 
         // Every frame, see if it's been long enough that we can attack again.
-        if (timeSinceLastAttack > attackDelay) {
+        if (timeSinceLastAttack > attackDelay && !enemy.isWarping) {
             if (!enemy.DEBUG_NO_STATE_MULTIPLEX) {
                 DoAttack();
             }

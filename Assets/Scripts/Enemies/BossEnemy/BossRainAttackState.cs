@@ -11,6 +11,12 @@ using System;
 public class BossRainAttackState : BaseState {
     private BossEnemy enemy;
     public PlayerDamageEventChannel playerDamagedEventChannel;
+    public Transform channelingTransform;
+
+
+    [Header("Portal VFX")]
+    public Animator portalAnimator;
+    private int animHashPortalOpen;
 
     [Header("Projectile")]
     public GameObject projectilePrefab;
@@ -40,9 +46,13 @@ public class BossRainAttackState : BaseState {
         }
     }
 
+
+
+
     protected override void Awake() {
         base.Awake();
         enemy = GetComponentInParent<BossEnemy>();
+        animHashPortalOpen = Animator.StringToHash("isOpen");
     }
 
     private void OnEnable() {
@@ -63,11 +73,17 @@ public class BossRainAttackState : BaseState {
             parentFSM.TransitionTo(enemy.multiplexerAttackState);
         }
 
-        // TODO: Warp to position
+        // Warp to channeling position
+        enemy.Warp(channelingTransform);
         enemy.setIsFloating(true);
 
         CancelSpawning();
         spawnProjectilesCoroutine = StartCoroutine(DoSpawnProjectiles());
+
+        // Init portal VFX
+        Vector3 portalPosition = channelingTransform.position;
+        portalPosition.y = spawnYOffset;
+        portalAnimator.SetBool(animHashPortalOpen, true);
     }
 
     public override void OnStateExit(BaseState previousState) {
@@ -85,15 +101,17 @@ public class BossRainAttackState : BaseState {
 
         float elapsedSpawnDuration = 0f, timeSinceLastSpawn = 0f;
 
-        // TODO: Channel animation
-        //enemy.animator.SetTrigger("isChanneling");
+        // Channel
+        enemy.animator.SetTrigger("isChannelingRainAttack");
 
-        yield return new WaitForSeconds(initialChannelDuration);
 
+        // Return to state after a delay
         if (!enemy.DEBUG_NO_STATE_RETURN) {
             returnToBaseStateCoroutine = StartCoroutine(ReturnToBaseStateAfterDelay());
         }
 
+
+        // Start spawning projectiles
         while (elapsedSpawnDuration < spawnDuration) {
             elapsedSpawnDuration += Time.deltaTime;
             timeSinceLastSpawn += Time.deltaTime;
@@ -102,7 +120,10 @@ public class BossRainAttackState : BaseState {
                 SpawnProjectile();
                 timeSinceLastSpawn = 0f;
             }
+            yield return null;
         }
+
+        CancelSpawning();
     }
 
     public IEnumerator ReturnToBaseStateAfterDelay() {
@@ -111,13 +132,14 @@ public class BossRainAttackState : BaseState {
         parentFSM.TransitionTo(enemy.multiplexerAttackState);
     }
 
+
     public void CancelSpawning() {
         if (spawnProjectilesCoroutine != null) StopCoroutine(spawnProjectilesCoroutine);
+        portalAnimator.SetBool(animHashPortalOpen, false);
     }
     public void CancelAllCoroutines() {
         CancelSpawning();
         if (returnToBaseStateCoroutine != null) StopCoroutine(returnToBaseStateCoroutine);
-        // TODO: Confirm that this doesn't break channel animation
     }
 
     public void SpawnProjectile() {
