@@ -679,7 +679,7 @@ MonoBehaviour:
   eyeTransform: {fileID: 4398607173036257769}
   visibleLayers:
     serializedVersion: 2
-    m_Bits: 12544
+    m_Bits: 45312
   visionDistance: 20
   visionRadius: 30
   proximityVisionRadius: 2.29
