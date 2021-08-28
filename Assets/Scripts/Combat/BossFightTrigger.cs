@@ -33,7 +33,7 @@ public class BossFightTrigger : MonoBehaviour {
         preFightDialog.onDialogCompleted.AddListener(StartFight);
 
         // Just after the boss is defeated
-        bossEnemy.damageable.onHealthDepleted.AddListener(OnBossDefeated);
+        bossEnemy.GetComponent<Damageable>().onHealthDepleted.AddListener(OnBossDefeated);
 
         // Post-fight dialog
         postFightDialog.onDialogStart.AddListener(OnFinalDialogStarted);

@@ -18,7 +18,7 @@ public class BaseEnemy : MonoBehaviour {
     [HideInInspector]
     public FiniteStateMachine fsm;
 
-    private void Awake() {
+    protected virtual void Awake() {
         damageable = GetComponent<Damageable>();
         vision = GetComponent<EnemyVision>();
         animator = GetComponentInChildren<Animator>();

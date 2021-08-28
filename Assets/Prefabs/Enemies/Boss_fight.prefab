@@ -50,7 +50,12 @@ MonoBehaviour:
   onStateExit:
     m_PersistentCalls:
       m_Calls: []
-  rainAttack: {fileID: 0}
+  rainAttack: {fileID: 3433347672826576296}
+  chargeAttack: {fileID: 0}
+  randomWarpTransforms: []
+  warpDelay: 0
+  attackDelay: 0
+  maxNumAttacksBeforeChargeAttack: 0
 --- !u!114 &1029791515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 798012482}
-  deathState: {fileID: 0}
+  deathState: {fileID: 798012482}
   damagedState: {fileID: 0}
 --- !u!114 &97802738965511159
 MonoBehaviour:
@@ -225,8 +230,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4456733701827526189, guid: 4ac9af1f205579f44910952503318aad,
     type: 3}
   spawnCenter: {fileID: 0}
-  projectileSpeed: 3
-  spawnRadius: 36.08
+  projectileSpeed: 5
+  spawnRadius: 30.4
   spawnYOffset: 36.03
   initialChannelDuration: 1
   postChannelIdleDuration: {x: 1, y: 5}
@@ -563,6 +568,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920304508135573651, guid: a4ffb31938e954643801f8e2a2bdf2c9,
+        type: 3}
+      propertyPath: ragdollOnDeath
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7871162760306355908, guid: a4ffb31938e954643801f8e2a2bdf2c9,
         type: 3}

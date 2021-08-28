@@ -4,6 +4,10 @@ using UnityEngine;
 using Freya;
 using System;
 
+/// <summary>
+/// This state can exit before the projectiles finish spawning.
+/// This way, the enemy can start spawning rain projectiles, and then use some other attack in  meantime.
+/// </summary>
 public class BossRainAttackState : BaseState {
     private BossEnemy enemy;
     public PlayerDamageEventChannel playerDamagedEventChannel;
@@ -43,11 +47,11 @@ public class BossRainAttackState : BaseState {
 
     private void OnEnable() {
         playerDamagedEventChannel.onPlayerDeath += OnPlayerDeath;
-        enemy.damageable.onHealthDepleted.AddListener(OnBossDeath);
+        enemy.GetComponent<Damageable>().onHealthDepleted.AddListener(OnBossDeath);
     }
     private void OnDisable() {
         playerDamagedEventChannel.onPlayerDeath -= OnPlayerDeath;
-        enemy.damageable.onHealthDepleted.RemoveListener(OnBossDeath);
+        enemy.GetComponent<Damageable>().onHealthDepleted.RemoveListener(OnBossDeath);
     }
 
     public override void OnStateEnter(BaseState previousState) {
