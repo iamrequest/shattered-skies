@@ -117,6 +117,7 @@ MonoBehaviour:
   fallDelay: 1
   fallSFX: {fileID: 8300000, guid: a80d998a82d05ce43a2d443a1c133c55, type: 3}
   impactSFX: {fileID: 8300000, guid: 82bbf9ecfb59f0c4fa50ddfc0bb7ccb3, type: 3}
+  sfxPitchRange: 0
 --- !u!1 &4994350422189530330
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +158,7 @@ BoxCollider:
   m_GameObject: {fileID: 6153026773351972718}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.007812515, y: 0.12387935, z: 0.14062499}
   m_Center: {x: 7.793629e-10, y: 0.0072523006, z: -0.0039060113}
@@ -178,6 +179,15 @@ MonoBehaviour:
   maxDamage: 10
   minDamagingSpeed: 5
   maxDamagingSpeed: 5
+  pitchRange: 0
+  volumeRange: {x: 0, y: 0}
+  onDamageSFX: {fileID: 0}
+  dmgSFXCooldown: 0
+  envLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  onEnvCollisionSFX: {fileID: 0}
+  envCollisionSFXCooldown: 0
 --- !u!1001 &4994350421234235992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,7 +197,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2116859643, guid: 3c2b59c5c8a75294c8bae36148b09a4f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1165463080673576246, guid: 3c2b59c5c8a75294c8bae36148b09a4f,
         type: 3}
