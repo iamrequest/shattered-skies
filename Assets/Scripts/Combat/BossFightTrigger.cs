@@ -43,13 +43,15 @@ public class BossFightTrigger : MonoBehaviour {
             return;
         }
 
-        if (dialog.isComplete) {
-            // Just jump straight to the fight
-            CloseArena();
-            StartFight();
-        } else {
-            // Do the dialog first. 
-            dialogManager.StartDialog(dialog);
+        if (bossDamageable.isAlive) {
+            if (dialog.isComplete) {
+                // Just jump straight to the fight
+                CloseArena();
+                StartFight();
+            } else {
+                // Do the dialog first. 
+                dialogManager.StartDialog(dialog);
+            }
         }
     }
 

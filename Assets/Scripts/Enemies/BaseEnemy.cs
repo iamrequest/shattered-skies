@@ -12,8 +12,12 @@ public class BaseEnemy : MonoBehaviour {
     [HideInInspector]
     public EnemyVision vision;
 
+    [HideInInspector]
+    public Animator animator;
+
     private void Awake() {
         damageable = GetComponent<Damageable>();
         vision = GetComponent<EnemyVision>();
+        animator = GetComponentInChildren<Animator>();
     }
 }

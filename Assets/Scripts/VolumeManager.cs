@@ -20,6 +20,10 @@ public class VolumeManager : MonoBehaviour {
     [Range(0f, 1f)]
     public float skyShardFall, skyShardImpact;
 
+    [Header("Boss")]
+    [Range(0f, 1f)]
+    public float bossWarp;
+
     [Header("Environment")]
     [Range(0f, 1f)]
     public float bonfireLit;

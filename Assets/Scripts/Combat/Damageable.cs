@@ -22,6 +22,13 @@ public class Damageable : MonoBehaviour {
         }
     }
 
+    public float getHealthPercentage {
+        get {
+            if (healthMax == 0f) return Mathf.Infinity;
+            return healthCurrent / healthMax;
+        }
+    }
+
     public OnHealthChangedEvent onDamageApplied, onHealed;
     public OnDeathEvent onHealthDepleted;
 
