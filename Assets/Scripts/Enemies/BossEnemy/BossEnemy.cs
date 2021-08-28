@@ -7,6 +7,8 @@ public class BossEnemy : BaseEnemy {
     [Tooltip("Useful for testing states individually")]
     public bool DEBUG_DO_NOT_RETURN_TO_BASE_STATE;
 
+    public PlayerDamageEventChannel playerDamageEventChannel;
+
     public BaseState multiplexerAttackState;
 
 
@@ -26,7 +28,12 @@ public class BossEnemy : BaseEnemy {
 
     protected override void Awake() {
         base.Awake();
-        Debug.Log(animator);
+    }
+    private void OnEnable() {
+        playerDamageEventChannel.onPlayerRevive += OnPlayerRevive;
+    }
+    private void OnDisable() {
+        playerDamageEventChannel.onPlayerRevive -= OnPlayerRevive;
     }
 
 
@@ -51,5 +58,10 @@ public class BossEnemy : BaseEnemy {
         // Fade in anim
 
         warpCoroutine = null;
+    }
+
+    // This should probably be in the finite state machine, but I don't have time to refactor properly
+    public void OnPlayerRevive() {
+        fsm.TransitionTo(fsm.initialState);
     }
 }

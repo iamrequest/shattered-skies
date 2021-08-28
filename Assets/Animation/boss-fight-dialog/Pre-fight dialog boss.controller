@@ -120,13 +120,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: hideForFight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -154,13 +154,10 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7154494150356075959}
-    m_Position: {x: 490, y: 20, z: 0}
+    m_Position: {x: 250, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -886800429122220342}
     m_Position: {x: 490, y: 110, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -6310658426284607782}
-    m_Position: {x: 525, y: 175, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 4752876580161018463}

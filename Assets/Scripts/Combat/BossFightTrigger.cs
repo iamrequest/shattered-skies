@@ -28,7 +28,7 @@ public class BossFightTrigger : MonoBehaviour {
 
     private void OnEnable() {
         // Pre-fight
-        playerDamageEventChannel.onPlayerDeath += ResetArena;
+        playerDamageEventChannel.onPlayerRevive += ResetArena;
         preFightDialog.onDialogStart.AddListener(CloseArena);
         preFightDialog.onDialogCompleted.AddListener(StartFight);
 
@@ -43,7 +43,7 @@ public class BossFightTrigger : MonoBehaviour {
 
     private void OnDisable() {
         // Pre-fight
-        playerDamageEventChannel.onPlayerDeath -= ResetArena;
+        playerDamageEventChannel.onPlayerRevive -= ResetArena;
         preFightDialog.onDialogStart.RemoveListener(CloseArena);
         preFightDialog.onDialogCompleted.RemoveListener(StartFight);
 

@@ -95,6 +95,8 @@ MonoBehaviour:
   vision: {fileID: 0}
   animator: {fileID: 0}
   fsm: {fileID: 0}
+  playerDamageEventChannel: {fileID: 11400000, guid: 86262cfe883e889458bb5555d7022c4d,
+    type: 2}
   DEBUG_DO_NOT_RETURN_TO_BASE_STATE: 0
   multiplexerAttackState: {fileID: 1980208993}
   warpSFX: {fileID: 8300000, guid: 90f846da8c47f66499e5e770cb2d7542, type: 3}
