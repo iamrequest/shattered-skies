@@ -6,6 +6,8 @@ using Freya;
 
 [RequireComponent(typeof(AudioSource))]
 public class BGMManager : MonoBehaviour {
+    public static BGMManager Instance { get; private set; }
+
     private AudioSource audioSource;
 
     public BGMEventChannel bgmEventChannel;
@@ -25,6 +27,13 @@ public class BGMManager : MonoBehaviour {
     private void Awake() {
         audioSource = GetComponent<AudioSource>();
         baseVolume = audioSource.volume;
+
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Debug.LogError($"Multiple {GetType()} components detected. This is probably a bug.");
+            Destroy(this);
+        }
     }
 
     private void Start() {
@@ -65,6 +74,10 @@ public class BGMManager : MonoBehaviour {
         if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
         StartCoroutine(DoFadeToStop());
     }
+    public void FadeToStopThenPlay(int index) {
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        StartCoroutine(DoFadeToStopThenPlay(index));
+    }
 
     private IEnumerator DoFadeToStop() {
         float t = 0f;
@@ -77,6 +90,18 @@ public class BGMManager : MonoBehaviour {
         }
 
         audioSource.Stop();
+    }
+    private IEnumerator DoFadeToStopThenPlay(int index) {
+        float t = 0f;
+        float initialVolume = audioSource.volume;
+
+        while (t < fadeDuration) {
+            t += Time.deltaTime;
+            audioSource.volume = Mathfs.LerpClamped(initialVolume, 0f, t / fadeDuration);
+            yield return null;
+        }
+
+        PlaySong(index);
     }
 
     public void NextSong() {

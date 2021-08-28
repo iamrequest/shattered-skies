@@ -6,10 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class BossFightTrigger : MonoBehaviour {
     private int animHashHideForFight, animHashBossDefeated;
+    public bool isFightInProgress { get; private set; }
 
     public PlayerDamageEventChannel playerDamageEventChannel;
     public BossDoor entryBossDoor, exitBossDoor;
 
+
+    [Header("BGM")]
+    public int battleSongIndex;
 
     [Header("Dialog")]
     public DialogManager preFightDialogManager;
@@ -24,6 +28,8 @@ public class BossFightTrigger : MonoBehaviour {
     private void Awake() {
         animHashHideForFight = Animator.StringToHash("hideForFight");
         animHashBossDefeated = Animator.StringToHash("onBossDefeated");
+
+        isFightInProgress = false;
     }
 
     private void OnEnable() {
@@ -64,8 +70,9 @@ public class BossFightTrigger : MonoBehaviour {
     }
 
     public void OnPlayerEnterArena() {
-        // TODO: If the fight is in progress, do nothing here
+        if (isFightInProgress) return;
 
+        // TODO: If the fight is in progress, do nothing here
         if (bossEnemy.damageable.isAlive) {
             if (preFightDialog.isComplete) {
                 // Just jump straight to the fight
@@ -74,6 +81,7 @@ public class BossFightTrigger : MonoBehaviour {
             } else {
                 // Do the dialog first. 
                 preFightDialogManager.StartDialog(preFightDialog);
+                BGMManager.Instance.FadeToStop();
             }
         }
     }
@@ -84,17 +92,23 @@ public class BossFightTrigger : MonoBehaviour {
     }
 
     public void StartFight() {
+        isFightInProgress = true;
+
+        BGMManager.Instance.PlaySong(battleSongIndex);
+
         dialogEnemy.animator.SetBool(animHashHideForFight, true);
 
         // Optional: Comment this out for easier fights
         bossEnemy.damageable.Heal(bossEnemy.damageable.healthMax);
 
-        // TODO: Consider adding an initial state, for a short initial delay 
         bossEnemy.fsm.TransitionTo(bossEnemy.multiplexerAttackState);
     }
 
     // On player death, restore the arena to its initial state
     public void ResetArena() {
+        isFightInProgress = false;
+
+        BGMManager.Instance.FadeToStopThenPlay(BGMManager.Instance.initialSongIndex);
         entryBossDoor.Open();
 
         if (bossEnemy.damageable.isAlive || dialogEnemy.damageable.isAlive) {
@@ -112,6 +126,8 @@ public class BossFightTrigger : MonoBehaviour {
     }
 
     private void OnBossDefeated(BaseDamager arg0, Damageable arg1) {
+        isFightInProgress = false;
+
         // TODO: Consider adding post-death dialog
         dialogEnemy.animator.SetBool(animHashBossDefeated, true);
 
