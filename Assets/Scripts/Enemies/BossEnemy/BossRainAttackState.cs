@@ -136,8 +136,10 @@ public class BossRainAttackState : BaseState {
     //private void OnDrawGizmos() {
     private void OnDrawGizmosSelected() {
         // Draw spawn range
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(spawnCenter.position, spawnRadius);
-        Gizmos.DrawLine(spawnCenter.position, spawnCenter.position + Vector3.up * spawnYOffset);
+        if (spawnCenter) {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(spawnCenter.position, spawnRadius);
+            Gizmos.DrawLine(spawnCenter.position, spawnCenter.position + Vector3.up * spawnYOffset);
+        }
     }
 }

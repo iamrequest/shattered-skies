@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1688271343063095005}
   - component: {fileID: 798012482}
   m_Layer: 11
-  m_Name: Pre-fight Idle
+  m_Name: Hidden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

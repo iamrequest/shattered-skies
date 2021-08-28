@@ -60659,6 +60659,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 386511733}
     m_Modifications:
+    - target: {fileID: 1029791515, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: deathState
+      value: 
+      objectReference: {fileID: 2892354451921034787}
+    - target: {fileID: 1029791515, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: initialState
+      value: 
+      objectReference: {fileID: 2892354451921034787}
     - target: {fileID: 39546568748704238, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -60814,6 +60822,11 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.0000000037580237
       objectReference: {fileID: 0}
+    - target: {fileID: 2949128539127136912, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: ragdollOnDeath
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
       propertyPath: spawnCenter
@@ -60879,6 +60892,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6402750297311365321, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402750297311365321, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402750297311365321, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9999999
+      objectReference: {fileID: 0}
     - target: {fileID: 6682156211714912106, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -60924,7 +60952,8 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.00000003630885
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 798012482, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
 --- !u!4 &2892354451921034785 stripped
 Transform:
@@ -60932,6 +60961,31 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2892354451921034784}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2892354451921034786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 921708533470673321, guid: 361ae964361b3444b90fab0f3c1f9d66,
+    type: 3}
+  m_PrefabInstance: {fileID: 2892354451921034784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2892354451921034787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892354451921034786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6c9573cfc087f44aa35578691e2e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentFSM: {fileID: 0}
+  onStateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStateExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &3654706072291716568
 PrefabInstance:
   m_ObjectHideFlags: 0

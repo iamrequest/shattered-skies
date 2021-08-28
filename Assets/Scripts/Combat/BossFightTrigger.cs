@@ -96,9 +96,11 @@ public class BossFightTrigger : MonoBehaviour {
     // On player death, restore the arena to its initial state
     public void ResetArena() {
         entryBossDoor.Open();
-        exitBossDoor.Open();
 
-        // TODO: Only set this if the enemy is still alive
+        if (bossEnemy.damageable.isAlive || dialogEnemy.damageable.isAlive) {
+            // This solves a bug that causes the exit door to open if the player dies before the final dialog completes
+            exitBossDoor.Open();
+        }
 
         dialogEnemy.animator.SetBool(animHashHideForFight, false);
         // TODO: Hide the battle boss
