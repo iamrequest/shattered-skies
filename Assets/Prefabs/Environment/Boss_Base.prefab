@@ -1005,7 +1005,7 @@ MonoBehaviour:
   damagedSFX: {fileID: 0}
   deathSFX: {fileID: 0}
   audioSourceTransform: {fileID: 0}
-  killPlaneEnteredAction: 0
+  killPlaneEnteredAction: 1
   onDamageApplied:
     m_PersistentCalls:
       m_Calls: []

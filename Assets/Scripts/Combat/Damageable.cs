@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum KillPlaneEnteredActions { DEPLETE_HEALTH }
+public enum KillPlaneEnteredActions { DEPLETE_HEALTH, NOTHING }
 public class Damageable : MonoBehaviour {
     public DamageTargets damageTargetType;
     public float healthMax, healthCurrent;

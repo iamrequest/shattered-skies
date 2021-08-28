@@ -5,12 +5,11 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 public class BossFightTrigger : MonoBehaviour {
-    public PlayerDamageEventChannel playerDamageEventChannel;
-
-    public BossDoor entryBossDoor, exitBossDoor;
-    public Animator dialogBossAnimator;
-
     private int animHashHideForFight, animHashBossDefeated;
+
+    public PlayerDamageEventChannel playerDamageEventChannel;
+    public BossDoor entryBossDoor, exitBossDoor;
+
 
     [Header("Dialog")]
     public DialogManager preFightDialogManager;
@@ -28,27 +27,43 @@ public class BossFightTrigger : MonoBehaviour {
     }
 
     private void OnEnable() {
+        // Pre-fight
         playerDamageEventChannel.onPlayerDeath += ResetArena;
         preFightDialog.onDialogStart.AddListener(CloseArena);
         preFightDialog.onDialogCompleted.AddListener(StartFight);
 
-        bossEnemy.damageable.onHealthDepleted.AddListener(OnBossDeath);
+        // Just after the boss is defeated
+        bossEnemy.damageable.onHealthDepleted.AddListener(OnBossDefeated);
+
+        // Post-fight dialog
+        postFightDialog.onDialogStart.AddListener(OnFinalDialogStarted);
+        postFightDialog.onDialogCompleted.AddListener(OnFinalDialogComplete);
+        dialogEnemy.damageable.onHealthDepleted.AddListener(OnDialogBossDeath);
     }
 
     private void OnDisable() {
+        // Pre-fight
         playerDamageEventChannel.onPlayerDeath -= ResetArena;
         preFightDialog.onDialogStart.RemoveListener(CloseArena);
         preFightDialog.onDialogCompleted.RemoveListener(StartFight);
 
-        bossEnemy.damageable.onHealthDepleted.RemoveListener(OnBossDeath);
+        // Just after the boss is defeated
+        bossEnemy.damageable.onHealthDepleted.RemoveListener(OnBossDefeated);
+
+        // Post-fight dialog
+        postFightDialog.onDialogStart.RemoveListener(OnFinalDialogStarted);
+        postFightDialog.onDialogCompleted.RemoveListener(OnFinalDialogComplete);
+        dialogEnemy.damageable.onHealthDepleted.RemoveListener(OnDialogBossDeath);
     }
 
     public void OnTriggerEnter(Collider other) {
         // Only listen for the player for this trigger
-        if (!other.CompareTag(Player.Instance.tag)) {
-            return;
+        if (other.CompareTag(Player.Instance.tag)) {
+            OnPlayerEnterArena();
         }
+    }
 
+    public void OnPlayerEnterArena() {
         // TODO: If the fight is in progress, do nothing here
 
         if (bossEnemy.damageable.isAlive) {
@@ -69,7 +84,7 @@ public class BossFightTrigger : MonoBehaviour {
     }
 
     public void StartFight() {
-        dialogBossAnimator.SetBool(animHashHideForFight, true);
+        dialogEnemy.animator.SetBool(animHashHideForFight, true);
 
         // Optional: Comment this out for easier fights
         bossEnemy.damageable.Heal(bossEnemy.damageable.healthMax);
@@ -85,19 +100,35 @@ public class BossFightTrigger : MonoBehaviour {
 
         // TODO: Only set this if the enemy is still alive
 
-        dialogBossAnimator.SetBool(animHashHideForFight, false);
+        dialogEnemy.animator.SetBool(animHashHideForFight, false);
         // TODO: Hide the battle boss
     }
 
-    public void OpenArenaForVictory() {
+    public void OpenArena() {
         entryBossDoor.Open();
         exitBossDoor.Open();
     }
 
-    private void OnBossDeath(BaseDamager arg0, Damageable arg1) {
-        OpenArenaForVictory();
-
+    private void OnBossDefeated(BaseDamager arg0, Damageable arg1) {
         // TODO: Consider adding post-death dialog
-        dialogBossAnimator.SetBool(animHashBossDefeated, false);
+        dialogEnemy.animator.SetBool(animHashBossDefeated, true);
+
+        //postFightDialogManager.StartDialog(postFightDialog);
+    }
+
+
+    private void OnFinalDialogStarted() {
+        // Make the dialog-enemy vulnerable
+        dialogEnemy.damageable.damageTargetType = DamageTargets.ENEMY;
+    }
+
+    private void OnFinalDialogComplete() {
+        dialogEnemy.damageable.Kill();
+        OpenArena();
+    }
+
+    private void OnDialogBossDeath(BaseDamager arg0, Damageable arg1) {
+        postFightDialogManager.EndDialogEarly();
+        OpenArena();
     }
 }
