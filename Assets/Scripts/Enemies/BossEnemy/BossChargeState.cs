@@ -30,7 +30,7 @@ public class BossChargeState : BaseState {
 
     [Header("VFX")]
     public VisualEffect handVFX;
-    public Collider handCollider;
+    public SphereCollider handCollider;
 
     protected override void Awake() {
         base.Awake();
@@ -74,7 +74,7 @@ public class BossChargeState : BaseState {
             enemyToPlayer = Vector3.ProjectOnPlane(enemyToPlayer, Vector3.up).normalized;
             Quaternion targetRotation = Quaternion.LookRotation(enemyToPlayer, Vector3.up);
 
-            enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+            enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, targetRotation, rotateSpeed);
 
             // Move forward
             enemy.transform.position += enemy.transform.forward * runSpeed * Time.deltaTime;

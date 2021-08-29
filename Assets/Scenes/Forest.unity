@@ -27229,6 +27229,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 850534060}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &851457056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1608646985754257440, guid: 361ae964361b3444b90fab0f3c1f9d66,
+    type: 3}
+  m_PrefabInstance: {fileID: 2892354451921034784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &851457057
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851457056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0005442029
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &851457058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851457056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971b26876a69724438527bbab7005567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageableTargetTypes: 1
+  minDamage: 1
+  maxDamage: 1
+  minDamagingSpeed: 0.1
+  maxDamagingSpeed: 0.1
+  pitchRange: 0
+  volumeRange: {x: 0, y: 0}
+  onDamageSFX: {fileID: 0}
+  dmgSFXCooldown: 0
+  envLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  onEnvCollisionSFX: {fileID: 0}
+  envCollisionSFXCooldown: 0
 --- !u!1001 &856277228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68523,6 +68568,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1221239347288150376, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
+      propertyPath: rotateSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221239347288150376, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: handCollider
+      value: 
+      objectReference: {fileID: 851457057}
+    - target: {fileID: 1221239347288150376, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
       propertyPath: warpTransform
       value: 
       objectReference: {fileID: 1725227687}
@@ -68551,7 +68606,19 @@ PrefabInstance:
       propertyPath: hidingTransform
       value: 
       objectReference: {fileID: 1171721718}
-    m_RemovedComponents: []
+    - target: {fileID: 6799340065398139339, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: maxDamagingSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799340065398139339, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: minDamagingSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6799340065398139339, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+    - {fileID: 402645582902441025, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
 --- !u!4 &2892354451921034785 stripped
 Transform:
