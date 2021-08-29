@@ -3,11 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Freya;
+using System;
 
 public class VelocityCollisionDamager : BaseDamager {
     public Rigidbody rb { get; private set; }
     public float minDamage, maxDamage;
     public float minDamagingSpeed, maxDamagingSpeed;
+
+    [Range(0f, 1f)]
+    public float dmgCooldown = 0.1f;
+    private float lastDmgApplied = 0f;
 
     [Header("SFX")]
     [Range(0f, 1f)]
@@ -32,20 +37,34 @@ public class VelocityCollisionDamager : BaseDamager {
     private void Awake() {
         rb = GetComponentInParent<Rigidbody>();
     }
+    private void OnEnable() {
+        if (TryGetComponent(out Damageable damageable)) {
+            damageable.onHealthDepleted.AddListener(DisableOnDeath);
+        }
+    }
+    private void OnDisable() {
+        if (TryGetComponent(out Damageable damageable)) {
+            damageable.onHealthDepleted.RemoveListener(DisableOnDeath);
+        }
+    }
+
     private void Update() {
         lastEnvCollisionSFXPlayed += Mathf.Clamp(lastEnvCollisionSFXPlayed + Time.deltaTime, 0f, envCollisionSFXCooldown);
         lastDmgSFXPlayed += Mathf.Clamp(lastDmgSFXPlayed + Time.deltaTime, 0f, dmgSFXCooldown);
+        lastDmgApplied += Mathf.Clamp(lastDmgApplied + Time.deltaTime, 0f, dmgCooldown);
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.collider.TryGetComponent(out Damageable damageable)) {
-            ApplyDamage(damageable, collision.relativeVelocity.magnitude);
-            return;
-        } else {
-            Damageable damageableInParent = collision.collider.GetComponentInParent<Damageable>();
-            if (damageableInParent) {
-                ApplyDamage(damageableInParent, collision.relativeVelocity.magnitude);
+        if (lastDmgApplied >= dmgCooldown) {
+            if (collision.collider.TryGetComponent(out Damageable damageable)) {
+                ApplyDamage(damageable, collision.relativeVelocity.magnitude);
                 return;
+            } else {
+                Damageable damageableInParent = collision.collider.GetComponentInParent<Damageable>();
+                if (damageableInParent) {
+                    ApplyDamage(damageableInParent, collision.relativeVelocity.magnitude);
+                    return;
+                }
             }
         }
 
@@ -70,6 +89,7 @@ public class VelocityCollisionDamager : BaseDamager {
         // Do not apply damage if the target cannot be damaged by this damage type
         if (!isValidDamageTarget(damageable.damageTargetType)) return;
 
+        lastDmgApplied = 0f;
         float damage = CalculateDamage(relativeVelocityMagnitude);
 
         // Play SFX
@@ -104,4 +124,9 @@ public class VelocityCollisionDamager : BaseDamager {
         float tmp = Mathf.InverseLerp(iMin, iMax, v);
         return Mathf.Lerp(oMin, oMax, tmp);
     }
+
+    private void DisableOnDeath(BaseDamager arg0, Damageable arg1) {
+        enabled = false;
+    }
+
 }

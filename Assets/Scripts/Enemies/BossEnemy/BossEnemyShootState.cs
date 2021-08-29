@@ -113,6 +113,8 @@ public class BossEnemyShootState : BaseState {
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnTransform.position, projectileSpawnTransform.rotation);
         //TrackingProjectile trackingProjectile = projectile.GetComponent<TrackingProjectile>();
 
+        projectile.transform.LookAt(Player.Instance.cam.transform.position);
+
         // Play SFX
         float sfxPitch = 1 + Random.Range(-pitchRange, pitchRange);
         SFXPlayer.Instance.PlaySFX(projectileFiredSFX, transform.position, sfxPitch, VolumeManager.Instance.bossProjectileShot);

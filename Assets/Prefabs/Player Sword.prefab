@@ -1111,6 +1111,7 @@ MonoBehaviour:
   maxDamage: 1
   minDamagingSpeed: 2.5
   maxDamagingSpeed: 10
+  dmgCooldown: 1
   pitchRange: 0.2
   volumeRange: {x: 0.5, y: 1}
   onDamageSFX: {fileID: 8300000, guid: 4e73787dfa6e5994f8329c376dfd051b, type: 3}

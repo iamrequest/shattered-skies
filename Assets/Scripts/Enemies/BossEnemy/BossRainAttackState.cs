@@ -176,9 +176,7 @@ public class BossRainAttackState : BaseState {
         GameObject projectile = Instantiate(projectilePrefab);
         Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
         projectile.transform.position = spawnPosition;
-
-        // TODO: Set random rotation
-
+        projectile.transform.rotation = UnityEngine.Random.rotation;
 
         projectileRb.AddForce(-Vector3.up * projectileSpeed, ForceMode.VelocityChange);
     }
