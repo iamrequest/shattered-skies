@@ -91,7 +91,7 @@ public class BossRainAttackState : BaseState {
 
         // Init portal VFX
         Vector3 portalPosition = channelingTransform.position;
-        portalPosition.y += spawnYOffset;
+        portalPosition.y += spawnYOffset - 0.5f;
         portalAnimator.transform.position = portalPosition;
     }
 
@@ -178,6 +178,7 @@ public class BossRainAttackState : BaseState {
         projectile.transform.position = spawnPosition;
 
         // TODO: Set random rotation
+
 
         projectileRb.AddForce(-Vector3.up * projectileSpeed, ForceMode.VelocityChange);
     }
