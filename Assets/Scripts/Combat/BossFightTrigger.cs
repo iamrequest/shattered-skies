@@ -116,9 +116,13 @@ public class BossFightTrigger : MonoBehaviour {
         isFightInProgress = false;
         entryBossDoor.Open();
 
-        if (bossEnemy.damageable.isAlive || dialogEnemy.damageable.isAlive) {
-            // This solves a bug that causes the exit door to open if the player dies before the final dialog completes
+        if (bossEnemy.damageable.isAlive) {
             exitBossDoor.Open();
+        } else {
+            if (!dialogEnemy.damageable.isAlive) {
+                // This solves a bug that causes the exit door to open if the player dies before the final dialog completes
+                exitBossDoor.Open();
+            }
         }
 
         dialogEnemy.animator.SetBool(animHashHideForFight, false);
