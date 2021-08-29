@@ -21,6 +21,8 @@ public class BossFightTrigger : MonoBehaviour {
     public Dialog preFightDialog;
     public DialogManager postFightDialogManager;
     public Dialog postFightDialog;
+    public DialogInteractor dialogInteractor;
+    public Transform postFightDialogInteractorTransform;
 
     [Header("Boss Config")]
     public BaseEnemy dialogEnemy;
@@ -131,9 +133,10 @@ public class BossFightTrigger : MonoBehaviour {
     private void OnBossDefeated(BaseDamager arg0, Damageable arg1) {
         isFightInProgress = false;
 
-        // TODO: Consider adding post-death dialog
         dialogEnemy.animator.SetBool(animHashBossDefeated, true);
 
+        // TODO: Consider doing this via a trigger
+        dialogInteractor.transform.position = postFightDialogInteractorTransform.position;
         //postFightDialogManager.StartDialog(postFightDialog);
     }
 
@@ -152,5 +155,12 @@ public class BossFightTrigger : MonoBehaviour {
         postFightDialogManager.EndDialogEarly();
         OpenArena();
         skyFieldAnimator.SetTrigger("clear");
+    }
+
+    // Called via trigger listener
+    public void StartPostFightDialog() {
+        if (!bossEnemy.damageable.isAlive) {
+            postFightDialogManager.StartDialog(postFightDialog);
+        }
     }
 }
