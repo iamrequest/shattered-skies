@@ -20,7 +20,7 @@ public class BossChargeState : BaseState {
     public float postAttackWaitDuration;
 
     [Header("Motor")]
-    [Range(0f, 7f)]
+    [Range(0f, 15f)]
     public float runSpeed;
     [Range(0f, 1f)]
     public float rotateSpeed;
@@ -77,7 +77,8 @@ public class BossChargeState : BaseState {
             enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, targetRotation, rotateSpeed);
 
             // Move forward
-            enemy.transform.position += enemy.transform.forward * runSpeed * Time.deltaTime;
+            //enemy.transform.position += enemy.transform.forward * runSpeed * Time.deltaTime;
+            enemy.transform.position += enemyToPlayer * runSpeed * Time.deltaTime;
 
             distanceToPlayer = GetDistanceToPlayer();
             yield return null;
