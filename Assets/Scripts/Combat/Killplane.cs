@@ -31,6 +31,9 @@ public class Killplane : MonoBehaviour {
 
     private IEnumerator DoKillPlaneAction(GameObject other) {
         yield return new WaitForSeconds(killplaneActionDelay);
-        KillplaneInteraction(other);
+
+        if (other != null) {
+            KillplaneInteraction(other);
+        }
     }
 }
