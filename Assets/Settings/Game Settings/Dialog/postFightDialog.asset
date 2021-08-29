@@ -14,12 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
-    text: wow i'm dead
+    text: ...
     clearExistingSentence: 1
-    dialogSpeedOverride: 0
+    dialogSpeedOverride: 0.075
     charTypedSFXOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
-    text: '*d ies *'
+    text: So damn bright...
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0.075
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 9dc969e68e9650a46a77bfafb54c8676, type: 2}
+    text: Give up.
     clearExistingSentence: 1
     dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 8300000, guid: ed2f3a2cdece5824591af2625a44c7c9,
+      type: 3}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Hahahaha...
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0.075
     charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: While this has been fun, it's not the end.
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0.075
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: You cannot kill me in a way that matters.
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0.075
+    charTypedSFXOverride: {fileID: 8300000, guid: 1b6b1eacd95d1244295cc6138452176a,
+      type: 3}

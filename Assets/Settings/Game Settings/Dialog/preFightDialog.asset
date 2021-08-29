@@ -14,12 +14,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
-    text: 'You''ve come far. '
+    text: 'You''ve come a long way. '
     clearExistingSentence: 1
     dialogSpeedOverride: 0
     charTypedSFXOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
     text: Armed yourself too, I see.
+    clearExistingSentence: 0
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Do you think that swinging around an oversized chunk of metal will fix
+      this?
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: 'It''s already too late. '
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0.075
+    charTypedSFXOverride: {fileID: 8300000, guid: 1b6b1eacd95d1244295cc6138452176a,
+      type: 3}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Chaos is already spreading, can't you see it all around you?
+    clearExistingSentence: 0
+    dialogSpeedOverride: 0.075
+    charTypedSFXOverride: {fileID: 8300000, guid: 1b6b1eacd95d1244295cc6138452176a,
+      type: 3}
+  - speaker: {fileID: 11400000, guid: 9dc969e68e9650a46a77bfafb54c8676, type: 2}
+    text: I don't care, asshole.
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0
+    charTypedSFXOverride: {fileID: 8300000, guid: ed2f3a2cdece5824591af2625a44c7c9,
+      type: 3}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: Hahaha...
+    clearExistingSentence: 1
+    dialogSpeedOverride: 0.075
+    charTypedSFXOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 8c8fc84f40ecc174bbeb024c79013818, type: 2}
+    text: So bold. Where will your bravery lead you today, I wonder?
     clearExistingSentence: 1
     dialogSpeedOverride: 0
     charTypedSFXOverride: {fileID: 0}

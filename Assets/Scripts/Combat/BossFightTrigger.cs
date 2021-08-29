@@ -27,6 +27,7 @@ public class BossFightTrigger : MonoBehaviour {
     [Header("Boss Config")]
     public BaseEnemy dialogEnemy;
     public BossEnemy bossEnemy;
+    public float dialogEnemyPostDialogLifetime;
 
     private void Awake() {
         animHashHideForFight = Animator.StringToHash("hideForFight");
@@ -45,7 +46,6 @@ public class BossFightTrigger : MonoBehaviour {
         bossEnemy.GetComponent<Damageable>().onHealthDepleted.AddListener(OnBossDefeated);
 
         // Post-fight dialog
-        postFightDialog.onDialogStart.AddListener(OnFinalDialogStarted);
         postFightDialog.onDialogCompleted.AddListener(OnFinalDialogComplete);
         dialogEnemy.damageable.onHealthDepleted.AddListener(OnDialogBossDeath);
     }
@@ -60,7 +60,6 @@ public class BossFightTrigger : MonoBehaviour {
         bossEnemy.damageable.onHealthDepleted.RemoveListener(OnBossDefeated);
 
         // Post-fight dialog
-        postFightDialog.onDialogStart.RemoveListener(OnFinalDialogStarted);
         postFightDialog.onDialogCompleted.RemoveListener(OnFinalDialogComplete);
         dialogEnemy.damageable.onHealthDepleted.RemoveListener(OnDialogBossDeath);
     }
@@ -137,6 +136,8 @@ public class BossFightTrigger : MonoBehaviour {
     private void OnBossDefeated(BaseDamager arg0, Damageable arg1) {
         isFightInProgress = false;
 
+        BGMManager.Instance.FadeToStop();
+
         dialogEnemy.animator.SetBool(animHashBossDefeated, true);
 
         // TODO: Consider doing this via a trigger
@@ -145,14 +146,15 @@ public class BossFightTrigger : MonoBehaviour {
     }
 
 
-    private void OnFinalDialogStarted() {
+    private void OnFinalDialogComplete() {
         // Make the dialog-enemy vulnerable
         dialogEnemy.damageable.damageTargetType = DamageTargets.ENEMY;
-    }
 
-    private void OnFinalDialogComplete() {
+        StartCoroutine(DoKillDialogBossAfterDelay());
+    }
+    private IEnumerator DoKillDialogBossAfterDelay() {
+        yield return new WaitForSeconds(dialogEnemyPostDialogLifetime);
         dialogEnemy.damageable.Kill();
-        OpenArena();
     }
 
     private void OnDialogBossDeath(BaseDamager arg0, Damageable arg1) {
