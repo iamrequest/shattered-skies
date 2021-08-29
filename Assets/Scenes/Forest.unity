@@ -12107,6 +12107,7 @@ MonoBehaviour:
     type: 2}
   entryBossDoor: {fileID: 1939419140}
   exitBossDoor: {fileID: 1768237281}
+  skyFieldAnimator: {fileID: 2114395615}
   battleSongIndex: 0
   preFightDialogManager: {fileID: 1647782535}
   preFightDialog: {fileID: 1647782534}
@@ -66323,6 +66324,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953d67df71109ed41afeb1436e537cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2114395615
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114395613}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b6ef7ec859a7cc49a75e2d5ebafd95b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &2114395617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8641019453310836219, guid: f77a00f8bed80254ab0a171e720afe77,

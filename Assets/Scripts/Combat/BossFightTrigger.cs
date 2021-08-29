@@ -10,6 +10,7 @@ public class BossFightTrigger : MonoBehaviour {
 
     public PlayerDamageEventChannel playerDamageEventChannel;
     public BossDoor entryBossDoor, exitBossDoor;
+    public Animator skyFieldAnimator;
 
 
     [Header("BGM")]
@@ -150,5 +151,6 @@ public class BossFightTrigger : MonoBehaviour {
     private void OnDialogBossDeath(BaseDamager arg0, Damageable arg1) {
         postFightDialogManager.EndDialogEarly();
         OpenArena();
+        skyFieldAnimator.SetTrigger("clear");
     }
 }
