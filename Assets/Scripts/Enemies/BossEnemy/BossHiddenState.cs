@@ -15,8 +15,12 @@ public class BossHiddenState : BaseState {
 
     public override void OnStateEnter(BaseState previousState) {
         base.OnStateEnter(previousState);
-        enemy.animator.SetBool(animHashIsHidden, true);
-        enemy.transform.position = hidingTransform.position;
+        if (enemy.damageable.isAlive) {
+            enemy.animator.SetBool(animHashIsHidden, true);
+            enemy.transform.position = hidingTransform.position;
+        } else {
+            enemy.Warp(hidingTransform, true);
+        }
     }
     public override void OnStateExit(BaseState nextState) {
         base.OnStateEnter(nextState);

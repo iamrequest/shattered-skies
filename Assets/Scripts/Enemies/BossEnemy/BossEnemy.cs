@@ -51,15 +51,20 @@ public class BossEnemy : BaseEnemy {
     }
 
 
-    public void Warp(Transform warpTransform) {
+    public void Warp(Transform warpTransform, bool forceWarp = false) {
         if (isWarping) {
             Debug.LogWarning("Attempted to warp, but we're already in the middle of a warp.");
-            return;
+
+            if (forceWarp) {
+                StopCoroutine(warpCoroutine);
+                warpCoroutine = null;
+            } else {
+                return;
+            }
         }
 
         warpCoroutine = StartCoroutine(DoWarp(warpTransform));
     }
-
     private IEnumerator DoWarp(Transform warpTransform) {
         // Play SFX
         float sfxPitch = 1 + Random.Range(-sfxPitchRange, sfxPitchRange);

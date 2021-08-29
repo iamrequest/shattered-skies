@@ -68605,6 +68605,16 @@ PrefabInstance:
       propertyPath: minDamagingSpeed
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7131669727907522370, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: m_InitialEventName
+      value: asdf
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131669727907522370, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: m_InitialEventNameOverriden
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6799340065398139339, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
     - {fileID: 402645582902441025, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
