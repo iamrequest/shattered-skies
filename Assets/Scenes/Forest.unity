@@ -68418,6 +68418,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 386511733}
     m_Modifications:
+    - target: {fileID: 1952629531, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: randomWarpTransforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 1527356019}
+    - target: {fileID: 1952629531, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: randomWarpTransforms.Array.data[1]
+      value: 
+      objectReference: {fileID: 2000534202}
+    - target: {fileID: 1952629531, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: randomWarpTransforms.Array.data[2]
+      value: 
+      objectReference: {fileID: 1654644592}
+    - target: {fileID: 1952629531, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: randomWarpTransforms.Array.data[3]
+      value: 
+      objectReference: {fileID: 1851736705}
+    - target: {fileID: 1952629531, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: randomWarpTransforms.Array.data[4]
+      value: 
+      objectReference: {fileID: 1366584760}
+    - target: {fileID: 1952629531, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: randomWarpTransforms.Array.data[5]
+      value: 
+      objectReference: {fileID: 367136941}
+    - target: {fileID: 1952629531, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: randomWarpTransforms.Array.data[6]
+      value: 
+      objectReference: {fileID: 354175632}
+    - target: {fileID: 1952629531, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
+      propertyPath: randomWarpTransforms.Array.data[7]
+      value: 
+      objectReference: {fileID: 472276824}
     - target: {fileID: 1980208993, guid: 361ae964361b3444b90fab0f3c1f9d66, type: 3}
       propertyPath: randomWarpTransforms.Array.data[0]
       value: 
@@ -68530,11 +68562,6 @@ PrefabInstance:
       propertyPath: channelingTransform
       value: 
       objectReference: {fileID: 1456736653}
-    - target: {fileID: 3929226486406616551, guid: 361ae964361b3444b90fab0f3c1f9d66,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
-      value: 0.0005
-      objectReference: {fileID: 0}
     - target: {fileID: 4056536810656154002, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

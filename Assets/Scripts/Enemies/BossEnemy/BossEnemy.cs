@@ -1,4 +1,5 @@
-﻿using HurricaneVR.Framework.Core.Utils;
+﻿using Freya;
+using HurricaneVR.Framework.Core.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,7 +68,7 @@ public class BossEnemy : BaseEnemy {
     }
     private IEnumerator DoWarp(Transform warpTransform) {
         // Play SFX
-        float sfxPitch = 1 + Random.Range(-sfxPitchRange, sfxPitchRange);
+        float sfxPitch = 1 + UnityEngine.Random.Range(-sfxPitchRange, sfxPitchRange);
         SFXPlayer.Instance.PlaySFX(warpSFX, transform.position, sfxPitch, VolumeManager.Instance.bossWarp);
 
         // Fade in/out
@@ -82,7 +83,7 @@ public class BossEnemy : BaseEnemy {
         animator.SetBool(animHashIsWarping, false);
 
         // Play SFX
-        sfxPitch = 1 + Random.Range(-sfxPitchRange, sfxPitchRange);
+        sfxPitch = 1 + UnityEngine.Random.Range(-sfxPitchRange, sfxPitchRange);
         SFXPlayer.Instance.PlaySFX(warpSFX, transform.position, sfxPitch, VolumeManager.Instance.bossWarp);
 
         warpCoroutine = null;
@@ -99,5 +100,9 @@ public class BossEnemy : BaseEnemy {
 
     public void LookAtPlayer() {
         lookatTarget.transform.position = Vector3.Lerp(lookatTarget.transform.position, Player.Instance.cam.transform.position, lookAtPlayerSpeed);
+    }
+
+    public float getDamageScaledValue(Vector2 valueRange) {
+        return Mathfs.RemapClamped(0f, 1f, valueRange.x, valueRange.y, damageable.getHealthPercentage);
     }
 }

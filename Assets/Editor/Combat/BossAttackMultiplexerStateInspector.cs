@@ -20,6 +20,9 @@ public class BossAttackMultiplexerStateInspector : Editor {
             if (GUILayout.Button("Rain State", EditorStyles.miniButtonLeft)) {
                 attackState.parentFSM.TransitionTo(attackState.rainAttack);
             }
+            if (GUILayout.Button("Shoot State", EditorStyles.miniButtonLeft)) {
+                attackState.parentFSM.TransitionTo(attackState.shootAttack);
+            }
             GUILayout.EndHorizontal();
         }
     }

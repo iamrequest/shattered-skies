@@ -15,7 +15,7 @@ public class BossAttackMultiplexerState : BaseState {
     private BossEnemy enemy;
     public BossRainAttackState rainAttack;
     public BossChargeState chargeAttack;
-    //public BaseState projectileAttack;
+    public BossEnemyShootState shootAttack; // I really need to refactor these class names to follow the same naming convention
 
     public List<Transform> randomWarpTransforms;
 
@@ -123,26 +123,31 @@ public class BossAttackMultiplexerState : BaseState {
     }
 
     public BaseState GetNextAttack() {
-        // TODO: Uncomment once I have my charge attack defined
+        // Prioritize the charge attack if that's available, since that's where the enemy will take damage
         if (attacksSinceChargeAttack >= maxNumAttacksBeforeChargeAttack) {
             return chargeAttack;
         }
 
-        // TODO: This should be random chance.
-        return rainAttack;
-        //if (rainAttack.isSpawningProjectiles) {
-        //    return projectileAttack;
-        //} else {
-        //    return rainAttack;
-        //}
+        // Otherwise it's a 50/50 between the other states (unless the rain state is already playing)
+        if (rainAttack.isSpawningProjectiles) {
+            return shootAttack;
+        } else {
+            // If we're not spawning projectiles, then there's a 50/50 chance of either one
+            float rand = Random.Range(0f, 1f);
+            if (rand < 0.5f) {
+                return rainAttack;
+            } else {
+                return shootAttack;
+            }
+        }
     }
 
 
 
 
 
-    private void OnDrawGizmos() {
-    //private void OnDrawGizmosSelected() {
+    //private void OnDrawGizmos() {
+    private void OnDrawGizmosSelected() {
         // Draw warp transforms
         foreach(Transform t in randomWarpTransforms) {
             Gizmos.color = Color.yellow;

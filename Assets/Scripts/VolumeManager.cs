@@ -25,6 +25,8 @@ public class VolumeManager : MonoBehaviour {
     [Header("Boss")]
     [Range(0f, 1f)]
     public float bossWarp;
+    [Range(0f, 1f)]
+    public float bossProjectileShot;
 
     [Header("Environment")]
     [Range(0f, 1f)]
