@@ -177,6 +177,8 @@ public class BossRainAttackState : BaseState {
         Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
         projectile.transform.position = spawnPosition;
 
+        // TODO: Set random rotation
+
         projectileRb.AddForce(-Vector3.up * projectileSpeed, ForceMode.VelocityChange);
     }
 

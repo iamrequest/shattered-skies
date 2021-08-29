@@ -1135,8 +1135,8 @@ MonoBehaviour:
   SocketOrientation: {fileID: 6814509615695641129}
   SocketScale: 1
   CounterScale: {x: 1, y: 1, z: 1}
-  SocketedClip: {fileID: 0}
-  UnsocketedClip: {fileID: 0}
+  SocketedClip: {fileID: 8300000, guid: 72f0379c79c00a14c93e62af57e5511d, type: 3}
+  UnsocketedClip: {fileID: 8300000, guid: 897563c7cb945234a8589ee93deef4f5, type: 3}
   LinkedGrabbables: []
 --- !u!114 &5217332919252652859
 MonoBehaviour:

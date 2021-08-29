@@ -68158,7 +68158,7 @@ PrefabInstance:
     - target: {fileID: 1974651224654471052, guid: 3c2b59c5c8a75294c8bae36148b09a4f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1974651224654471052, guid: 3c2b59c5c8a75294c8bae36148b09a4f,
         type: 3}
@@ -68559,6 +68559,17 @@ PrefabInstance:
       objectReference: {fileID: 684360912}
     - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
+      propertyPath: projectileSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 4490320607320599579, guid: f2e3b09491f8eb9448b2ec758120fee3,
+        type: 3}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
       propertyPath: channelingTransform
       value: 
       objectReference: {fileID: 1456736653}
@@ -68625,7 +68636,7 @@ PrefabInstance:
     - target: {fileID: 3833309517930598908, guid: 168a5f9bd22ab054a870a274cbd4d36a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3833309517930598908, guid: 168a5f9bd22ab054a870a274cbd4d36a,
         type: 3}
