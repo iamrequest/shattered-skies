@@ -69853,9 +69853,29 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
+      propertyPath: spawnRateRange.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
       propertyPath: channelingTransform
       value: 
       objectReference: {fileID: 1456736653}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: spawnDurationRange.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: spawnDurationRange.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433347672826576296, guid: 361ae964361b3444b90fab0f3c1f9d66,
+        type: 3}
+      propertyPath: postChannelIdleDuration.y
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4056536810656154002, guid: 361ae964361b3444b90fab0f3c1f9d66,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

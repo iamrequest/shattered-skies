@@ -17,6 +17,7 @@ public class BossEnemyShootState : BaseState {
 
     [Header("Timers")]
     public Vector2 initialWaitDuration;
+    [Tooltip("How long are we shooting for")]
     public Vector2 returnToStateDelay;
 
     [Header("Projectile")]
