@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using Freya;
-using System;
 
 /// <summary>
 /// This state can exit before the projectiles finish spawning.
@@ -18,6 +18,7 @@ public class BossRainAttackState : BaseState {
 
     [Header("Portal VFX")]
     public Animator portalAnimator;
+    public VisualEffect handVFX;
 
     [Header("Projectile")]
     public GameObject projectilePrefab;
@@ -90,7 +91,8 @@ public class BossRainAttackState : BaseState {
 
         // Init portal VFX
         Vector3 portalPosition = channelingTransform.position;
-        portalPosition.y = spawnYOffset;
+        portalPosition.y += spawnYOffset;
+        portalAnimator.transform.position = portalPosition;
     }
 
     public override void OnStateExit(BaseState previousState) {
@@ -116,10 +118,12 @@ public class BossRainAttackState : BaseState {
         // Start channeling
         enemy.animator.SetBool(animHashIsChanneling, true);
         portalAnimator.SetBool(animHashPortalOpen, true);
+        handVFX.Play();
         yield return new WaitForSeconds(channelAnimationDuration);
 
         // Stop channeling, look at the player
         enemy.animator.SetBool(animHashIsChanneling, false);
+        handVFX.Stop();
         enemy.isLookingAtPlayer = true;
 
 
