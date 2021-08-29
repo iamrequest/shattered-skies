@@ -275,8 +275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStamina: 100
   maxStamina: 100
-  staminaRegenRate: 8
-  sprintStaminaConsumptionRate: 10
+  staminaRegenRate: 17.5
+  sprintStaminaConsumptionRate: 5
   staminaRemapCurve:
     serializedVersion: 2
     m_Curve:
@@ -816,6 +816,7 @@ MonoBehaviour:
   skyShardFall: 0.8
   skyShardImpact: 1
   bossWarp: 0.7
+  bossProjectileShot: 0
   bonfireLit: 0.6
 --- !u!1 &6952210979786148664
 GameObject:

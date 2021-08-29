@@ -1093,7 +1093,7 @@ MonoBehaviour:
   highStaminaWeight: 1
   consumesStaminaWhenMoved: 1
   staminaMeasurementTransform: {fileID: 4173046243512229100}
-  staminaConsumptionMultiplier: 1
+  staminaConsumptionMultiplier: 3
 --- !u!114 &1459585201
 MonoBehaviour:
   m_ObjectHideFlags: 0
