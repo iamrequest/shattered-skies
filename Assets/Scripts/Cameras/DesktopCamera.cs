@@ -22,13 +22,13 @@ public class DesktopCamera : MonoBehaviour {
     }
 
     private void OnEnable() {
-        timestopAction.AddOnStateDownListener(ToggleTimeStop, SteamVR_Input_Sources.Any);
+        if(timestopAction != null) timestopAction.AddOnStateDownListener(ToggleTimeStop, SteamVR_Input_Sources.Any);
         screenshotAction.AddOnStateDownListener(Screenshot, SteamVR_Input_Sources.Any);
     }
 
 
     private void OnDisable() {
-        timestopAction.RemoveOnStateDownListener(ToggleTimeStop, SteamVR_Input_Sources.Any);
+        if(timestopAction != null) timestopAction.RemoveOnStateDownListener(ToggleTimeStop, SteamVR_Input_Sources.Any);
         screenshotAction.RemoveOnStateDownListener(Screenshot, SteamVR_Input_Sources.Any);
     }
 
@@ -43,8 +43,16 @@ public class DesktopCamera : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        screenshotCam.transform.position = Vector3.Lerp(screenshotCam.transform.position, Player.Instance.cam.transform.position, positionLerpSpeed);
-        screenshotCam.transform.rotation = Quaternion.Slerp(screenshotCam.transform.rotation, Player.Instance.cam.transform.rotation, rotationLerpSpeed);
+        // If we have an active photo mode manager, get the active cam from that. Otherwise, just get the reference from the player prefab.
+        Camera activeVRCam;
+        if (VRPhotoModeManager.Instance != null) {
+            activeVRCam = VRPhotoModeManager.Instance.ActiveVRCam;
+        } else {
+            activeVRCam = Player.Instance.cam;
+        }
+
+        screenshotCam.transform.position = Vector3.Lerp(screenshotCam.transform.position, activeVRCam.transform.position, positionLerpSpeed);
+        screenshotCam.transform.rotation = Quaternion.Slerp(screenshotCam.transform.rotation, activeVRCam.transform.rotation, rotationLerpSpeed);
     }
 
 

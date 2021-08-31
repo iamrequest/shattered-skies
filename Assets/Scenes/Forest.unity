@@ -10849,6 +10849,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desktop Cam
       objectReference: {fileID: 0}
+    - target: {fileID: 8451953514359616373, guid: 9737832141da2be4ca45875e80c52728,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451953514359616377, guid: 9737832141da2be4ca45875e80c52728,
+        type: 3}
+      propertyPath: timestopAction.actionPath
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451953514359616377, guid: 9737832141da2be4ca45875e80c52728,
+        type: 3}
+      propertyPath: timestopAction.needsReinit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451953514359616377, guid: 9737832141da2be4ca45875e80c52728,
+        type: 3}
+      propertyPath: screenshotAction.actionPath
+      value: /actions/HVR/in/RightTriggerButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9737832141da2be4ca45875e80c52728, type: 3}
 --- !u!1001 &353584333
@@ -68958,6 +68978,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b303d1724fced14ab4a66052a943a73, type: 3}
+--- !u!1001 &1456116907661057399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5793980174965493869, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_Name
+      value: Photo Mode Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5048a2218db4db42a83b081d42f62c6, type: 3}
 --- !u!1001 &1570025849713120033
 PrefabInstance:
   m_ObjectHideFlags: 0
