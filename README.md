@@ -4,6 +4,12 @@
 
 Use a huge greatsword to slash your way through a deserted riverside village, in pursuit of a mysterious masked man. 
 
+
+<p align="center">
+    <img src="./readmeContents/cover-image.png">
+</p>
+
+
 This was my submission to "[Brackey's Game Jam 2021.2](https://itch.io/jam/brackeys-6)", a 7 day game jam.
 
 You can download the game for free [here, on itch.io](https://request.itch.io/shattered-skies), 
