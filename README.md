@@ -96,3 +96,25 @@ All of the sky shards are scripted events that start when the player enters a ne
 - TextMesh Pro (2.1.4)
 - Visual Effect Graph (7.5.3)
 - Hurricane VR (2.1)
+
+## Third Party Credits
+
+Assets
+
+Asset Type|Asset|Author|License	
+-|-|-|-
+Math Library|[MathFS](https://github.com/FreyaHolmer/Mathfs)|[Freya Holmér](https://twitter.com/FreyaHolmer)|[MIT License](https://github.com/FreyaHolmer/Mathfs/blob/master/LICENSE.txt)
+Font|[Press Start 2P Font](https://www.fontspace.com/press-start-2p-font-f11591)|[codeman38]()|[SIL Open Font License (OFL)](https://www.fontspace.com/help#license-17)
+BGM|[The Crypt](https://opengameart.org/content/the-crypt)|[GameMonk](https://opengameart.org/users/gamemonk)|[CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)
+BGM|[Rin’s Theme](https://opengameart.org/content/rins-theme-loopable-chiptune-adventurebattle-bgm)|[Request](https://twitter.com/requestmoe)|[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+Shader|[Skybox Gradient Shader](https://youtu.be/f6zUot73-gg)|[Alex Strook](https://twitter.com/AlexStrook)|
+Textures|[UI Pack: RPG Expansion](https://www.kenney.nl/assets/ui-pack-rpg-expansion)|[Kenney](https://twitter.com/KenneyNL)|[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+Textures|[Game Icons](https://kenney.nl/assets/game-icons)|[Kenney](https://twitter.com/KenneyNL)|[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+Textures|[UI Pack: Space Expansion](https://kenney.nl/assets/ui-pack-space-expansion)|[Kenney](https://twitter.com/KenneyNL)|[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+
+Unity Assets
+
+Asset|Author
+-|-
+[SteamVR Plugin](https://assetstore.unity.com/packages/tools/integration/steamvr-plugin-32647)|Valve
+[HurricaneVR](https://assetstore.unity.com/packages/tools/physics/hurricane-vr-physics-interaction-toolkit-177300)|[Cloudwalkin Games](https://twitter.com/HurricaneVr)
