@@ -97,8 +97,9 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingDataAsset: {fileID: 112000000, guid: 7b3183a920d8cad4bad38db6ea445042,
+    type: 2}
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -10792,7 +10793,7 @@ PrefabInstance:
     - target: {fileID: 8451953514359616372, guid: 9737832141da2be4ca45875e80c52728,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8451953514359616372, guid: 9737832141da2be4ca45875e80c52728,
         type: 3}
@@ -10867,7 +10868,12 @@ PrefabInstance:
     - target: {fileID: 8451953514359616377, guid: 9737832141da2be4ca45875e80c52728,
         type: 3}
       propertyPath: screenshotAction.actionPath
-      value: /actions/HVR/in/RightTriggerButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451953514359616377, guid: 9737832141da2be4ca45875e80c52728,
+        type: 3}
+      propertyPath: screenshotAction.needsReinit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9737832141da2be4ca45875e80c52728, type: 3}
@@ -11709,7 +11715,7 @@ Transform:
   - {fileID: 1770708754}
   - {fileID: 1171721718}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &386805229
 PrefabInstance:
@@ -68989,6 +68995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Photo Mode Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793980174965493869, guid: d5048a2218db4db42a83b081d42f62c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5793980174965735829, guid: d5048a2218db4db42a83b081d42f62c6,
         type: 3}

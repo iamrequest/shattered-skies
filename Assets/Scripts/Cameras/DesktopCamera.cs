@@ -22,14 +22,19 @@ public class DesktopCamera : MonoBehaviour {
     }
 
     private void OnEnable() {
+        StartCoroutine(AddSteamvrListenersAfterDelay());
+    }
+
+    private IEnumerator AddSteamvrListenersAfterDelay() {
+        yield return new WaitForEndOfFrame();
         if(timestopAction != null) timestopAction.AddOnStateDownListener(ToggleTimeStop, SteamVR_Input_Sources.Any);
-        screenshotAction.AddOnStateDownListener(Screenshot, SteamVR_Input_Sources.Any);
+        if(screenshotAction != null) screenshotAction.AddOnStateDownListener(Screenshot, SteamVR_Input_Sources.Any);
     }
 
 
     private void OnDisable() {
         if(timestopAction != null) timestopAction.RemoveOnStateDownListener(ToggleTimeStop, SteamVR_Input_Sources.Any);
-        screenshotAction.RemoveOnStateDownListener(Screenshot, SteamVR_Input_Sources.Any);
+        if(screenshotAction != null) screenshotAction.RemoveOnStateDownListener(Screenshot, SteamVR_Input_Sources.Any);
     }
 
     private void Update() {
